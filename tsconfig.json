@@ -1,0 +1,16 @@
+{
+	"compilerOptions": {
+		"outDir": "./dist/",
+		"sourceMap": true,
+		"noImplicitAny": true,
+		"module": "esnext",
+		"allowSyntheticDefaultImports": true,
+		"target": "es6",
+		"jsx": "react",
+		"baseUrl": "src",
+		"moduleResolution": "node"
+	},
+	"allowJs": true,
+	"include": ["src"],
+	"exclude": ["node_modules", "dist", "stories"]
+}
