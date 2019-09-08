@@ -1,4 +1,4 @@
-import { configure, addDecorator } from '@storybook/react';
+import { configure, addDecorator, addParameters } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs } from '@storybook/addon-knobs';
 
@@ -9,5 +9,6 @@ function loadStories() {
 
 addDecorator(withInfo);
 addDecorator(withKnobs);
+addParameters({ info: { inline: true } } );
 
 configure(loadStories, module);
