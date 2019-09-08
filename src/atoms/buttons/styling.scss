@@ -1,5 +1,22 @@
+@import "../../sass/variables.scss";
+
 button {
-  padding: 30px;
-  margin: 30px;
-  background-color: #123;
+  color: $white;
+  font-size: $size-6;
+  background-color: $primary;
+  padding: $size-6 $size-2;
+  border-radius: $radius-large;
+  cursor: pointer;
+
+  &:disabled {
+    background-color: $grey-light;
+  }
+
+  &.button-round {
+    border-radius: $radius-rounded;
+  }
+
+  &.button-accent {
+    background-color: $accent-2;
+  }
 }
