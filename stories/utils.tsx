@@ -1,11 +1,11 @@
-import React from 'react';
-import { RenderFunction } from '@storybook/react';
+import React, { ReactElement, } from "react";
+import { RenderFunction, } from "@storybook/react";
 
 const horizontalCenter = {
-  display: 'flex',
-  justifyContent: 'center',
-}
+  display: "flex",
+  justifyContent: "center",
+};
 
-export const CenterContent = (storyFn: RenderFunction) => (
+export const CenterContent = (storyFn: RenderFunction): ReactElement => (
   <div style={horizontalCenter}>{storyFn()}</div>
 );

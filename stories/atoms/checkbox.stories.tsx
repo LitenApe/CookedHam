@@ -4,7 +4,6 @@ import { storiesOf, } from "@storybook/react";
 import { action, } from "@storybook/addon-actions";
 import { text, boolean, } from "@storybook/addon-knobs";
 
-import { CenterContent, } from "../utils";
 import { Checkbox, } from "../../src";
 
 const stories = storiesOf("atoms/Checkbox", module);
@@ -20,11 +19,12 @@ stories.add(
       reversed={boolean("Reverse order", false)}
       onChange={action("State changed attempt")}
     />
-  ));
+  )
+);
 
 stories.add(
-  'Checked Checkbox',
-  () => (
+  "Checked Checkbox",
+  (): ReactElement => (
     <Checkbox
       label={text("Label", "label")}
       checked={boolean("Checked", true)}
@@ -33,11 +33,12 @@ stories.add(
       reversed={boolean("Reverse order", false)}
       onChange={action("State changed attempt")}
     />
-  ));
+  )
+);
 
 stories.add(
-  'Disabled Checkbox',
-  () => (
+  "Disabled Checkbox",
+  (): ReactElement => (
     <Checkbox
       label={text("Label", "label")}
       checked={boolean("Checked", true)}
@@ -60,4 +61,5 @@ stories.add(
       reversed={boolean("Reverse order", true)}
       onChange={action("State changed attempt")}
     />
-  ));
+  )
+);
