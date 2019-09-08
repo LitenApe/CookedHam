@@ -1,10 +1,5 @@
-import React from 'react';
+import React, { ReactElement, } from "react";
 
-const App: React.FC = () => {
-  return (
-    <div className="App">
-    </div>
-  );
-}
+const App: React.FC = (): ReactElement => <div className="App" />;
 
 export default App;
