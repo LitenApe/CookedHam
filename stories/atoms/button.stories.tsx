@@ -1,17 +1,10 @@
-import React, { DetailedHTMLProps, HTMLAttributes } from 'react';
+import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { text, boolean } from '@storybook/addon-knobs';
 
-type props = {
-  text: string,
-  disabled?: boolean
-} & DetailedHTMLProps<HTMLAttributes<HTMLButtonElement>, HTMLButtonElement>
-
-function Button({ text, ...rest }: props) {
-  return <button type="button" {...rest}>{text}</button>
-}
+import { Button } from '../../src/atoms/buttons';
 
 const stories = storiesOf("atoms/Button", module);
 

@@ -1,16 +1,10 @@
-import React, { DetailedHTMLProps, HTMLAttributes } from 'react';
+import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { text } from '@storybook/addon-knobs';
 
-type props = {
-  text: string
-} & DetailedHTMLProps<HTMLAttributes<HTMLButtonElement>, HTMLButtonElement>
-
-function Button({ text, ...rest }: props) {
-  return <button type="button" {...rest}>{text}</button>
-}
+import { Button } from '../../src/atoms/buttons';
 
 class ButtonGroup extends React.Component {
   render(){
