@@ -1,0 +1,75 @@
+@import "../../sass/variables.scss";
+
+.radio-button {
+  position: relative;
+  width: calc(100% - 26px);
+  display: flex;
+  cursor: pointer;
+
+  border: 1px solid $grey-light;
+  padding: $size-6 $size-7;
+
+  &::before {
+    position: relative;
+    content: "";
+    top: 0px;
+    left: 0px;
+    height: 18px;
+    width: 18px;
+    background-color: transparent;
+    border-radius: $radius-rounded;
+    border: 3px solid $primary;
+    margin-right: $size-7; 
+  }
+
+  &::after {
+    position: absolute;
+    content: "";
+    left: 18px;
+    top: 22px;
+    height: 12px;
+    width: 12px;
+    background-color: $primary;
+    border-radius: $radius-rounded;
+    opacity: 0;
+  }
+
+  &.radio-button-checked {
+    &::after {
+      opacity: 1;
+    }
+  }
+
+  &.radio-button-disabled {
+    cursor: not-allowed;
+
+    &::before {
+      border-color: $grey-light;
+    }
+
+    &.radio-button-checked {
+      &::after {
+        background-color: $grey-light;
+      }
+    }
+  }
+
+  &.radio-button-reversed {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+
+    &::before {
+      margin-right: 0;
+      margin-left: $size-7; 
+    }
+
+    &::after {
+      left: calc(100% - 30px);
+    }
+  }
+
+  input {
+    position: absolute;
+    opacity: 0;
+  }
+}
