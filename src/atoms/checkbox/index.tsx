@@ -10,7 +10,11 @@ type Props = {
   value?: string;
   disabled?: boolean;
   reversed?: boolean;
-  onChange?: (event: React.ChangeEvent<HTMLElement> | React.KeyboardEvent, value: boolean) => void;
+  onChange?: (
+    event: React.ChangeEvent<HTMLElement> | React.KeyboardEvent,
+    state: boolean,
+    value: string | undefined
+  ) => void;
 } & DetailedHTMLProps<HTMLAttributes<HTMLInputElement>, HTMLInputElement>;
 
 export function Checkbox({
@@ -27,7 +31,7 @@ export function Checkbox({
 
   function onChangeHandler(event: React.ChangeEvent<HTMLElement> | React.KeyboardEvent): void {
     if (rest && rest.onChange) {
-      rest.onChange(event, !checked);
+      rest.onChange(event, !checked, rest.value);
     }
   }
 
@@ -36,7 +40,7 @@ export function Checkbox({
       className={modifiers}
       tabIndex={disabled ? -1 : 0}
       htmlFor={formId}
-      onKeyPress={(e): void => { onChangeHandler(e); }}
+      onKeyPress={(e): void => { if (e.key === "Enter") { onChangeHandler(e); } }}
     >
       <input
         id={formId}
