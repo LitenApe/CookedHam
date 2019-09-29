@@ -27,7 +27,7 @@ export function RadioButton({
     checked ? "radio-button-checked" : "",
     disabled ? "radio-button-disabled" : "",
     reversed ? "radio-button-reversed" : "",
-  ].join(" ");
+  ].filter((e): boolean => !!e).join(" ");
 
   function onChangeHandler(
     event: React.ChangeEvent<HTMLElement> | React.KeyboardEvent | undefined
@@ -48,6 +48,7 @@ export function RadioButton({
         type="radio"
         id={formId}
         checked={checked}
+        disabled={disabled}
         {...rest}
         onChange={(e): void => onChangeHandler(e)}
       />

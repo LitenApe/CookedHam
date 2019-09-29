@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RadioButton is checked when 'checked' prop is passed 1`] = `
+<label
+  className="radio-button radio-button-checked"
+  htmlFor="id3"
+  onKeyPress={[Function]}
+  tabIndex={0}
+>
+  <input
+    checked={true}
+    id="id3"
+    onChange={[Function]}
+    type="radio"
+  />
+  label
+</label>
+`;
+
+exports[`RadioButton is disabled when 'disabled' prop is passed 1`] = `
+<label
+  className="radio-button radio-button-disabled"
+  htmlFor="id4"
+  onKeyPress={[Function]}
+  tabIndex={-1}
+>
+  <input
+    disabled={true}
+    id="id4"
+    onChange={[Function]}
+    type="radio"
+  />
+  label
+</label>
+`;
+
+exports[`RadioButton renders with label 1`] = `
+<label
+  className="radio-button"
+  htmlFor="id2"
+  onKeyPress={[Function]}
+  tabIndex={0}
+>
+  <input
+    id="id2"
+    onChange={[Function]}
+    type="radio"
+  />
+  label
+</label>
+`;
