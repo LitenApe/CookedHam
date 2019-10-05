@@ -1,4 +1,5 @@
 import React, { DetailedHTMLProps, HTMLAttributes, ReactElement, } from "react";
+import cookedNames from "cookednames";
 
 import { newId, } from "../../utils";
 
@@ -12,8 +13,8 @@ type Props = {
   disabled?: boolean;
   onChange?: (
     event: React.ChangeEvent<HTMLElement> | React.KeyboardEvent | undefined,
+    value: string | undefined,
     state: boolean,
-    value: string | undefined
   ) => void;
 } & DetailedHTMLProps<HTMLAttributes<HTMLInputElement>, HTMLInputElement>;
 
@@ -22,18 +23,18 @@ export function RadioButton({
 }: Props): ReactElement {
   const formId = newId();
 
-  const modifiers = [
-    "radio-button",
-    checked ? "radio-button-checked" : "",
-    disabled ? "radio-button-disabled" : "",
-    reversed ? "radio-button-reversed" : "",
-  ].filter((e): boolean => !!e).join(" ");
+  const modifiers = cookedNames(
+    "ch-radio-button",
+    { checked, },
+    { disabled, },
+    { reversed, },
+  );
 
   function onChangeHandler(
     event: React.ChangeEvent<HTMLElement> | React.KeyboardEvent | undefined
   ): void {
     if (rest && rest.onChange) {
-      rest.onChange(event, !checked, rest.value);
+      rest.onChange(event, rest.value, !checked);
     }
   }
 

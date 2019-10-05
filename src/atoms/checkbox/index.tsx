@@ -1,4 +1,5 @@
 import React, { DetailedHTMLProps, HTMLAttributes, ReactElement, } from "react";
+import cookedNames from "cookednames";
 
 import { newId, } from "../../utils";
 
@@ -12,8 +13,8 @@ type Props = {
   reversed?: boolean;
   onChange?: (
     event: React.ChangeEvent<HTMLElement> | React.KeyboardEvent,
-    state: boolean,
-    value: string | undefined
+    value: string | undefined,
+    state: boolean
   ) => void;
 } & DetailedHTMLProps<HTMLAttributes<HTMLInputElement>, HTMLInputElement>;
 
@@ -22,16 +23,16 @@ export function Checkbox({
 }: Props): ReactElement {
   const formId = newId();
 
-  const modifiers = [
-    "checkbox",
-    checked ? "checkbox-checked" : "",
-    disabled ? "checkbox-disabled" : "",
-    reversed ? "checkbox-reversed" : "",
-  ].join(" ");
+  const modifiers = cookedNames(
+    "ch-checkbox",
+    { checked, },
+    { disabled, },
+    { reversed, },
+  );
 
   function onChangeHandler(event: React.ChangeEvent<HTMLElement> | React.KeyboardEvent): void {
     if (rest && rest.onChange) {
-      rest.onChange(event, !checked, rest.value);
+      rest.onChange(event, rest.value, !checked);
     }
   }
 

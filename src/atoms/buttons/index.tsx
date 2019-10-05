@@ -1,4 +1,5 @@
 import React, { DetailedHTMLProps, HTMLAttributes, ReactElement, } from "react";
+import cookedNames from "cookednames";
 
 import "./styling.scss";
 
@@ -15,11 +16,11 @@ export function Button({
   accent,
   ...rest
 }: props): ReactElement {
-  const modifier = [
+  const modifier = cookedNames(
     "button",
-    rounded ? "button-round" : "",
-    accent ? "button-accent" : "",
-  ].join(" ");
+    { rounded, },
+    { accent, },
+  );
   return (
     <button type="button" className={modifier} {...rest}>
       {text}

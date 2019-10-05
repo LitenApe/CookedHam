@@ -1,6 +1,6 @@
 @import "../../sass/variables.scss";
 
-.checkbox {
+.ch-checkbox {
   position: relative;
   width: calc(100% - 26px);
   display: flex;
@@ -9,9 +9,8 @@
 
   padding: $size-6 $size-7;
   overflow-wrap: break-word;
-  border: 1px solid $grey-light;
 
-  &.checkbox::before {
+  &::before {
     position: relative;
     content: "";
     height: 22px;
@@ -23,7 +22,7 @@
     margin-right: $size-7;
   }
 
-  &.checkbox::after {
+  &::after {
     position: absolute;
     content: "";
     left: 20px;
@@ -37,15 +36,15 @@
     opacity: 0;
   }
 
-  &.checkbox-checked::before {
+  &.checked::before {
     background-color: $primary;
   }
 
-  &.checkbox-checked::after {
+  &.checked::after {
     opacity: 1;
   }
 
-  &.checkbox-disabled {
+  &.disabled {
     cursor: not-allowed;
     color: $grey-light;
 
@@ -54,7 +53,7 @@
     }
   }
 
-  &.checkbox-reversed {
+  &.reversed {
     flex-direction: row-reverse;
     justify-content: space-between;
 

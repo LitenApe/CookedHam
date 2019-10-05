@@ -1,12 +1,11 @@
 @import "../../sass/variables.scss";
 
-.radio-button {
+.ch-radio-button {
   position: relative;
   width: calc(100% - 26px);
   display: flex;
   cursor: pointer;
 
-  border: 1px solid $grey-light;
   padding: $size-6 $size-7;
 
   &::before {
@@ -34,27 +33,27 @@
     opacity: 0;
   }
 
-  &.radio-button-checked {
+  &.checked {
     &::after {
       opacity: 1;
     }
   }
 
-  &.radio-button-disabled {
+  &.disabled {
     cursor: not-allowed;
 
     &::before {
       border-color: $grey-light;
     }
 
-    &.radio-button-checked {
+    &.checked {
       &::after {
         background-color: $grey-light;
       }
     }
   }
 
-  &.radio-button-reversed {
+  &.reversed {
     flex-direction: row-reverse;
     justify-content: space-between;
 
