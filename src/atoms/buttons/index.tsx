@@ -4,7 +4,6 @@ import cookedNames from "cookednames";
 import "./styling.scss";
 
 interface ButtonProps {
-  text: string;
   rounded?: boolean;
   disabled?: boolean;
   accent?: boolean;
@@ -14,7 +13,7 @@ interface ButtonProps {
 type props = ButtonProps & DetailedHTMLProps<HTMLAttributes<HTMLButtonElement>, HTMLButtonElement>;
 
 export function Button({
-  text,
+  children,
   rounded,
   accent,
   className,
@@ -28,7 +27,7 @@ export function Button({
   );
   return (
     <button type="button" className={modifier} {...rest}>
-      {text}
+      {children}
     </button>
   );
 }

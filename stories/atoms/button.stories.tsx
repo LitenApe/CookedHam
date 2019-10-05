@@ -19,12 +19,13 @@ stories.add(
   "Default Button",
   (): ReactElement => (
     <Button
-      text={text("Button text", "text")}
       disabled={boolean("Disabled", false)}
       rounded={boolean("Round", false)}
       accent={boolean("Accent", false)}
       onClick={action("Clicked")}
-    />
+    >
+      {text("Button text", "text")}
+    </Button>
   )
 );
 
@@ -32,12 +33,13 @@ stories.add(
   "Disabled Button",
   (): ReactElement => (
     <Button
-      text={text("Button text", "text")}
       disabled={boolean("Disabled", true)}
       rounded={boolean("Round", false)}
       accent={boolean("Accent", false)}
       onClick={action("Clicked")}
-    />
+    >
+      {text("Button text", "text")}
+    </Button>
   )
 );
 
@@ -45,12 +47,13 @@ stories.add(
   "Round Button",
   (): ReactElement => (
     <Button
-      text={text("Button text", "text")}
       disabled={boolean("Disabled", false)}
       rounded={boolean("Round", true)}
       accent={boolean("Accent", false)}
       onClick={action("Clicked")}
-    />
+    >
+      {text("Button text", "text")}
+    </Button>
   )
 );
 
@@ -58,11 +61,12 @@ stories.add(
   "Accent Button",
   (): ReactElement => (
     <Button
-      text={text("Button text", "text")}
       disabled={boolean("Disabled", false)}
       rounded={boolean("Round", false)}
       accent={boolean("Accent", true)}
       onClick={action("Clicked")}
-    />
+    >
+      {text("Button text", "text")}
+    </Button>
   )
 );
