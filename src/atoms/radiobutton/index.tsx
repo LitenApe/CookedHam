@@ -5,21 +5,25 @@ import { newId, } from "../../utils";
 
 import "./styling.scss";
 
-type Props = {
+interface RadioButtonProps {
   label: string;
   value?: string;
   checked?: boolean;
   reversed?: boolean;
   disabled?: boolean;
+  className?: string;
   onChange?: (
     event: React.ChangeEvent<HTMLElement> | React.KeyboardEvent | undefined,
     value: string | undefined,
     state: boolean,
   ) => void;
-} & DetailedHTMLProps<HTMLAttributes<HTMLInputElement>, HTMLInputElement>;
+}
+
+type Props = RadioButtonProps
+& DetailedHTMLProps<HTMLAttributes<HTMLInputElement>, HTMLInputElement>;
 
 export function RadioButton({
-  label, checked, disabled, reversed, ...rest
+  label, checked, disabled, reversed, className, ...rest
 }: Props): ReactElement {
   const formId = newId();
 
@@ -28,6 +32,7 @@ export function RadioButton({
     { checked, },
     { disabled, },
     { reversed, },
+    className,
   );
 
   function onChangeHandler(

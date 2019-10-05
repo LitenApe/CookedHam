@@ -5,21 +5,24 @@ import { newId, } from "../../utils";
 
 import "./styling.scss";
 
-type Props = {
+interface CheckboxProps {
   label: string;
   checked?: boolean;
   value?: string;
   disabled?: boolean;
   reversed?: boolean;
+  className?: string;
   onChange?: (
     event: React.ChangeEvent<HTMLElement> | React.KeyboardEvent,
     value: string | undefined,
     state: boolean
   ) => void;
-} & DetailedHTMLProps<HTMLAttributes<HTMLInputElement>, HTMLInputElement>;
+}
+
+type Props = CheckboxProps & DetailedHTMLProps<HTMLAttributes<HTMLInputElement>, HTMLInputElement>;
 
 export function Checkbox({
-  label, checked, disabled, reversed, ...rest
+  label, checked, disabled, reversed, className, ...rest
 }: Props): ReactElement {
   const formId = newId();
 
@@ -28,6 +31,7 @@ export function Checkbox({
     { checked, },
     { disabled, },
     { reversed, },
+    className,
   );
 
   function onChangeHandler(event: React.ChangeEvent<HTMLElement> | React.KeyboardEvent): void {
