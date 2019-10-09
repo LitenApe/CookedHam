@@ -25,7 +25,7 @@ type Props = RadioButtonProps
 export function RadioButton({
   label, checked, disabled, reversed, className, ...rest
 }: Props): ReactElement {
-  const formId = newId();
+  const formId = newId("radio-");
 
   const modifiers = cookedNames(
     "ch-radio-button",
@@ -35,7 +35,7 @@ export function RadioButton({
     className,
   );
 
-  function onChangeHandler(
+  function onChange(
     event: React.ChangeEvent<HTMLElement> | React.KeyboardEvent | undefined
   ): void {
     if (rest && rest.onChange) {
@@ -48,7 +48,7 @@ export function RadioButton({
       htmlFor={formId}
       className={modifiers}
       tabIndex={disabled ? -1 : 0}
-      onKeyPress={(e): void => { if (e.key === "Enter") { onChangeHandler(e); } }}
+      onKeyPress={e => { if (e.key === "Enter") { onChange(e); } }}
     >
       <input
         type="radio"
@@ -56,7 +56,7 @@ export function RadioButton({
         checked={checked}
         disabled={disabled}
         {...rest}
-        onChange={(e): void => onChangeHandler(e)}
+        onChange={onChange}
       />
       {label}
     </label>

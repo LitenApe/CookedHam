@@ -24,7 +24,8 @@
       "afterColon": true,
       "mode": "strict"  
     }],
-    "rest-spread-spacing": ["error", "never"]
+    "rest-spread-spacing": ["error", "never"],
+    "@typescript-eslint/explicit-function-return-type": ["off", "allowExpressions"]
   },
   "settings": {
     "react": {
