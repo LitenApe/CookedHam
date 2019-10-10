@@ -9,7 +9,7 @@ import { Checkbox, } from "../../src";
 const stories = storiesOf("atoms/Checkbox", module);
 
 stories.add(
-  "Default Checkbox",
+  "Default",
   (): ReactElement => (
     <Checkbox
       label={text("Label", "label")}
@@ -17,48 +17,6 @@ stories.add(
       value={text("Value", "component value")}
       disabled={boolean("Disabled", false)}
       reversed={boolean("Reverse order", false)}
-      onChange={action("State changed attempt")}
-    />
-  )
-);
-
-stories.add(
-  "Checked Checkbox",
-  (): ReactElement => (
-    <Checkbox
-      label={text("Label", "label")}
-      checked={boolean("Checked", true)}
-      value={text("Value", "component value")}
-      disabled={boolean("Disabled", false)}
-      reversed={boolean("Reverse order", false)}
-      onChange={action("State changed attempt")}
-    />
-  )
-);
-
-stories.add(
-  "Disabled Checkbox",
-  (): ReactElement => (
-    <Checkbox
-      label={text("Label", "label")}
-      checked={boolean("Checked", true)}
-      value={text("Value", "component value")}
-      disabled={boolean("Disabled", true)}
-      reversed={boolean("Reverse order", false)}
-      onChange={action("State changed attempt")}
-    />
-  )
-);
-
-stories.add(
-  "Reversed Checkbox",
-  (): ReactElement => (
-    <Checkbox
-      label={text("Label", "label")}
-      checked={boolean("Checked", true)}
-      value={text("Value", "component value")}
-      disabled={boolean("Disabled", false)}
-      reversed={boolean("Reverse order", true)}
       onChange={action("State changed attempt")}
     />
   )

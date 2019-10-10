@@ -1,55 +1,51 @@
 @import "../../sass/variables.scss";
 
 .ch-checkbox {
-  position: relative;
-  width: calc(100% - 26px);
+  width: calc(100% - $size-7 - $size-7);
   display: flex;
-  align-items: flex-start;
   cursor: pointer;
-
   padding: $size-6 $size-7;
   overflow-wrap: break-word;
 
-  &::before {
-    position: relative;
-    content: "";
-    height: 22px;
-    width: 22px;
-    min-width: 22px;
-    background-color: transparent;
-    border-radius: 5px;
+  input[type="checkbox"] {
+    margin-top: -0.5px;
+    appearance: none;
+    max-height: 22px;
+    padding: 1px 3px;
     border: 1px solid $grey-lighter;
+    border-radius: $radius;
     margin-right: $size-7;
-  }
+    background-color: $white;
 
-  &::after {
-    position: absolute;
-    content: "";
-    left: 20px;
-    top: 19px;
-    height: 12px;
-    width: 6px;
-    border: solid $white;
-    border-width: 0 2px 2px 0;
-    background-color: transparent;
-    transform: rotate(45deg) scale(1);
-    opacity: 0;
-  }
+    &:checked {
+      background-color: $primary;
+      border-color: $primary;
+    }
 
-  &.checked::before {
-    background-color: $primary;
-  }
-
-  &.checked::after {
-    opacity: 1;
+    &:before {
+      content: "\2713";
+      font-size: 1rem;
+      font-weight: bold;
+      color: $white;
+      opacity: 0;
+    }
+    
+    &:checked:before {
+      opacity: 1;
+    }
   }
 
   &.disabled {
     cursor: not-allowed;
     color: $grey-light;
 
-    &::before {
-      background-color: $grey-light
+    input[type="checkbox"] {
+      background-color: $grey-lighter;
+      border-color: $grey-lighter;
+    }
+
+    input[type="checkbox"]:checked:before {
+      color: $grey-dark;
     }
   }
 
@@ -57,18 +53,9 @@
     flex-direction: row-reverse;
     justify-content: space-between;
 
-    &::before {
+    input[type="checkbox"] {
       margin-right: 0;
       margin-left: $size-7;
     }
-
-    &::after {
-      left: calc(100% - 28px);
-    }
-  }
-
-  input {
-    position: absolute;
-    opacity: 0;
   }
 }
