@@ -22,13 +22,13 @@ interface RadioButtonProps {
 type Props = RadioButtonProps
 & DetailedHTMLProps<HTMLAttributes<HTMLInputElement>, HTMLInputElement>;
 
-export function RadioButton({
+export function Radio({
   label, checked, disabled, reversed, className, ...rest
 }: Props): ReactElement {
   const formId = newId("radio-");
 
   const modifiers = cookedNames(
-    "ch-radio-button",
+    "ch-radio",
     { checked, },
     { disabled, },
     { reversed, },

@@ -1,14 +1,15 @@
 import React, { ReactElement, } from "react";
+
 import { storiesOf, } from "@storybook/react";
+import { action, } from "@storybook/addon-actions";
 import { text, boolean, } from "@storybook/addon-knobs";
 
-import { action, } from "@storybook/addon-actions";
-import { RadioButton, } from "../../src/atoms/radiobutton";
+import { Radio, } from "../../src";
 
 const stories = storiesOf("atoms/RadioButton", module);
 
 stories.add("Default", (): ReactElement => (
-  <RadioButton
+  <Radio
     label={text("Label", "label")}
     checked={boolean("Checked", false)}
     onChange={action("State change requested")}
