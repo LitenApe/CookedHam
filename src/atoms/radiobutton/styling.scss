@@ -1,54 +1,45 @@
 @import "../../sass/variables.scss";
 
 .ch-radio-button {
-  position: relative;
-  width: calc(100% - 26px);
   display: flex;
+  width: calc(100% - $size-7 - $size-7);
   cursor: pointer;
-
   padding: $size-6 $size-7;
 
-  &::before {
-    position: relative;
-    content: "";
-    top: 0px;
-    left: 0px;
-    height: 18px;
-    width: 18px;
-    background-color: transparent;
+  input[type="radio"] {
+    appearance: none;
+    max-height: 23px;
+    padding: .2rem .32rem;
+    margin: -.5px $size-7 0 0;
+    background-color: $white;
+    border: 1px solid $grey-lighter;
     border-radius: $radius-rounded;
-    border: 3px solid $primary;
-    margin-right: $size-7; 
-  }
 
-  &::after {
-    position: absolute;
-    content: "";
-    left: 18px;
-    top: 22px;
-    height: 12px;
-    width: 12px;
-    background-color: $primary;
-    border-radius: $radius-rounded;
-    opacity: 0;
-  }
+    &:before {
+      content: "\25CF";
+      color: $white;
+      font-size: $size-7;
+    }
 
-  &.checked {
-    &::after {
-      opacity: 1;
+    &:checked {
+      border-color: $primary;
+      background-color: $primary;
     }
   }
 
   &.disabled {
     cursor: not-allowed;
 
-    &::before {
+    input[type="radio"] {
       border-color: $grey-light;
-    }
+      background-color: $grey-light;
 
-    &.checked {
-      &::after {
-        background-color: $grey-light;
+      &:before {
+        color: $grey-light;
+      }
+
+      &:checked:before {
+        color: $white;
       }
     }
   }
@@ -57,18 +48,8 @@
     flex-direction: row-reverse;
     justify-content: space-between;
 
-    &::before {
-      margin-right: 0;
-      margin-left: $size-7; 
+    input[type="radio"] {
+      margin: -.5px 0 0 $size-7;
     }
-
-    &::after {
-      left: calc(100% - 30px);
-    }
-  }
-
-  input {
-    position: absolute;
-    opacity: 0;
   }
 }
