@@ -1,10 +1,17 @@
 import React from "react";
 import TestRenderer from "react-test-renderer";
 import { shallow, } from "enzyme";
-
 import { RadioButton, } from "../index";
+import * as util from "../../../utils";
+
+jest.mock("../../../utils");
 
 describe("RadioButton", () => {
+  beforeEach(() => {
+    const mock = jest.spyOn(util, "newId");
+    mock.mockReturnValue("radio-1");
+  });
+
   it("renders without crashing", () => {
     TestRenderer.create(<RadioButton label="label" />);
   });
