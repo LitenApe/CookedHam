@@ -7,11 +7,7 @@ import { text, boolean, } from "@storybook/addon-knobs";
 import { CenterContent, } from "../utils";
 import { Button, } from "../../src";
 
-const stories = storiesOf("atoms/Button", module);
-
-stories.addParameters({
-  info: { inline: true, },
-});
+const stories = storiesOf("Atoms/Button", module);
 
 stories.addDecorator(CenterContent);
 

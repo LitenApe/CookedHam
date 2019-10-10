@@ -6,7 +6,7 @@ import { text, boolean, } from "@storybook/addon-knobs";
 
 import { Checkbox, } from "../../src";
 
-const stories = storiesOf("atoms/Checkbox", module);
+const stories = storiesOf("Atoms/Checkbox", module);
 
 stories.add(
   "Default",

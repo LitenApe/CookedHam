@@ -6,7 +6,7 @@ import { text, boolean, } from "@storybook/addon-knobs";
 
 import { Radio, } from "../../src";
 
-const stories = storiesOf("atoms/RadioButton", module);
+const stories = storiesOf("Atoms/Radio", module);
 
 stories.add("Default", (): ReactElement => (
   <Radio
