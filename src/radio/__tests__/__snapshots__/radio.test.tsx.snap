@@ -12,6 +12,7 @@ exports[`Radio is checked when 'checked' prop is passed 1`] = `
     id="radio-1"
     onChange={[Function]}
     type="radio"
+    value="value"
   />
   label
 </label>
@@ -29,6 +30,7 @@ exports[`Radio is disabled when 'disabled' prop is passed 1`] = `
     id="radio-1"
     onChange={[Function]}
     type="radio"
+    value="value"
   />
   label
 </label>
@@ -45,6 +47,7 @@ exports[`Radio renders with label 1`] = `
     id="radio-1"
     onChange={[Function]}
     type="radio"
+    value="value"
   />
   label
 </label>

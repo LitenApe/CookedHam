@@ -13,27 +13,27 @@ describe("Checkbox", () => {
   });
 
   it("renders without crashing", () => {
-    TestRenderer.create(<Checkbox label="label" />);
+    TestRenderer.create(<Checkbox label="label" value="value" />);
   });
 
   it("renders with label", () => {
-    const radio = TestRenderer.create(<Checkbox label="label" />);
+    const radio = TestRenderer.create(<Checkbox label="label" value="value" />);
     expect(radio).toMatchSnapshot();
   });
 
   it("is checked when 'checked' prop is passed", () => {
-    const radio = TestRenderer.create(<Checkbox label="label" checked />);
+    const radio = TestRenderer.create(<Checkbox label="label" value="value" checked />);
     expect(radio).toMatchSnapshot();
   });
 
   it("is disabled when 'disabled' prop is passed", () => {
-    const radio = TestRenderer.create(<Checkbox label="label" disabled />);
+    const radio = TestRenderer.create(<Checkbox label="label" value="value" disabled />);
     expect(radio).toMatchSnapshot();
   });
 
   it("sends change event on change", () => {
     const mockFn = jest.fn();
-    const radio = shallow(<Checkbox label="label" onChange={mockFn} />);
+    const radio = shallow(<Checkbox label="label" value="value" onChange={mockFn} />);
     radio.find("input").simulate("change");
     expect(mockFn).toBeCalled();
   });

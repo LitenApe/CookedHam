@@ -12,6 +12,7 @@ exports[`Checkbox is checked when 'checked' prop is passed 1`] = `
     id="checkbox-1"
     onChange={[Function]}
     type="checkbox"
+    value="value"
   />
   label
 </label>
@@ -29,6 +30,7 @@ exports[`Checkbox is disabled when 'disabled' prop is passed 1`] = `
     id="checkbox-1"
     onChange={[Function]}
     type="checkbox"
+    value="value"
   />
   label
 </label>
@@ -45,6 +47,7 @@ exports[`Checkbox renders with label 1`] = `
     id="checkbox-1"
     onChange={[Function]}
     type="checkbox"
+    value="value"
   />
   label
 </label>

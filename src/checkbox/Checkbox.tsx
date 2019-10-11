@@ -8,13 +8,13 @@ import "./styling.scss";
 interface CheckboxProps {
   label: string;
   checked?: boolean;
-  value?: string;
+  value: string;
   disabled?: boolean;
   reversed?: boolean;
   className?: string;
   onChange?: (
     event: React.ChangeEvent<HTMLElement> | React.KeyboardEvent,
-    value: string | undefined,
+    value: string,
     state: boolean
   ) => void;
 }

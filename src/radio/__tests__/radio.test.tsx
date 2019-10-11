@@ -13,27 +13,27 @@ describe("Radio", () => {
   });
 
   it("renders without crashing", () => {
-    TestRenderer.create(<Radio label="label" />);
+    TestRenderer.create(<Radio label="label" value="value" />);
   });
 
   it("renders with label", () => {
-    const radio = TestRenderer.create(<Radio label="label" />);
+    const radio = TestRenderer.create(<Radio label="label" value="value" />);
     expect(radio).toMatchSnapshot();
   });
 
   it("is checked when 'checked' prop is passed", () => {
-    const radio = TestRenderer.create(<Radio label="label" checked />);
+    const radio = TestRenderer.create(<Radio label="label" value="value" checked />);
     expect(radio).toMatchSnapshot();
   });
 
   it("is disabled when 'disabled' prop is passed", () => {
-    const radio = TestRenderer.create(<Radio label="label" disabled />);
+    const radio = TestRenderer.create(<Radio label="label" value="value" disabled />);
     expect(radio).toMatchSnapshot();
   });
 
   it("sends change event on change", () => {
     const mockFn = jest.fn();
-    const radio = shallow(<Radio label="label" onChange={mockFn} />);
+    const radio = shallow(<Radio label="label" value="value" onChange={mockFn} />);
     radio.find("input").simulate("change");
     expect(mockFn).toBeCalled();
   });
