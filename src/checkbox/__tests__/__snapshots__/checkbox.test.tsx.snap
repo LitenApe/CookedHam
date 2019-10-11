@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Checkbox is checked when 'checked' prop is passed 1`] = `
+<label
+  className="ch-checkbox checked"
+  htmlFor="checkbox-1"
+  onKeyPress={[Function]}
+  tabIndex={0}
+>
+  <input
+    checked={true}
+    id="checkbox-1"
+    onChange={[Function]}
+    type="checkbox"
+  />
+  label
+</label>
+`;
+
+exports[`Checkbox is disabled when 'disabled' prop is passed 1`] = `
+<label
+  className="ch-checkbox disabled"
+  htmlFor="checkbox-1"
+  onKeyPress={[Function]}
+  tabIndex={-1}
+>
+  <input
+    disabled={true}
+    id="checkbox-1"
+    onChange={[Function]}
+    type="checkbox"
+  />
+  label
+</label>
+`;
+
+exports[`Checkbox renders with label 1`] = `
+<label
+  className="ch-checkbox"
+  htmlFor="checkbox-1"
+  onKeyPress={[Function]}
+  tabIndex={0}
+>
+  <input
+    id="checkbox-1"
+    onChange={[Function]}
+    type="checkbox"
+  />
+  label
+</label>
+`;
