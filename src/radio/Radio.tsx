@@ -1,40 +1,43 @@
 import React, { DetailedHTMLProps, HTMLAttributes, ReactElement, } from "react";
 import cookedNames from "cookednames";
 
-import { newId, } from "../../utils";
+import { newId, } from "../utils";
 
 import "./styling.scss";
 
-interface CheckboxProps {
+interface RadioButtonProps {
   label: string;
-  checked?: boolean;
   value?: string;
-  disabled?: boolean;
+  checked?: boolean;
   reversed?: boolean;
+  disabled?: boolean;
   className?: string;
   onChange?: (
-    event: React.ChangeEvent<HTMLElement> | React.KeyboardEvent,
+    event: React.ChangeEvent<HTMLElement> | React.KeyboardEvent | undefined,
     value: string | undefined,
-    state: boolean
+    state: boolean,
   ) => void;
 }
 
-type Props = CheckboxProps & DetailedHTMLProps<HTMLAttributes<HTMLInputElement>, HTMLInputElement>;
+type Props = RadioButtonProps
+& DetailedHTMLProps<HTMLAttributes<HTMLInputElement>, HTMLInputElement>;
 
-export function Checkbox({
+export function Radio({
   label, checked, disabled, reversed, className, ...rest
 }: Props): ReactElement {
-  const formId = newId();
+  const formId = newId("radio-");
 
   const modifiers = cookedNames(
-    "ch-checkbox",
+    "ch-radio",
     { checked, },
     { disabled, },
     { reversed, },
     className,
   );
 
-  function onChangeHandler(event: React.ChangeEvent<HTMLElement> | React.KeyboardEvent): void {
+  function onChange(
+    event: React.ChangeEvent<HTMLElement> | React.KeyboardEvent | undefined
+  ): void {
     if (rest && rest.onChange) {
       rest.onChange(event, rest.value, !checked);
     }
@@ -42,18 +45,18 @@ export function Checkbox({
 
   return (
     <label
+      htmlFor={formId}
       className={modifiers}
       tabIndex={disabled ? -1 : 0}
-      htmlFor={formId}
-      onKeyPress={(e): void => { if (e.key === "Enter") { onChangeHandler(e); } }}
+      onKeyPress={e => { if (e.key === "Enter") { onChange(e); } }}
     >
       <input
+        type="radio"
         id={formId}
-        type="checkbox"
         checked={checked}
         disabled={disabled}
         {...rest}
-        onChange={(e): void => { onChangeHandler(e); }}
+        onChange={onChange}
       />
       {label}
     </label>

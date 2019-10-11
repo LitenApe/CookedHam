@@ -2,9 +2,9 @@ import React from "react";
 import TestRenderer from "react-test-renderer";
 import { shallow, } from "enzyme";
 import { Radio, } from "../index";
-import * as util from "../../../utils";
+import * as util from "../../utils";
 
-jest.mock("../../../utils");
+jest.mock("../../utils");
 
 describe("Radio", () => {
   beforeEach(() => {

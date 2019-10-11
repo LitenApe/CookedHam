@@ -1,7 +1,5 @@
-import "./sass/index.scss";
+export * from "./buttons";
 
-export { Button, } from "./atoms/buttons";
+export * from "./checkbox";
 
-export { Checkbox, } from "./atoms/checkbox";
-
-export { Radio, } from "./atoms/radio";
+export * from "./radio";
