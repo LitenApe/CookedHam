@@ -5,7 +5,6 @@ exports[`Radio is checked when 'checked' prop is passed 1`] = `
   className="ch-radio checked"
   htmlFor="radio-1"
   onKeyPress={[Function]}
-  tabIndex={0}
 >
   <input
     checked={true}
@@ -23,7 +22,6 @@ exports[`Radio is disabled when 'disabled' prop is passed 1`] = `
   className="ch-radio disabled"
   htmlFor="radio-1"
   onKeyPress={[Function]}
-  tabIndex={-1}
 >
   <input
     disabled={true}
@@ -41,7 +39,6 @@ exports[`Radio renders with label 1`] = `
   className="ch-radio"
   htmlFor="radio-1"
   onKeyPress={[Function]}
-  tabIndex={0}
 >
   <input
     id="radio-1"

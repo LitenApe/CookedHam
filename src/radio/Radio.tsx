@@ -48,7 +48,6 @@ export function Radio({
     <label
       htmlFor={formId}
       className={modifiers}
-      tabIndex={disabled ? -1 : 0}
       onKeyPress={e => { if (e.key === "Enter") { onChange(e); } }}
     >
       <input
@@ -72,6 +71,7 @@ type Options = RadioProps & RadioOptions;
 
 interface RadioGroupProps {
   name: string;
+  label: string;
   options: Options[];
   className?: string;
   horizontal?: boolean;
@@ -82,7 +82,11 @@ interface RadioGroupProps {
 }
 
 export function RadioGroup(props: RadioGroupProps): ReactElement {
-  const { className, options, horizontal, } = props;
+  const {
+    className, options, horizontal, label,
+  } = props;
+  const componentId = newId("ch-radio-group-");
+  const labelId = newId("ch-radio-label-");
   const modifiers = cookedNames(
     "ch-radio-group",
     { horizontal, },
@@ -100,7 +104,13 @@ export function RadioGroup(props: RadioGroupProps): ReactElement {
   };
 
   return (
-    <div className={modifiers} role="radiogroup">
+    <div
+      id={componentId}
+      role="radiogroup"
+      className={modifiers}
+      aria-labelledby={labelId}
+    >
+      <label id={labelId} htmlFor={componentId}>{label}</label>
       {options.map(option => (
         <Radio
           key={`ch-radio-group-${option.label}`}

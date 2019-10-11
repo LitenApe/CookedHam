@@ -10,6 +10,7 @@ const stories = storiesOf("Molecules/RadioGroup", module);
 
 stories.add("Default", () => (
   <RadioGroup
+    label="Sports"
     name="sport"
     options={[
       { label: "Track and Field", value: "taf", },
