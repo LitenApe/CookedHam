@@ -5,6 +5,7 @@
   "license": "MIT",
   "description": "React Component Library for personal use",
   "dependencies": {
+    "@storybook/addon-a11y": "^5.2.3",
     "@storybook/addon-actions": "^5.2.3",
     "@storybook/addon-info": "^5.2.3",
     "@storybook/addon-knobs": "^5.2.3",
@@ -50,7 +51,6 @@
   },
   "devDependencies": {
     "@babel/core": "^7.6.4",
-    "@storybook/addon-a11y": "^5.2.3",
     "@types/enzyme": "^3.10.3",
     "@types/jest": "24.0.18",
     "@types/node": "12.7.4",
