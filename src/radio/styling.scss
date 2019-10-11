@@ -53,3 +53,17 @@
     }
   }
 }
+
+.ch-radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+
+  &.horizontal {
+    flex-direction: row;
+
+    & > .ch-radio {
+      flex-grow: 1;
+    }
+  }
+}
