@@ -80,7 +80,7 @@ interface RadioGroupProps {
   ) => void;
 }
 
-export function RadioGroup(props: RadioGroupProps) {
+export function RadioGroup(props: RadioGroupProps): ReactElement {
   const { className, options, } = props;
   const modifiers = cookedNames("ch-radio-group", className);
 
@@ -88,7 +88,7 @@ export function RadioGroup(props: RadioGroupProps) {
     event: React.ChangeEvent<HTMLElement> | React.KeyboardEvent | undefined,
     value: string,
     state: boolean,
-  ) => {
+  ): void => {
     if (props.onChange && state) {
       props.onChange(event, value);
     }
