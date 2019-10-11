@@ -26,7 +26,7 @@ export type RadioProps = Props
 export function Radio({
   label, checked, disabled, reversed, className, ...rest
 }: Props): ReactElement {
-  const formId = newId("radio-");
+  const formId = newId("ch-radio-");
 
   const modifiers = cookedNames(
     "ch-radio",
