@@ -26,8 +26,8 @@
     "test": "react-scripts test --watchAll=false",
     "test:update": "react-scripts test --watchAll=false --updateSnapshot",
     "eject": "react-scripts eject",
-    "lint": "eslint './src/**/*.{ts,tsx}' './stories/**/*.{ts,tsx}'",
-    "lint:fix": "eslint --fix './src/**/*.{ts,tsx}' './stories/**/*.{ts,tsx}'"
+    "lint": "eslint './src/**/*.{ts,tsx}' './.storybook/stories/**/*.{ts,tsx}'",
+    "lint:fix": "eslint --fix './src/**/*.{ts,tsx}' './.storybook/stories/**/*.{ts,tsx}'"
   },
   "husky": {
     "hooks": {

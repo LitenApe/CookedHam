@@ -4,7 +4,7 @@ import { storiesOf, } from "@storybook/react";
 import { action, } from "@storybook/addon-actions";
 import { text, boolean, } from "@storybook/addon-knobs";
 
-import { Checkbox, } from "../../src";
+import { Checkbox, } from "../../../src";
 
 const stories = storiesOf("Atoms/Checkbox", module);
 

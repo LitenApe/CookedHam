@@ -4,7 +4,7 @@ import { storiesOf, } from "@storybook/react";
 import { action, } from "@storybook/addon-actions";
 import { text, boolean, } from "@storybook/addon-knobs";
 
-import { Radio, } from "../../src";
+import { Radio, } from "../../../src";
 
 const stories = storiesOf("Atoms/Radio", module);
 

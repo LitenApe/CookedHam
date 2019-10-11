@@ -21,6 +21,6 @@
   },
   "include": [
     "src",
-    "stories"
+    ".storybook/stories"
   ]
 }
