@@ -1,4 +1,4 @@
-import React, { DetailedHTMLProps, HTMLAttributes, ReactElement, } from "react";
+import React, { DetailedHTMLProps, HTMLAttributes, ReactElement } from "react";
 import cookedNames from "cookednames";
 
 import "./styling.scss";
@@ -20,7 +20,7 @@ export function Button({
   const modifier = cookedNames(
     "ch-button",
     { rounded, },
-    className,
+    className
   );
   return (
     <button type="button" className={modifier} {...rest}>

@@ -1,7 +1,7 @@
 import React from "react";
 import TestRenderer from "react-test-renderer";
-import { shallow, } from "enzyme";
-import { Button, } from "../index";
+import { shallow } from "enzyme";
+import { Button } from "../index";
 
 describe("Button", () => {
   it("renders without crashing", () => {

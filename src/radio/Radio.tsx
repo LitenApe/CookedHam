@@ -1,7 +1,7 @@
-import React, { DetailedHTMLProps, HTMLAttributes, ReactElement, } from "react";
+import React, { DetailedHTMLProps, HTMLAttributes, ReactElement } from "react";
 import cookedNames from "cookednames";
 
-import { newId, } from "../utils";
+import { newId } from "../utils";
 
 import "./styling.scss";
 
@@ -33,7 +33,7 @@ export function Radio({
     { checked, },
     { disabled, },
     { reversed, },
-    className,
+    className
   );
 
   function onChange(
@@ -96,7 +96,7 @@ export function RadioGroup(props: RadioGroupProps): ReactElement {
   const onChange = (
     event: React.ChangeEvent<HTMLElement> | React.KeyboardEvent | undefined,
     value: string,
-    state: boolean,
+    state: boolean
   ): void => {
     if (props.onChange && state) {
       props.onChange(event, value);

@@ -1,7 +1,7 @@
 import React from "react";
 import TestRenderer from "react-test-renderer";
-import { shallow, } from "enzyme";
-import { Checkbox, } from "../index";
+import { shallow } from "enzyme";
+import { Checkbox } from "../index";
 import * as util from "../../utils";
 
 jest.mock("../../utils");

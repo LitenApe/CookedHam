@@ -1,12 +1,12 @@
 import React from "react";
 
-import { storiesOf, } from "@storybook/react";
-import { action, } from "@storybook/addon-actions";
-import { text, boolean, } from "@storybook/addon-knobs";
+import { storiesOf } from "@storybook/react";
+import { action } from "@storybook/addon-actions";
+import { text, boolean } from "@storybook/addon-knobs";
 
-import { CenterContent, } from "../utils";
+import { CenterContent } from "../utils";
 import {
-  Button, PrimaryButton, SecondaryButton, TertiaryButton,
+  Button, PrimaryButton, SecondaryButton, TertiaryButton
 } from "../../../src";
 
 const stories = storiesOf("Atoms/Button", module);

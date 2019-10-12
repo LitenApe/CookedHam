@@ -1,3 +1,3 @@
 export {
-  Button, PrimaryButton, SecondaryButton, TertiaryButton,
+  Button, PrimaryButton, SecondaryButton, TertiaryButton
 } from "./Button";

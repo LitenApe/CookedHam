@@ -1,7 +1,7 @@
-import React, { DetailedHTMLProps, HTMLAttributes, ReactElement, } from "react";
+import React, { DetailedHTMLProps, HTMLAttributes, ReactElement } from "react";
 import cookedNames from "cookednames";
 
-import { newId, } from "../utils";
+import { newId } from "../utils";
 
 import "./styling.scss";
 
@@ -31,7 +31,7 @@ export function Checkbox({
     { checked, },
     { disabled, },
     { reversed, },
-    className,
+    className
   );
 
   function onChangeHandler(event: React.ChangeEvent<HTMLElement> | React.KeyboardEvent): void {
