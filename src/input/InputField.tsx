@@ -8,21 +8,20 @@ import { toNumber } from "../utils/toNumber";
 interface Props {
   className?: string;
   disabled?: boolean;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>, value?: string) => void;
 }
 
 type TextFieldProps = Props
 & DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
 
-export function TextField({ className, disabled, ...rest }: TextFieldProps): React.ReactElement {
+export function TextField({
+  className, disabled, ...rest
+}: TextFieldProps): React.ReactElement {
   const modifiers = cookedNames("ch-text-field", { disabled, }, className);
   return <input className={modifiers} {...rest} disabled={disabled} />;
 }
 
-type NumberFieldProps = {
-  onChange?: (event: React.ChangeEvent, value: string) => void;
-} & TextFieldProps;
-
-export function NumberField({ value = "", onChange, ...rest }: NumberFieldProps): React.ReactElement {
+export function NumberField({ value = "", onChange, ...rest }: TextFieldProps): React.ReactElement {
   const [fieldValue, setFieldValue] = useState(toNumber(value as string));
 
   useEffect(() => {

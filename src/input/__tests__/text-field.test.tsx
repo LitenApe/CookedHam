@@ -14,7 +14,7 @@ describe("TextField", () => {
     const input = shallow(<TextField onChange={mock} />);
 
     expect(mock).toBeCalledTimes(0);
-    input.find("input").simulate("change");
+    input.find("input").simulate("change", { target: { value: "123", }, });
     expect(mock).toBeCalled();
   });
 });
