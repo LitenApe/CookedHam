@@ -16,11 +16,11 @@ export function TextField({ className, disabled, ...rest }: TextFieldProps): Rea
 }
 
 type NumberFieldProps = {
-  onChange?: (event: React.ChangeEvent, value: number) => void;
+  onChange?: (event: React.ChangeEvent, value: string) => void;
 } & TextFieldProps;
 
 export function NumberField({ value = "", onChange, ...rest }: NumberFieldProps): React.ReactElement {
-  const [fieldValue, setFieldValue] = useState(value);
+  const [fieldValue, setFieldValue] = useState(toNumber(value as string));
 
   useEffect(() => {
     setFieldValue(toNumber(value as string));
@@ -29,7 +29,7 @@ export function NumberField({ value = "", onChange, ...rest }: NumberFieldProps)
   const changeHandler = (event: React.ChangeEvent<HTMLInputElement>): void => {
     const converted = toNumber(event.target.value);
     setFieldValue(converted);
-    if (onChange) { onChange(event, Number(converted)); }
+    if (onChange) { onChange(event, converted); }
   };
 
   return <TextField {...rest} value={fieldValue} onChange={changeHandler} />;
