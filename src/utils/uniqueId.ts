@@ -10,7 +10,7 @@ const dirtyIdHistory: {[key: string]: number} = {};
  * string to it.
  * @param {string} prefix Prefix for the ID. Defaults to "dirty_"
  * @returns {string} Returns the unique ID.
- * 
+ *
  * @example
  * dirtyIds(); // => "dirty_1"
  * dirtyIds("user_"); // "user_1"
