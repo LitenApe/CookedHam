@@ -1,0 +1,13 @@
+@import "../sass/variables.scss";
+
+.ch-text-field {
+  width: calc(100% - #{$size-6 + $size-6} - 2px);
+  padding: $size-7 $size-6;
+  border: 1px solid $grey-lighter;
+  border-radius: $radius;
+
+  &.disabled {
+    background-color: $accent;
+    cursor: not-allowed;
+  }
+}
