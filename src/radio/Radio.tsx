@@ -1,9 +1,7 @@
-import React, { DetailedHTMLProps, HTMLAttributes, ReactElement } from "react";
+import React, { DetailedHTMLProps, ReactElement, InputHTMLAttributes } from "react";
 import cookedNames from "cookednames";
 
 import { uniqueId } from "../utils/uniqueId";
-
-import "./styling.scss";
 
 interface Props {
   label: string;
@@ -14,18 +12,18 @@ interface Props {
   disabled?: boolean;
   className?: string;
   onChange?: (
-    event: React.ChangeEvent<HTMLElement> | React.KeyboardEvent | undefined,
+    event: React.ChangeEvent | React.KeyboardEvent,
     value: string,
     state: boolean,
   ) => void;
 }
 
 export type RadioProps = Props
-& DetailedHTMLProps<HTMLAttributes<HTMLInputElement>, HTMLInputElement>;
+& DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
 
 export function Radio({
   label, checked, disabled, reversed, className, ...rest
-}: Props): ReactElement {
+}: RadioProps): ReactElement {
   const formId = uniqueId("ch-radio-");
 
   const modifiers = cookedNames(
@@ -37,7 +35,7 @@ export function Radio({
   );
 
   function onChange(
-    event: React.ChangeEvent<HTMLElement> | React.KeyboardEvent | undefined
+    event: React.ChangeEvent | React.KeyboardEvent
   ): void {
     if (rest && rest.onChange) {
       rest.onChange(event, rest.value, !checked);
@@ -76,7 +74,7 @@ interface RadioGroupProps {
   className?: string;
   horizontal?: boolean;
   onChange?: (
-    event: React.ChangeEvent<HTMLElement> | React.KeyboardEvent | undefined,
+    event: React.ChangeEvent | React.KeyboardEvent,
     value: string
   ) => void;
 }
@@ -94,11 +92,11 @@ export function RadioGroup(props: RadioGroupProps): ReactElement {
   );
 
   const onChange = (
-    event: React.ChangeEvent<HTMLElement> | React.KeyboardEvent | undefined,
-    value: string,
-    state: boolean
+    event: React.ChangeEvent | React.KeyboardEvent,
+    value?: string,
+    state?: boolean
   ): void => {
-    if (props.onChange && state) {
+    if (props.onChange && state && value) {
       props.onChange(event, value);
     }
   };

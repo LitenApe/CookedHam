@@ -1,22 +1,21 @@
-import React, { DetailedHTMLProps, HTMLAttributes, ReactElement } from "react";
+import React, { DetailedHTMLProps, ReactElement, ButtonHTMLAttributes } from "react";
 import cookedNames from "cookednames";
 
-import "./styling.scss";
-
-interface ButtonProps {
+interface Props {
   rounded?: boolean;
   disabled?: boolean;
   className?: string;
 }
 
-type Props = ButtonProps & DetailedHTMLProps<HTMLAttributes<HTMLButtonElement>, HTMLButtonElement>;
+type ButtonProps = Props
+& DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>;
 
 export function Button({
   children,
   rounded,
   className,
   ...rest
-}: Props): ReactElement {
+}: ButtonProps): ReactElement {
   const modifier = cookedNames(
     "ch-button",
     { rounded, },
@@ -29,7 +28,7 @@ export function Button({
   );
 }
 
-export function PrimaryButton({ children, className, ...rest }: Props): ReactElement {
+export function PrimaryButton({ children, className, ...rest }: ButtonProps): ReactElement {
   const modifier = cookedNames("ch-primary-button", className);
   return (
     <Button className={modifier} {...rest}>
@@ -38,7 +37,7 @@ export function PrimaryButton({ children, className, ...rest }: Props): ReactEle
   );
 }
 
-export function SecondaryButton({ children, className, ...rest }: Props): ReactElement {
+export function SecondaryButton({ children, className, ...rest }: ButtonProps): ReactElement {
   const modifier = cookedNames("ch-secondary-button", className);
   return (
     <Button className={modifier} {...rest}>
@@ -47,7 +46,7 @@ export function SecondaryButton({ children, className, ...rest }: Props): ReactE
   );
 }
 
-export function TertiaryButton({ children, className, ...rest }: Props): ReactElement {
+export function TertiaryButton({ children, className, ...rest }: ButtonProps): ReactElement {
   const modifier = cookedNames("ch-tertiery-button", className);
   return (
     <Button className={modifier} {...rest}>

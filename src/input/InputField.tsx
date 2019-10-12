@@ -5,10 +5,13 @@ import cookedNames from "cookednames";
 
 import { toNumber } from "../utils/toNumber";
 
-type TextFieldProps = {
+interface Props {
   className?: string;
   disabled?: boolean;
-} & DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
+}
+
+type TextFieldProps = Props
+& DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
 
 export function TextField({ className, disabled, ...rest }: TextFieldProps): React.ReactElement {
   const modifiers = cookedNames("ch-text-field", { disabled, }, className);

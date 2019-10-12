@@ -1,11 +1,9 @@
-import React, { DetailedHTMLProps, HTMLAttributes, ReactElement } from "react";
+import React, { DetailedHTMLProps, ReactElement, InputHTMLAttributes } from "react";
 import cookedNames from "cookednames";
 
 import { uniqueId } from "../utils/uniqueId";
 
-import "./styling.scss";
-
-interface CheckboxProps {
+interface Props {
   label: string;
   checked?: boolean;
   value: string;
@@ -13,17 +11,18 @@ interface CheckboxProps {
   reversed?: boolean;
   className?: string;
   onChange?: (
-    event: React.ChangeEvent<HTMLElement> | React.KeyboardEvent,
+    event: React.ChangeEvent | React.KeyboardEvent,
     value: string,
     state: boolean
   ) => void;
 }
 
-type Props = CheckboxProps & DetailedHTMLProps<HTMLAttributes<HTMLInputElement>, HTMLInputElement>;
+type CheckboxProps = Props
+& DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
 
 export function Checkbox({
   label, checked, disabled, reversed, className, ...rest
-}: Props): ReactElement {
+}: CheckboxProps): ReactElement {
   const formId = uniqueId("ch-checkbox-");
 
   const modifiers = cookedNames(
@@ -34,7 +33,7 @@ export function Checkbox({
     className
   );
 
-  function onChangeHandler(event: React.ChangeEvent<HTMLElement> | React.KeyboardEvent): void {
+  function onChangeHandler(event: React.ChangeEvent | React.KeyboardEvent): void {
     if (rest && rest.onChange) {
       rest.onChange(event, rest.value, !checked);
     }
