@@ -3,7 +3,7 @@ import React, {
 } from "react";
 import cookedNames from "cookednames";
 
-import { toNumber } from "../utils";
+import { toNumber } from "../utils/toNumber";
 
 type TextFieldProps = {
   className?: string;

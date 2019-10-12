@@ -2,13 +2,13 @@ import React from "react";
 import TestRenderer from "react-test-renderer";
 import { shallow } from "enzyme";
 import { Checkbox } from "../index";
-import * as util from "../../utils";
+import * as uniqueId from "../../utils/uniqueId";
 
-jest.mock("../../utils");
+jest.mock("../../utils/uniqueId");
 
 describe("Checkbox", () => {
   beforeEach(() => {
-    const mock = jest.spyOn(util, "newId");
+    const mock = jest.spyOn(uniqueId, "uniqueId");
     mock.mockReturnValue("checkbox-1");
   });
 

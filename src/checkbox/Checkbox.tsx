@@ -1,7 +1,7 @@
 import React, { DetailedHTMLProps, HTMLAttributes, ReactElement } from "react";
 import cookedNames from "cookednames";
 
-import { newId } from "../utils";
+import { uniqueId } from "../utils/uniqueId";
 
 import "./styling.scss";
 
@@ -24,7 +24,7 @@ type Props = CheckboxProps & DetailedHTMLProps<HTMLAttributes<HTMLInputElement>,
 export function Checkbox({
   label, checked, disabled, reversed, className, ...rest
 }: Props): ReactElement {
-  const formId = newId();
+  const formId = uniqueId("ch-checkbox-");
 
   const modifiers = cookedNames(
     "ch-checkbox",

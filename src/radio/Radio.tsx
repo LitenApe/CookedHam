@@ -1,7 +1,7 @@
 import React, { DetailedHTMLProps, HTMLAttributes, ReactElement } from "react";
 import cookedNames from "cookednames";
 
-import { newId } from "../utils";
+import { uniqueId } from "../utils/uniqueId";
 
 import "./styling.scss";
 
@@ -26,7 +26,7 @@ export type RadioProps = Props
 export function Radio({
   label, checked, disabled, reversed, className, ...rest
 }: Props): ReactElement {
-  const formId = newId("ch-radio-");
+  const formId = uniqueId("ch-radio-");
 
   const modifiers = cookedNames(
     "ch-radio",
@@ -85,8 +85,8 @@ export function RadioGroup(props: RadioGroupProps): ReactElement {
   const {
     className, options, horizontal, label,
   } = props;
-  const componentId = newId("ch-radio-group-");
-  const labelId = newId("ch-radio-label-");
+  const componentId = uniqueId("ch-radio-group-");
+  const labelId = uniqueId("ch-radio-label-");
   const modifiers = cookedNames(
     "ch-radio-group",
     { horizontal, },
