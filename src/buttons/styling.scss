@@ -1,22 +1,39 @@
 @import "../sass/variables.scss";
 
-.button {
-  color: $white;
+.ch-button {
   font-size: $size-6;
-  background-color: $primary;
+  min-width: 200px;
   padding: $size-6 $size-2;
+  border: 1px solid $grey;
   border-radius: $radius-large;
   cursor: pointer;
+  
+  &.ch-primary-button {
+    color: $white;
+    border-color: $primary;
+    background-color: $primary;
+  }
+
+  &.ch-secondary-button {
+    color: $primary;
+    border-color: $primary;
+    border-width: 3px;
+  }
+
+  &.ch-tertiery-button {
+    background-color: $white;
+    border-color: transparent;
+    border-width: 3px;
+  }
 
   &:disabled {
+    color: $white;
+    border-color: $grey-light;
     background-color: $grey-light;
+    cursor: not-allowed;
   }
 
   &.rounded {
     border-radius: $radius-rounded;
-  }
-
-  &.accent {
-    background-color: $accent-2;
   }
 }

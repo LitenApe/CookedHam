@@ -1,68 +1,54 @@
-import React, { ReactElement, } from "react";
+import React from "react";
 
 import { storiesOf, } from "@storybook/react";
 import { action, } from "@storybook/addon-actions";
 import { text, boolean, } from "@storybook/addon-knobs";
 
 import { CenterContent, } from "../utils";
-import { Button, } from "../../../src";
+import {
+  Button, PrimaryButton, SecondaryButton, TertiaryButton,
+} from "../../../src";
 
 const stories = storiesOf("Atoms/Button", module);
 
 stories.addDecorator(CenterContent);
 
-stories.add(
-  "Default Button",
-  (): ReactElement => (
-    <Button
-      disabled={boolean("Disabled", false)}
-      rounded={boolean("Round", false)}
-      accent={boolean("Accent", false)}
-      onClick={action("Clicked")}
-    >
-      {text("Button text", "text")}
-    </Button>
-  )
-);
+stories.add("Button", () => (
+  <Button
+    disabled={boolean("Disabled", false)}
+    rounded={boolean("Round", false)}
+    onClick={action("Clicked")}
+  >
+    {text("Button text", "text")}
+  </Button>
+));
 
-stories.add(
-  "Disabled Button",
-  (): ReactElement => (
-    <Button
-      disabled={boolean("Disabled", true)}
-      rounded={boolean("Round", false)}
-      accent={boolean("Accent", false)}
-      onClick={action("Clicked")}
-    >
-      {text("Button text", "text")}
-    </Button>
-  )
-);
+stories.add("PrimaryButton", () => (
+  <PrimaryButton
+    disabled={boolean("Disabled", false)}
+    rounded={boolean("Round", false)}
+    onClick={action("Clicked")}
+  >
+    {text("Button text", "text")}
+  </PrimaryButton>
+));
 
-stories.add(
-  "Round Button",
-  (): ReactElement => (
-    <Button
-      disabled={boolean("Disabled", false)}
-      rounded={boolean("Round", true)}
-      accent={boolean("Accent", false)}
-      onClick={action("Clicked")}
-    >
-      {text("Button text", "text")}
-    </Button>
-  )
-);
+stories.add("SecondaryButton", () => (
+  <SecondaryButton
+    disabled={boolean("Disabled", false)}
+    rounded={boolean("Round", false)}
+    onClick={action("Clicked")}
+  >
+    {text("Button text", "text")}
+  </SecondaryButton>
+));
 
-stories.add(
-  "Accent Button",
-  (): ReactElement => (
-    <Button
-      disabled={boolean("Disabled", false)}
-      rounded={boolean("Round", false)}
-      accent={boolean("Accent", true)}
-      onClick={action("Clicked")}
-    >
-      {text("Button text", "text")}
-    </Button>
-  )
-);
+stories.add("TertiaryButton", () => (
+  <TertiaryButton
+    disabled={boolean("Disabled", false)}
+    rounded={boolean("Round", false)}
+    onClick={action("Clicked")}
+  >
+    {text("Button text", "text")}
+  </TertiaryButton>
+));
