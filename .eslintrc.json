@@ -39,7 +39,8 @@
     "no-shadow": "off",
     "import/no-cycle": "off",
     "import/no-self-import": "error",
-    "no-duplicate-imports": "error"
+    "no-duplicate-imports": "error",
+    "react/no-array-index-key": "off"
   },
   "settings": {
     "react": {

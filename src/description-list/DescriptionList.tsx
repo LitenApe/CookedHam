@@ -32,8 +32,8 @@ export function DescriptionList({ className, items, ...rest }: DescriptionListPr
 
         return (
           <div key={`dl-${componentId}-${uniqueId()}`}>
-            {titles.map(title => <dt key={`dt-${title}-${uniqueId()}`}>{title}</dt>)}
-            {descriptions.map(desc => <dd key={`dd-${componentId}-${uniqueId()}`}>{desc}</dd>)}
+            {titles.map(title => <dt key={`dt-${title}`}>{title}</dt>)}
+            {descriptions.map((desc, i) => <dd key={`dd-${titles.join("-")}-${i}`}>{desc}</dd>)}
           </div>
         );
       })}

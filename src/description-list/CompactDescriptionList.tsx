@@ -1,8 +1,6 @@
 import React, { ReactElement } from "react";
 import cookedNames from "cookednames";
 
-import { uniqueId } from "../utils/uniqueId";
-
 interface DLItems {
   label: string;
   description: string;
@@ -36,7 +34,7 @@ export function CompactDescriptionList({
       }) => {
         const modifiers = cookedNames({ highlight, }, style);
         return (
-          <div key={`dl-${label}-${uniqueId()}`} className={modifiers}>
+          <div key={`dl-${label}`} className={modifiers}>
             <dt>{label}</dt>
             <dd>{description}</dd>
           </div>
