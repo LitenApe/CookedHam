@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CompactDescriptionList renders a title and description each row 1`] = `
+<dl
+  className="ch-description-list ch-compact-description-list"
+>
+  <div>
+    <dt>
+      label-1
+    </dt>
+    <dd>
+      description-1
+    </dd>
+  </div>
+  <div>
+    <dt>
+      label-2
+    </dt>
+    <dd>
+      description-2
+    </dd>
+  </div>
+  <div>
+    <dt>
+      label-3
+    </dt>
+    <dd>
+      description-3
+    </dd>
+  </div>
+  <div>
+    <dt>
+      label-4
+    </dt>
+    <dd>
+      description-4
+    </dd>
+  </div>
+</dl>
+`;
