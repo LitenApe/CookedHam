@@ -29,6 +29,12 @@
     display: flex;
     justify-content: space-between;
 
+    & > dt:last-of-type {
+      &:after {
+        content: "";
+      }
+    }
+
     & > dd {
       text-align: right;
     }
