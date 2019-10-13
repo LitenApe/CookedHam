@@ -1,0 +1,166 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DescriptionList renders a title and description each row 1`] = `
+<dl
+  className="ch-description-list"
+>
+  <div>
+    <dt>
+      label-1
+    </dt>
+    <dd>
+      description-1
+    </dd>
+  </div>
+  <div>
+    <dt>
+      label-2
+    </dt>
+    <dd>
+      description-2
+    </dd>
+  </div>
+  <div>
+    <dt>
+      label-3
+    </dt>
+    <dd>
+      description-3
+    </dd>
+  </div>
+  <div>
+    <dt>
+      label-4
+    </dt>
+    <dd>
+      description-4
+    </dd>
+  </div>
+</dl>
+`;
+
+exports[`DescriptionList renders a title and multiple description each row 1`] = `
+<dl
+  className="ch-description-list"
+>
+  <div>
+    <dt>
+      label-1
+    </dt>
+    <dd>
+      description-1a
+    </dd>
+    <dd>
+      description-1b
+    </dd>
+    <dd>
+      description-1c
+    </dd>
+  </div>
+  <div>
+    <dt>
+      label-2
+    </dt>
+    <dd>
+      description-2a
+    </dd>
+    <dd>
+      description-2b
+    </dd>
+    <dd>
+      description-2c
+    </dd>
+  </div>
+  <div>
+    <dt>
+      label-3
+    </dt>
+    <dd>
+      description-3a
+    </dd>
+    <dd>
+      description-3b
+    </dd>
+    <dd>
+      description-3c
+    </dd>
+  </div>
+  <div>
+    <dt>
+      label-4
+    </dt>
+    <dd>
+      description-4a
+    </dd>
+    <dd>
+      description-4b
+    </dd>
+    <dd>
+      description-4c
+    </dd>
+  </div>
+</dl>
+`;
+
+exports[`DescriptionList renders multiple title and a description each row 1`] = `
+<dl
+  className="ch-description-list"
+>
+  <div>
+    <dt>
+      label-1a
+    </dt>
+    <dt>
+      label-1b
+    </dt>
+    <dt>
+      label1c
+    </dt>
+    <dd>
+      description-1
+    </dd>
+  </div>
+  <div>
+    <dt>
+      label-2a
+    </dt>
+    <dt>
+      label-2b
+    </dt>
+    <dt>
+      label2c
+    </dt>
+    <dd>
+      description-2
+    </dd>
+  </div>
+  <div>
+    <dt>
+      label-3a
+    </dt>
+    <dt>
+      label-3b
+    </dt>
+    <dt>
+      label3c
+    </dt>
+    <dd>
+      description-3
+    </dd>
+  </div>
+  <div>
+    <dt>
+      label-4a
+    </dt>
+    <dt>
+      label-4b
+    </dt>
+    <dt>
+      label4c
+    </dt>
+    <dd>
+      description-4
+    </dd>
+  </div>
+</dl>
+`;
