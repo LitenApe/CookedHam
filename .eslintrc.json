@@ -36,7 +36,10 @@
     }],
     "no-plusplus": "off",
     "jsx-a11y/label-has-for": "off",
-    "no-shadow": "off"
+    "no-shadow": "off",
+    "import/no-cycle": "off",
+    "import/no-self-import": "error",
+    "no-duplicate-imports": "error"
   },
   "settings": {
     "react": {

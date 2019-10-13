@@ -1,24 +1,9 @@
-import React, { DetailedHTMLProps, ReactElement, InputHTMLAttributes } from "react";
+import React, { ReactElement } from "react";
 import cookedNames from "cookednames";
 
+import { CheckboxProps } from "./index";
+
 import { uniqueId } from "../utils/uniqueId";
-
-interface Props {
-  label: string;
-  checked?: boolean;
-  value: string;
-  disabled?: boolean;
-  reversed?: boolean;
-  className?: string;
-  onChange?: (
-    event: React.ChangeEvent | React.KeyboardEvent,
-    value: string,
-    state: boolean
-  ) => void;
-}
-
-type CheckboxProps = Props
-& DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
 
 export function Checkbox({
   label, checked, disabled, reversed, className, ...rest

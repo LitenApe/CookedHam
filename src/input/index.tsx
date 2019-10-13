@@ -1,3 +1,16 @@
+import { ChangeEvent, DetailedHTMLProps, InputHTMLAttributes } from "react";
+
 import "./styling.scss";
 
-export { TextField, NumberField } from "./InputField";
+interface Props {
+  className?: string;
+  disabled?: boolean;
+  onChange?: (event: ChangeEvent<HTMLInputElement>, value?: string) => void;
+}
+
+export type TextFieldProps = Props
+& DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
+
+export { TextField } from "./TextField";
+
+export { NumberField } from "./NumberField";

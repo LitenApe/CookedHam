@@ -9,7 +9,7 @@ import { Checkbox } from "../../../src";
 const stories = storiesOf("Atoms/Checkbox", module);
 
 stories.add(
-  "Default",
+  "Checkbox",
   (): ReactElement => (
     <Checkbox
       label={text("Label", "label")}

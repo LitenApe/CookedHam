@@ -8,7 +8,7 @@ import { Radio } from "../../../src";
 
 const stories = storiesOf("Atoms/Radio", module);
 
-stories.add("Default", (): ReactElement => (
+stories.add("Radio", (): ReactElement => (
   <Radio
     label={text("Label", "label")}
     checked={boolean("Checked", false)}

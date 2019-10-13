@@ -8,7 +8,7 @@ import { RadioGroup } from "../../../src";
 
 const stories = storiesOf("Molecules/RadioGroup", module);
 
-stories.add("Default", () => (
+stories.add("RadioGroup", () => (
   <RadioGroup
     label="Sports"
     name="sport"

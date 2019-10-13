@@ -4,21 +4,6 @@
   "author": "LitenApe",
   "license": "MIT",
   "description": "React Component Library for personal use",
-  "dependencies": {
-    "@storybook/addon-a11y": "^5.2.3",
-    "@storybook/addon-actions": "^5.2.3",
-    "@storybook/addon-info": "^5.2.3",
-    "@storybook/addon-knobs": "^5.2.3",
-    "@storybook/addon-links": "^5.2.3",
-    "@storybook/addons": "^5.2.3",
-    "@storybook/react": "^5.2.3",
-    "cookednames": "^1.1.3",
-    "dirty-kitchen": "0.0.7",
-    "react": "^16.10.2",
-    "react-dom": "^16.10.2",
-    "react-scripts": "3.1.1",
-    "typescript": "3.6.2"
-  },
   "scripts": {
     "start": "npm run start:storybook",
     "start:storybook": "start-storybook -p 6006",
@@ -50,10 +35,24 @@
       "last 1 safari version"
     ]
   },
+  "dependencies": {
+    "@storybook/addon-a11y": "^5.2.3",
+    "@storybook/addon-actions": "^5.2.3",
+    "@storybook/addon-info": "^5.2.3",
+    "@storybook/addon-knobs": "^5.2.3",
+    "@storybook/addon-links": "^5.2.3",
+    "@storybook/addons": "^5.2.3",
+    "@storybook/react": "^5.2.3",
+    "cookednames": "^1.1.3",
+    "dirty-kitchen": "0.0.7",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "react-scripts": "3.1.1"
+  },
   "devDependencies": {
     "@babel/core": "^7.6.4",
     "@types/enzyme": "^3.10.3",
-    "@types/jest": "24.0.18",
+    "@types/jest": "^24.0.18",
     "@types/node": "12.7.4",
     "@types/react": "^16.9.5",
     "@types/react-dom": "16.9.0",
@@ -77,6 +76,8 @@
     "husky": "^3.0.8",
     "node-sass": "^4.12.0",
     "prettier": "^1.18.2",
-    "react-test-renderer": "^16.10.2"
+    "react-test-renderer": "^16.10.2",
+    "ts-jest": "^24.1.0",
+    "typescript": "3.6.2"
   }
 }
