@@ -3,12 +3,12 @@
 .ch-button {
   font-size: $size-6;
   min-width: 200px;
-  font-weight: bold;
+  font-weight: $weight-bold;
   padding: $size-6 $size-2;
   border: 1px solid $grey;
   border-radius: $radius-large;
   cursor: pointer;
-  
+
   &.ch-primary-button {
     color: $white;
     border-color: $primary;

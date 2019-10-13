@@ -9,7 +9,6 @@ interface Props {
   name?: string;
   value: string;
   checked?: boolean;
-  reversed?: boolean;
   disabled?: boolean;
   className?: string;
   onChange?: (

@@ -16,7 +16,6 @@ stories.add(
       checked={boolean("Checked", false)}
       value={text("Value", "component value")}
       disabled={boolean("Disabled", false)}
-      reversed={boolean("Reverse order", false)}
       onChange={action("State changed attempt")}
     />
   )

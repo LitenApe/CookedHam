@@ -15,6 +15,5 @@ stories.add("Radio", (): ReactElement => (
     onChange={action("State change requested")}
     value={text("Value", "value")}
     disabled={boolean("Disabled", false)}
-    reversed={boolean("Reversed", false)}
   />
 ));

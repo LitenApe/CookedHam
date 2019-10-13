@@ -6,7 +6,7 @@ import { CheckboxProps } from "./index";
 import { uniqueId } from "../utils/uniqueId";
 
 export function Checkbox({
-  label, checked, disabled, reversed, className, ...rest
+  label, checked, disabled, className, ...rest
 }: CheckboxProps): ReactElement {
   const formId = uniqueId("ch-checkbox-");
 
@@ -14,7 +14,6 @@ export function Checkbox({
     "ch-checkbox",
     { checked, },
     { disabled, },
-    { reversed, },
     className
   );
 

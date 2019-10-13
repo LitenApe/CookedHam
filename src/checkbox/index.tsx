@@ -9,7 +9,6 @@ interface Props {
   checked?: boolean;
   value: string;
   disabled?: boolean;
-  reversed?: boolean;
   className?: string;
   onChange?: (
     event: ChangeEvent | KeyboardEvent,

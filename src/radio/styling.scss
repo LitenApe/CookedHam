@@ -1,7 +1,6 @@
 @import "../sass/variables.scss";
 
 .ch-radio {
-  display: flex;
   width: calc(100% - #{$size-7 + $size-7});
   cursor: pointer;
   padding: $size-6 $size-7;
@@ -41,15 +40,6 @@
       &:checked:before {
         color: $white;
       }
-    }
-  }
-
-  &.reversed {
-    flex-direction: row-reverse;
-    justify-content: space-between;
-
-    input[type="radio"] {
-      margin: -.5px 0 0 $size-7;
     }
   }
 }

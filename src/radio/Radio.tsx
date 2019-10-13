@@ -6,7 +6,7 @@ import { RadioProps } from "./index";
 import { uniqueId } from "../utils/uniqueId";
 
 export function Radio({
-  label, checked, disabled, reversed, className, ...rest
+  label, checked, disabled, className, ...rest
 }: RadioProps): ReactElement {
   const formId = uniqueId("ch-radio-");
 
@@ -14,7 +14,6 @@ export function Radio({
     "ch-radio",
     { checked, },
     { disabled, },
-    { reversed, },
     className
   );
 
