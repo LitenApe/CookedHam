@@ -23,6 +23,6 @@ describe("toNumberFormat", () => {
 
   it("converts short argument to match mask without crashing", () => {
     const res = toNumberFormat("### ## ###")("1234");
-    expect(res).toBe("123 4");
+    expect(res).toBe("123 4_ ___");
   });
 });
