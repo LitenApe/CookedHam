@@ -16,7 +16,6 @@ interface RadioGroupProps {
   label: string;
   options: Options[];
   className?: string;
-  horizontal?: boolean;
   onChange?: (
     event: React.ChangeEvent | React.KeyboardEvent,
     value: string
@@ -24,14 +23,11 @@ interface RadioGroupProps {
 }
 
 export function RadioGroup(props: RadioGroupProps): ReactElement {
-  const {
-    className, options, horizontal, label,
-  } = props;
+  const { className, options, label, } = props;
   const componentId = uniqueId("ch-radio-group-");
   const labelId = uniqueId("ch-radio-label-");
   const modifiers = cookedNames(
     "ch-radio-group",
-    { horizontal, },
     className
   );
 

@@ -6,7 +6,7 @@
   align-items: center;
   cursor: pointer;
   box-sizing: border-box;
-  padding: $size-6 $size-7;
+  padding: $size-9 $size-7;
 
   input[type="radio"] {
     display: flex;
@@ -36,6 +36,7 @@
 
   &.disabled {
     cursor: not-allowed;
+    color: $grey-light;
 
     input[type="radio"] {
       border-color: $grey-light;
@@ -53,15 +54,8 @@
 }
 
 .ch-radio-group {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-
-  &.horizontal {
-    flex-direction: row;
-
-    & > .ch-radio {
-      flex-grow: 1;
-    }
+  & > label:first-of-type {
+    margin: 0 0 0 $size-6;
+    font-weight: $weight-bold;
   }
 }

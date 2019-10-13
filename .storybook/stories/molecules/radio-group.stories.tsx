@@ -1,7 +1,6 @@
 import React from "react";
 
 import { storiesOf } from "@storybook/react";
-import { boolean } from "@storybook/addon-knobs";
 import { action } from "@storybook/addon-actions";
 
 import { RadioGroup } from "../../../src";
@@ -16,10 +15,9 @@ stories.add("RadioGroup", () => (
       { label: "Track and Field", value: "taf", },
       { label: "Obstacle Course Racing", value: "ocr", },
       { label: "Football", value: "fb", defaultChecked: true, },
-      { label: "Volleyball", value: "vb", },
+      { label: "Volleyball", value: "vb", disabled: true, },
       { label: "Dodgeball", value: "db", }
     ]}
     onChange={action("State changed")}
-    horizontal={boolean("Horizontal", false)}
   />
 ));
