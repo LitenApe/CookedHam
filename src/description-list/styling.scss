@@ -1,0 +1,53 @@
+@import "../sass/variables.scss";
+
+.ch-description-list {
+  width: 100%;
+
+  & > div {
+    padding: $size-7 $size-6;
+
+    & > dt:last-of-type {
+      &:after {
+        content: ":";
+      }
+    }
+
+    & > dt {
+      font-weight: $weight-bold;
+    }
+  }
+
+  & > div:nth-child(odd) {
+    background-color: $accent-2;
+  }
+
+  & > div:nth-child(even) {
+    background-color: $accent;
+  }
+
+  &.ch-compact-description-list > div {
+    display: flex;
+    justify-content: space-between;
+
+    & > dd {
+      text-align: right;
+    }
+
+    &.highlight {
+      color: $white;
+      background-color: $primary;
+    }
+
+    &.underline > dd {
+      text-decoration: underline;
+    }
+
+    &.line-through > dd {
+      text-decoration: line-through;
+    }
+
+    &.bold > dd {
+      font-weight: $weight-bold;
+    }
+  }
+}
