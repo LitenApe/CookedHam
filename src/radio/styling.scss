@@ -1,23 +1,31 @@
 @import "../sass/variables.scss";
 
 .ch-radio {
-  width: calc(100% - #{$size-7 + $size-7});
+  width: 100%;
+  display: flex;
+  align-items: center;
   cursor: pointer;
+  box-sizing: border-box;
   padding: $size-6 $size-7;
 
   input[type="radio"] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     appearance: none;
-    max-height: 23px;
-    padding: .2rem .32rem;
-    margin: -3px $size-7 0 0;
+    height: $size-5;
+    max-height: $size-5;
+    width: $size-5;
+    margin-right: $size-7;
     background-color: $white;
     border: 1px solid $grey-lighter;
     border-radius: $radius-rounded;
 
     &:before {
       content: "\25CF";
+      position: relative;
       color: $white;
-      font-size: $size-7;
+      line-height: $size-6;
     }
 
     &:checked {

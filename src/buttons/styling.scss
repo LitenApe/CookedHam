@@ -2,12 +2,13 @@
 
 .ch-button {
   font-size: $size-6;
-  min-width: 200px;
+  min-width: 15rem;
   font-weight: $weight-bold;
   padding: $size-6 $size-2;
   border: 1px solid $grey;
   border-radius: $radius-large;
   cursor: pointer;
+  box-sizing: border-box;
 
   &.ch-primary-button {
     color: $white;
@@ -17,7 +18,7 @@
 
   &.ch-secondary-button {
     color: $secondary;
-    border-width: 3px;
+    border-width: $size-9;
     border-color: $secondary;
     background-color: $accent;
   }
@@ -25,7 +26,7 @@
   &.ch-tertiery-button {
     background-color: $accent;
     border-color: transparent;
-    border-width: 3px;
+    border-width: $size-9;
   }
 
   &:disabled {

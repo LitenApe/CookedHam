@@ -1,19 +1,25 @@
 @import "../sass/variables.scss";
 
 .ch-checkbox {
-  width: calc(100% - #{$size-7 + $size-7});
+  width: 100%;
+  display: flex;
+  align-items: center;
   cursor: pointer;
   padding: $size-6 $size-7;
   overflow-wrap: break-word;
+  box-sizing: border-box;
 
   input[type="checkbox"] {
-    margin-top: -0.5px;
     appearance: none;
-    max-height: 22px;
-    padding: 1px 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: $size-5;
+    max-height: $size-5;
+    width: $size-5;
+    margin-right: $size-7;
     border: 1px solid $grey-lighter;
     border-radius: $radius;
-    margin: -3px $size-7 0 0;
     background-color: $white;
 
     &:checked {
@@ -24,7 +30,7 @@
     &:before {
       content: "\2713";
       font-size: $size-6;
-      font-weight: bold;
+      font-weight: $weight-bold;
       color: $white;
       opacity: 0;
     }
