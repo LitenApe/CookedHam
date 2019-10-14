@@ -2,13 +2,21 @@
 
 .ch-button {
   font-size: $size-6;
-  min-width: 15rem;
+  min-width: 7.5rem;
   font-weight: $weight-bold;
   padding: $size-6 $size-2;
   border: 1px solid $grey;
   border-radius: $radius-large;
   cursor: pointer;
   box-sizing: border-box;
+
+  &.wide {
+    min-width: 15rem;
+  }
+
+  &.fat {
+    padding: $size-5 $size-2;
+  }
 
   &.ch-primary-button {
     color: $white;

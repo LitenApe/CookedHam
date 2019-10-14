@@ -4,13 +4,17 @@ import cookedNames from "cookednames";
 import { ButtonProps } from "./index";
 
 export function Button({
-  children,
+  fat,
+  wide,
   rounded,
+  children,
   className,
   ...rest
 }: ButtonProps): ReactElement {
   const modifier = cookedNames(
     "ch-button",
+    { fat, },
+    { wide, },
     { rounded, },
     className
   );

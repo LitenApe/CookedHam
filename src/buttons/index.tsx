@@ -3,6 +3,8 @@ import { DetailedHTMLProps, ButtonHTMLAttributes } from "react";
 import "./styling.scss";
 
 interface Props {
+  fat?: boolean;
+  wide?: boolean;
   rounded?: boolean;
   disabled?: boolean;
   className?: string;

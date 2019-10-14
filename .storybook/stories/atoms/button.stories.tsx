@@ -15,8 +15,10 @@ stories.addDecorator(CenterContent);
 
 stories.add("Button", () => (
   <Button
-    disabled={boolean("Disabled", false)}
+    fat={boolean("Fat", false)}
+    wide={boolean("Wide", false)}
     rounded={boolean("Round", false)}
+    disabled={boolean("Disabled", false)}
     onClick={action("Clicked")}
   >
     {text("Button text", "text")}
@@ -25,8 +27,10 @@ stories.add("Button", () => (
 
 stories.add("PrimaryButton", () => (
   <PrimaryButton
-    disabled={boolean("Disabled", false)}
+    fat={boolean("Fat", false)}
+    wide={boolean("Wide", false)}
     rounded={boolean("Round", false)}
+    disabled={boolean("Disabled", false)}
     onClick={action("Clicked")}
   >
     {text("Button text", "text")}
@@ -35,8 +39,10 @@ stories.add("PrimaryButton", () => (
 
 stories.add("SecondaryButton", () => (
   <SecondaryButton
-    disabled={boolean("Disabled", false)}
+    fat={boolean("Fat", false)}
+    wide={boolean("Wide", false)}
     rounded={boolean("Round", false)}
+    disabled={boolean("Disabled", false)}
     onClick={action("Clicked")}
   >
     {text("Button text", "text")}
@@ -45,8 +51,10 @@ stories.add("SecondaryButton", () => (
 
 stories.add("TertiaryButton", () => (
   <TertiaryButton
-    disabled={boolean("Disabled", false)}
+    fat={boolean("Fat", false)}
+    wide={boolean("Wide", false)}
     rounded={boolean("Round", false)}
+    disabled={boolean("Disabled", false)}
     onClick={action("Clicked")}
   >
     {text("Button text", "text")}
