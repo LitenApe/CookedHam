@@ -4,18 +4,30 @@ import { TextField, TextFieldProps } from "./index";
 
 import { toNumber } from "../utils/toNumber";
 
-export function NumberField({ value = "", onChange, ...rest }: TextFieldProps): React.ReactElement {
-  const [fieldValue, setFieldValue] = useState(toNumber(value as string));
+interface Props {
+  format?: (value: string) => string;
+}
+
+type NumberFieldProps = Props & TextFieldProps;
+
+export function NumberField({
+  value = "",
+  format = toNumber,
+  onChange,
+  ...rest
+}: NumberFieldProps): React.ReactElement {
+  const [fieldValue, setFieldValue] = useState(format(value));
 
   useEffect(() => {
-    setFieldValue(toNumber(value as string));
+    setFieldValue(format(value));
   }, [value]);
 
-  const changeHandler = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    const converted = toNumber(event.target.value);
+  function changeHandler(event: React.ChangeEvent<HTMLInputElement>): void {
+    const converted = format(event.target.value);
     setFieldValue(converted);
-    if (onChange) { onChange(event, converted); }
-  };
+    if (onChange) { onChange(event, converted as string); }
+  }
+
 
   return <TextField {...rest} value={fieldValue} onChange={changeHandler} />;
 }

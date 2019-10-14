@@ -3,6 +3,7 @@ import { ChangeEvent, DetailedHTMLProps, InputHTMLAttributes } from "react";
 import "./styling.scss";
 
 interface Props {
+  value?: string;
   className?: string;
   disabled?: boolean;
   onChange?: (event: ChangeEvent<HTMLInputElement>, value?: string) => void;
