@@ -2,7 +2,7 @@ import React from "react";
 
 import { storiesOf } from "@storybook/react";
 
-import { DescriptionList, CompactDescriptionList } from "../../../src";
+import { DescriptionList, CompactDescriptionList } from "../../../packages";
 
 const stories = storiesOf("Atoms/DescriptionList", module);
 

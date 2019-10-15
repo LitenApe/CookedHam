@@ -7,7 +7,7 @@ import { text, boolean } from "@storybook/addon-knobs";
 import { CenterContent } from "../utils";
 import {
   Button, PrimaryButton, SecondaryButton, TertiaryButton
-} from "../../../src";
+} from "../../../packages";
 
 const stories = storiesOf("Atoms/Button", module);
 

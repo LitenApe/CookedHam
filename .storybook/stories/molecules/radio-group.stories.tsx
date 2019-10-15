@@ -3,7 +3,7 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
 
-import { RadioGroup } from "../../../src";
+import { RadioGroup } from "../../../packages";
 
 const stories = storiesOf("Molecules/RadioGroup", module);
 

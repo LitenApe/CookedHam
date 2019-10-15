@@ -1,0 +1,61 @@
+@import "../../sass/variables.scss";
+
+.ch-radio {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  box-sizing: border-box;
+  padding: $size-9 $size-7;
+
+  input[type="radio"] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    appearance: none;
+    height: $size-5;
+    max-height: $size-5;
+    width: $size-5;
+    margin-right: $size-7;
+    background-color: $white;
+    border: 1px solid $grey-lighter;
+    border-radius: $radius-rounded;
+
+    &:before {
+      content: "\25CF";
+      position: relative;
+      color: $white;
+      line-height: $size-6;
+    }
+
+    &:checked {
+      border-color: $primary;
+      background-color: $primary;
+    }
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+    color: $grey-light;
+
+    input[type="radio"] {
+      border-color: $grey-light;
+      background-color: $grey-light;
+
+      &:before {
+        color: $grey-light;
+      }
+
+      &:checked:before {
+        color: $white;
+      }
+    }
+  }
+}
+
+.ch-radio-group {
+  & > label:first-of-type {
+    margin: 0 0 0 $size-6;
+    font-weight: $weight-bold;
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "@kitchen/checkbox",
+  "version": "0.1.0",
+  "private": true,
+  "author": "LitenApe",
+  "main": "./src/index.ts",
+  "license": "BSD-3-Clause",
+  "scripts": {
+    "build": "webpack --config webpack.config.js"
+  },
+  "dependencies": {
+    "cookednames": "^1.1.3"
+  },
+  "devDependencies": {},
+  "sideEffects": ["./src/styling.scss"]
+}

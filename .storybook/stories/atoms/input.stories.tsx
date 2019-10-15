@@ -4,9 +4,9 @@ import { storiesOf } from "@storybook/react";
 import { text, boolean } from "@storybook/addon-knobs";
 import { action } from "@storybook/addon-actions";
 
-import { TextField, NumberField } from "../../../src";
+import { TextField, NumberField } from "../../../packages";
 
-import { toNumberFormat } from "../../../src/utils/toNumberFormat";
+import { toNumberFormat } from "../../../packages/utils/toNumberFormat";
 
 const stories = storiesOf("Atoms/Input", module);
 

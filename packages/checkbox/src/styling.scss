@@ -1,0 +1,56 @@
+@import "../../sass/variables.scss";
+
+.ch-checkbox {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: $size-6 $size-7;
+  overflow-wrap: break-word;
+  box-sizing: border-box;
+
+  input[type="checkbox"] {
+    appearance: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: $size-5;
+    max-height: $size-5;
+    width: $size-5;
+    margin-right: $size-7;
+    border: 1px solid $grey-lighter;
+    border-radius: $radius;
+    background-color: $white;
+
+    &:checked {
+      background-color: $primary;
+      border-color: $primary;
+    }
+
+    &:before {
+      content: "\2713";
+      font-size: $size-6;
+      font-weight: $weight-bold;
+      color: $white;
+      opacity: 0;
+    }
+    
+    &:checked:before {
+      opacity: 1;
+    }
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+    color: $grey-light;
+
+    input[type="checkbox"] {
+      background-color: $grey-lighter;
+      border-color: $grey-lighter;
+    }
+
+    input[type="checkbox"]:checked:before {
+      color: $grey-dark;
+    }
+  }
+}

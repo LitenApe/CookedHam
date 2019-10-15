@@ -4,14 +4,12 @@
   "author": "LitenApe",
   "license": "MIT",
   "description": "React Component Library for personal use",
+  "private": true,
   "scripts": {
     "start": "npm run start:storybook",
     "start:storybook": "start-storybook -p 6006",
-    "build": "react-scripts build",
-    "build:storybook": "build-storybook",
-    "test": "react-scripts test --watchAll=false",
-    "test:update": "react-scripts test --watchAll=false --updateSnapshot",
-    "eject": "react-scripts eject",
+    "build": "lerna run build --parallel",
+    "clean": "rm -rf packages/**/dist",
     "lint": "eslint './src/**/*.{ts,tsx}' './.storybook/stories/**/*.{ts,tsx}'",
     "lint:fix": "eslint --fix './src/**/*.{ts,tsx}' './.storybook/stories/**/*.{ts,tsx}'"
   },
@@ -23,19 +21,8 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "dependencies": {
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
     "@storybook/addon-a11y": "^5.2.3",
     "@storybook/addon-actions": "^5.2.3",
     "@storybook/addon-info": "^5.2.3",
@@ -43,13 +30,6 @@
     "@storybook/addon-links": "^5.2.3",
     "@storybook/addons": "^5.2.3",
     "@storybook/react": "^5.2.3",
-    "cookednames": "^1.1.3",
-    "react": "^16.10.2",
-    "react-dom": "^16.10.2",
-    "react-scripts": "3.1.1"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.6.4",
     "@types/enzyme": "^3.10.3",
     "@types/jest": "^24.0.18",
     "@types/node": "12.7.4",
@@ -62,6 +42,7 @@
     "@typescript-eslint/parser": "^2.3.3",
     "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.0.6",
+    "css-loader": "^3.2.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.15.1",
     "eslint": "^6.5.1",
@@ -73,9 +54,18 @@
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-react": "^7.16.0",
     "husky": "^3.0.8",
+    "lerna": "^3.18.0",
     "node-sass": "^4.12.0",
     "prettier": "^1.18.2",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "react-scripts": "3.1.1",
     "react-test-renderer": "^16.10.2",
-    "typescript": "3.6.2"
+    "sass-loader": "^8.0.0",
+    "style-loader": "^1.0.0",
+    "ts-loader": "^6.2.0",
+    "typescript": "^3.6.2",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.9"
   }
 }
