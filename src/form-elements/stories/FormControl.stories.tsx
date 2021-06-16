@@ -2,7 +2,7 @@ import { Story } from '@storybook/react';
 import Component from '../FormControl';
 
 import Label from '../Label';
-import TextField from '../TextField';
+import Input from '../Input';
 
 export default {
   title: 'Form',
@@ -12,7 +12,7 @@ export default {
 const Template: Story<{ label: string }> = ({ label }) => (
   <Component>
     <Label>{label}</Label>
-    <TextField />
+    <Input />
   </Component>
 );
 

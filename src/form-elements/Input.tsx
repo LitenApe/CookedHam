@@ -1,9 +1,9 @@
 import { ComponentProps } from 'react';
 import { useFormControlContext } from './FormControl';
 
-export type TextFieldProps = Omit<ComponentProps<'input'>, 'id'>;
+export type InputProps = Omit<ComponentProps<'input'>, 'id'>;
 
-export default function TextField(props: TextFieldProps) {
+export default function Input(props: InputProps) {
   const { id } = useFormControlContext();
   return <input {...props} aria-labelledby={id} />;
 }
