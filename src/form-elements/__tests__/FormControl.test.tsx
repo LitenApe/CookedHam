@@ -6,7 +6,7 @@ function TestComponent() {
   return <p data-testid="test-element">{id}</p>;
 }
 
-describe('FormControl general behaviour', () => {
+describe('FormControl general behavior', () => {
   test('generates an id', () => {
     render(
       <FormControl>

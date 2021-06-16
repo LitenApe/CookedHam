@@ -6,7 +6,7 @@ function TestComponent(props: { prefix?: string }) {
   return <p>{id}</p>;
 }
 
-describe('useId general behaviour', () => {
+describe('useId general behavior', () => {
   test('generates id with "kitchen" as default prefix', () => {
     render(<TestComponent />);
     screen.getByText(/kitchen/);
