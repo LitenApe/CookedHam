@@ -7,7 +7,7 @@ function useId(prefix: string = 'kitchen') {
     if (_usedIds[prefix] === undefined) {
       _usedIds[prefix] = 0;
     }
-    return `${prefix}-${++_usedIds[prefix]}`
+    return `${prefix}-${++_usedIds[prefix]}`;
   }, [prefix]);
 
   return id;

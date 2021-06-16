@@ -7,5 +7,5 @@ export default function Label(props: LabelProps) {
   const { children, ...rest } = props;
   const { id } = useFormControlContext();
 
-  return createElement("label", { ...rest, id }, children);
+  return createElement('label', { ...rest, id }, children);
 }
