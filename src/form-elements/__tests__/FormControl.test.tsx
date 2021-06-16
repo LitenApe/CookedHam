@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react';
-import FormControl, { useFormControl } from '../FormControl';
+import FormControl, { useFormControlContext } from '../FormControl';
 
 function TestComponent() {
-  const { id } = useFormControl();
+  const { id } = useFormControlContext();
   return <p data-testid="test-element">{id}</p>;
 }
 

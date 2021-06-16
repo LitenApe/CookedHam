@@ -1,20 +1,22 @@
 import { createContext, PropsWithChildren, useContext } from 'react';
 import useId from '../utils/hooks/useId';
 
-type FormControlContext = {
+type FormControlContextType = {
   id?: string;
 };
 
-const FormContext = createContext<FormControlContext>({});
+const FormControlContext = createContext<FormControlContextType>({});
 
 export default function FormControl(props: PropsWithChildren<{}>) {
   const id = useId('form-control');
 
   return (
-    <FormContext.Provider value={{ id }}>{props.children}</FormContext.Provider>
+    <FormControlContext.Provider value={{ id }}>
+      {props.children}
+    </FormControlContext.Provider>
   );
 }
 
-export function useFormControl() {
-  return useContext(FormContext);
+export function useFormControlContext() {
+  return useContext(FormControlContext);
 }
