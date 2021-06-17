@@ -9,7 +9,7 @@ describe('Label general behavior', () => {
     const label = screen.getByTestId('test-component');
 
     expect(label).toBeDefined();
-    expect(label).not.toHaveAttribute('aria-labelledby');
+    expect(label).not.toHaveAttribute('id');
   });
 
   test('has id when wrapped by "FormControl"', () => {
@@ -21,6 +21,6 @@ describe('Label general behavior', () => {
     const label = screen.getByTestId('test-component');
 
     expect(label).toBeDefined();
-    expect(label).toHaveAttribute('aria-labelledby');
+    expect(label).toHaveAttribute('id');
   });
 });

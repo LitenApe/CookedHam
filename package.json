@@ -17,11 +17,10 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "start-storybook -p 6006 -s public",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
     "lint": "prettier --check \"src/**/*.(j|t)s(x)?\"",
     "format": "prettier --write \"src/**/*.(j|t)s(x)?\""

@@ -7,6 +7,13 @@ type FormControlContextType = {
 
 const FormControlContext = createContext<FormControlContextType>({});
 
+/**
+ * FormControl is a component that is used to wrap input fields
+ * and labels to bind the two elements for better accessibility.
+ * Further, it serves as the go-to place if you want to set the
+ * components to a controlled state, as it will help with setting
+ * a fields validity message when appropriate.
+ */
 export default function FormControl(props: PropsWithChildren<{}>) {
   const id = useId('form-control');
 

@@ -6,5 +6,5 @@ export type InputProps = Omit<ComponentProps<'input'>, 'id'>;
 export default function Input(props: InputProps) {
   const { id } = useFormControlContext();
 
-  return createElement('input', { ...props, 'aria-labelledby': id });
+  return createElement('input', { ...props, id: id });
 }
