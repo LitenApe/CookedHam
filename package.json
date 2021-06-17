@@ -23,8 +23,8 @@
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
-    "lint": "prettier --check \"**/*.(j|t)s(x)?\"",
-    "format": "prettier --write \"**/*.(j|t)s(x)?\""
+    "lint": "prettier --check \"src/**/*.(j|t)s(x)?\"",
+    "format": "prettier --write \"src/**/*.(j|t)s(x)?\""
   },
   "eslintConfig": {
     "extends": [
