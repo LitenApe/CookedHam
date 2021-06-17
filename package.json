@@ -23,6 +23,7 @@
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
+    "lint": "prettier --check \"**/*.(j|t)s(x)?\"",
     "format": "prettier --write \"**/*.(j|t)s(x)?\""
   },
   "eslintConfig": {
@@ -53,7 +54,7 @@
     "bracketSpacing": true,
     "jsxBracketSameLine": false,
     "arrowParens": "always",
-    "endOfLine": "lf"
+    "endOfLine": "crlf"
   },
   "browserslist": {
     "production": [
