@@ -25,6 +25,13 @@
     "lint": "prettier --check \"src/**/*.(j|t)s(x)?\"",
     "format": "prettier --write \"src/**/*.(j|t)s(x)?\""
   },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.(j|t)s(x)?",
+      "!src/**/*.stories.(j|t)s(x)?",
+      "!src/**/*.d.(j|t)s(x)?"
+    ]
+  },
   "eslintConfig": {
     "extends": [
       "react-app",
