@@ -1,13 +1,12 @@
 import { Story } from '@storybook/react';
-import Component from './Radio';
-import { InputProps } from '../input/Input';
+import Component, { RadioProps } from './Radio';
 
 export default {
   title: 'Form',
   component: Component,
 };
 
-const Template: Story<InputProps> = (args) => <Component {...args} />;
+const Template: Story<RadioProps> = (args) => <Component {...args} />;
 
 export const Radio = Template.bind({});
 Radio.args = { ...Radio.args };

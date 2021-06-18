@@ -1,5 +1,7 @@
 import Input, { InputProps } from '../input/Input';
 
-export default function Radio(props: InputProps) {
+export type RadioProps = Omit<InputProps, 'type'>;
+
+export default function Radio(props: RadioProps) {
   return Input({ ...props, type: 'radio' });
 }
