@@ -1,10 +1,9 @@
 import { ComponentProps, createElement } from 'react';
-import { useFormControlContext } from './FormControl';
+import { useFormFieldContext } from '../../utils/contexts/FormFieldContext';
 
 export type InputProps = Omit<ComponentProps<'input'>, 'id'>;
 
 export default function Input(props: InputProps) {
-  const { id } = useFormControlContext();
-
+  const { id } = useFormFieldContext();
   return createElement('input', { ...props, id: id });
 }

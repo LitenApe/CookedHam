@@ -1,6 +1,6 @@
 import { Story } from '@storybook/react';
 
-import Component, { LabelProps } from '../Label';
+import Component, { LabelProps } from './Label';
 
 export default {
   title: 'Form',

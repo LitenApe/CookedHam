@@ -1,26 +1,26 @@
 import { render, screen } from '@testing-library/react';
-import FormControl from '../FormControl';
+import FormField from '../../utils/contexts/FormFieldContext';
 
-import Input from '../Input';
+import Label from './Label';
 
 describe('Label general behavior', () => {
   test('has no id attribute by default', () => {
-    render(<Input data-testid="test-component" />);
+    render(<Label data-testid="test-component" />);
     const label = screen.getByTestId('test-component');
 
     expect(label).toBeDefined();
-    expect(label).not.toHaveAttribute('id');
+    expect(label).not.toHaveAttribute('for');
   });
 
   test('has id when wrapped by "FormControl"', () => {
     render(
-      <FormControl>
-        <Input data-testid="test-component" />
-      </FormControl>
+      <FormField>
+        <Label data-testid="test-component" />
+      </FormField>
     );
     const label = screen.getByTestId('test-component');
 
     expect(label).toBeDefined();
-    expect(label).toHaveAttribute('id');
+    expect(label).toHaveAttribute('for');
   });
 });

@@ -1,28 +1,28 @@
 import { render, screen } from '@testing-library/react';
-import FormControl, { useFormControlContext } from '../FormControl';
+import FormField, { useFormFieldContext } from '../FormFieldContext';
 
 function TestComponent() {
-  const { id } = useFormControlContext();
+  const { id } = useFormFieldContext();
   return <p data-testid="test-element">{id}</p>;
 }
 
 describe('FormControl general behavior', () => {
   test('generates an id', () => {
     render(
-      <FormControl>
+      <FormField>
         <TestComponent />
-      </FormControl>
+      </FormField>
     );
     const container = screen.getByTestId('test-element');
     expect(container.innerHTML.length).toBeGreaterThan(0);
   });
 
-  test('prefixes id with "form-control"', () => {
+  test('prefixes id with "form-field"', () => {
     render(
-      <FormControl>
+      <FormField>
         <TestComponent />
-      </FormControl>
+      </FormField>
     );
-    screen.getByText(/form-control/);
+    screen.getByText(/form-field/);
   });
 });
