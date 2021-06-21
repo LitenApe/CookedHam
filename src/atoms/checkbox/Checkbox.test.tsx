@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import Checkbox from './Checkbox';
 
-describe('Radio general behaviour', () => {
+describe('Radio general behavior', () => {
   test('renders as input', () => {
     render(<Checkbox data-testid="test-component" />);
     const checkbox = screen.getByTestId('test-component');

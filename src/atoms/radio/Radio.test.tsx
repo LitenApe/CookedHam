@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import Radio from './Radio';
 
-describe('Radio general behaviour', () => {
+describe('Radio general behavior', () => {
   test('renders as input', () => {
     render(<Radio data-testid="test-component" />);
     const radio = screen.getByTestId('test-component');
