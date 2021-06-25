@@ -1,4 +1,9 @@
-import { createContext, PropsWithChildren, useContext } from 'react';
+import {
+  createContext,
+  createElement,
+  PropsWithChildren,
+  useContext,
+} from 'react';
 import useId from '../hooks/useId';
 
 type FormFieldContextType = {
@@ -16,12 +21,7 @@ const FormFieldContext = createContext<FormFieldContextType>({});
  */
 export default function FormField(props: PropsWithChildren<{}>) {
   const id = useId('form-field');
-
-  return (
-    <FormFieldContext.Provider value={{ id }}>
-      {props.children}
-    </FormFieldContext.Provider>
-  );
+  return createElement(FormFieldContext.Provider, { ...props, value: { id } });
 }
 
 export function useFormFieldContext() {
