@@ -1,8 +1,9 @@
 import { createElement } from 'react';
-import { DynamicProps } from '../../utils/DynamicProps';
+import { DynamicProps, HTMLTags } from '../../utils/DynamicProps';
 
-export type ButtonProps = DynamicProps<'button'>;
-
-export default function Button(props: ButtonProps) {
-  return createElement('button', { type: 'button', ...props });
+export default function Button<T extends HTMLTags = 'button'>(
+  props: DynamicProps<T>
+) {
+  const { as = 'button', ...args } = props;
+  return createElement(as, { type: 'button', ...args });
 }
