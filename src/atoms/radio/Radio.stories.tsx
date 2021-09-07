@@ -2,7 +2,7 @@ import { Meta, Story } from '@storybook/react';
 import Component, { RadioProps } from './Radio';
 
 export default {
-  title: 'Atom/Form',
+  title: 'Atom/Radio',
   component: Component,
 } as Meta;
 

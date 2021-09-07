@@ -2,7 +2,7 @@ import { Meta, Story } from '@storybook/react';
 import Component, { CheckboxProps } from './Checkbox';
 
 export default {
-  title: 'Atom/Form',
+  title: 'Atom/Checkbox',
   component: Component,
 } as Meta;
 

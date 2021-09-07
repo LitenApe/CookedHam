@@ -3,7 +3,7 @@ import { Meta, Story } from '@storybook/react';
 import Component, { InputProps } from './Input';
 
 export default {
-  title: 'Atom/Form',
+  title: 'Atom/Input',
   component: Component,
 } as Meta;
 

@@ -3,7 +3,7 @@ import { DynamicProps } from '../../utils/DynamicProps';
 import Component from './Button';
 
 export default {
-  title: 'Atom/Misc',
+  title: 'Atom/Button',
   component: Component,
 } as Meta;
 
