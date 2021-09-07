@@ -1,10 +1,10 @@
-import { Story } from '@storybook/react';
+import { Meta, Story } from '@storybook/react';
 import Component, { CheckboxProps } from './Checkbox';
 
 export default {
   title: 'Atom/Form',
   component: Component,
-};
+} as Meta;
 
 const Template: Story<CheckboxProps> = (args) => <Component {...args} />;
 

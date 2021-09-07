@@ -1,11 +1,11 @@
-import { Story } from '@storybook/react';
+import { Meta, Story } from '@storybook/react';
 
 import Component, { LabelProps } from './Label';
 
 export default {
   title: 'Atom/Form',
   component: Component,
-};
+} as Meta;
 
 const Template: Story<LabelProps> = ({ children, ...args }) => (
   <Component {...args}>{children}</Component>
