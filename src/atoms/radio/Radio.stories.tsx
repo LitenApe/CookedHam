@@ -2,7 +2,7 @@ import { Story } from '@storybook/react';
 import Component, { RadioProps } from './Radio';
 
 export default {
-  title: 'Form',
+  title: 'Atom/Form',
   component: Component,
 };
 

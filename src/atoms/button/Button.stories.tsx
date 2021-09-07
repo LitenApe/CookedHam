@@ -2,7 +2,7 @@ import { Story } from '@storybook/react';
 import Component, { ButtonProps } from './Button';
 
 export default {
-  title: 'Misc',
+  title: 'Atom/Misc',
   component: Component,
 };
 

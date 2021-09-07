@@ -3,7 +3,7 @@ import { Story } from '@storybook/react';
 import Component, { LabelProps } from './Label';
 
 export default {
-  title: 'Form',
+  title: 'Atom/Form',
   component: Component,
 };
 

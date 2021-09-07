@@ -3,7 +3,7 @@ import { Story } from '@storybook/react';
 import Component, { InputProps } from './Input';
 
 export default {
-  title: 'Form',
+  title: 'Atom/Form',
   component: Component,
 };
 

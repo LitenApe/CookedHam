@@ -2,7 +2,7 @@ import { Story } from '@storybook/react';
 import Component, { CheckboxProps } from './Checkbox';
 
 export default {
-  title: 'Form',
+  title: 'Atom/Form',
   component: Component,
 };
 
