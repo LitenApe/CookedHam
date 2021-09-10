@@ -1,40 +1,58 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import Field from './Field';
+import { ComponentProps } from 'react';
+import Field, { useField } from './Field';
+
+function Consumer(props: ComponentProps<'input'>) {
+  const { getFieldProps } = useField();
+  const { id, ...rest } = getFieldProps(props);
+  return (
+    <>
+      <label htmlFor={id}>Test</label>
+      <input id={id} {...rest}></input>
+    </>
+  );
+}
 
 describe('Field general behaviour', () => {
   test('renders without crashing', () => {
-    render(<Field>{() => <></>}</Field>);
+    render(<Field></Field>);
   });
 
   test('Field provides an id', () => {
-    render(<Field>{({ id }) => <p>{id}</p>}</Field>);
-    screen.getByText(/field-/);
-  });
-
-  test('Value is updated when setter is invoked', () => {
     render(
       <Field>
-        {({ value, setValue }) => (
-          <>
-            <p data-testid="test-control">{value}</p>
-            <input
-              data-testid="test-input"
-              value={value}
-              onChange={(event) => setValue(event.target.value)}
-            />
-          </>
-        )}
+        <Consumer />
       </Field>
     );
+    const input = screen.getByLabelText('Test');
+    expect(input.id).not.toBeUndefined();
+  });
 
-    const controlElement = screen.getByTestId('test-control');
-    const inputElement = screen.getByTestId('test-input');
+  test('Field prefixes provided id with "form-field"', () => {
+    render(
+      <Field>
+        <Consumer />
+      </Field>
+    );
+    const input = screen.getByLabelText('Test');
+    expect(input.id).toMatch(/form-field/);
+  });
 
-    expect(controlElement).toBeEmptyDOMElement();
+  test('Props is forwarded', () => {
+    const mock = jest.fn();
+    render(
+      <Field onChange={mock}>
+        <Consumer />
+      </Field>
+    );
+    const input = screen.getByText('Test');
 
-    userEvent.type(inputElement, 'the kitchen is dirty');
+    expect(mock).not.toHaveBeenCalled();
 
-    expect(controlElement).toHaveTextContent('the kitchen is dirty');
+    const testInput = 'cats looming in the shadow';
+    userEvent.type(input, testInput);
+
+    expect(mock).toHaveBeenCalledTimes(testInput.length);
   });
 });

@@ -1,21 +1,40 @@
-import { Dispatch, SetStateAction, useState } from 'react';
+import {
+  ComponentProps,
+  createContext,
+  createElement,
+  useContext,
+} from 'react';
 import useId from '../../utils/hooks/useId';
 
-type FieldProps = {
-  id: string;
-  value: string;
-  setValue: Dispatch<SetStateAction<string>>;
+type FieldContextType = {
+  getFieldProps: (args: ComponentProps<'input'>) => ComponentProps<'input'>;
 };
 
-export type Props = {
-  defaultValue?: string;
-  children: (props: FieldProps) => JSX.Element;
-};
+const context = createContext<FieldContextType>({
+  getFieldProps: (props) => props,
+});
 
-export default function Field(props: Props): JSX.Element {
-  const { children, defaultValue } = props;
-  const id = useId('field');
-  const [value, setValue] = useState(defaultValue || '');
+export default function Field(props: ComponentProps<'input'>) {
+  const id = useId('form-field');
+  const { children, ...rest } = props;
 
-  return children({ id, value, setValue });
+  function getFieldProps(
+    args: ComponentProps<'input'>
+  ): ComponentProps<'input'> {
+    return {
+      id,
+      ...rest,
+      ...args,
+    };
+  }
+
+  return createElement(
+    context.Provider,
+    { value: { getFieldProps } },
+    children
+  );
+}
+
+export function useField() {
+  return useContext(context);
 }

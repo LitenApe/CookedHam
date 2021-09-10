@@ -1,10 +1,10 @@
-import { createElement } from 'react';
-import { useFormFieldContext } from '../../utils/contexts/FormFieldContext';
-import { DynamicProps } from '../../utils/DynamicProps';
+import { ComponentProps, createElement } from 'react';
+import { useField } from '../field/Field';
 
-export type LabelProps = Omit<DynamicProps<'label'>, 'as'>;
+export type LabelProps = ComponentProps<'label'>;
 
 export default function Label(props: LabelProps) {
-  const { id } = useFormFieldContext();
+  const { getFieldProps } = useField();
+  const { id } = getFieldProps({});
   return createElement('label', { htmlFor: id, ...props });
 }

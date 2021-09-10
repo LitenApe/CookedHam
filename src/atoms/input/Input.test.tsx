@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import FormField from '../../utils/contexts/FormFieldContext';
+import Field from '../field/Field';
 
 import Input from './Input';
 
@@ -18,9 +18,9 @@ describe('Label general behavior', () => {
 
   test('has id when wrapped by "FormField"', () => {
     render(
-      <FormField>
+      <Field>
         <Input data-testid="test-component" />
-      </FormField>
+      </Field>
     );
     const input = screen.getByTestId('test-component');
     expect(input).toHaveAttribute('id');
@@ -28,9 +28,9 @@ describe('Label general behavior', () => {
 
   test('overrides id from "FormField"', () => {
     const { rerender } = render(
-      <FormField>
+      <Field>
         <Input data-testid="test-component" />
-      </FormField>
+      </Field>
     );
 
     const input = screen.getByTestId('test-component');
@@ -38,9 +38,9 @@ describe('Label general behavior', () => {
     expect(input.getAttribute('id')).toContain('form-field');
 
     rerender(
-      <FormField>
+      <Field>
         <Input id="test-id" data-testid="test-component" />
-      </FormField>
+      </Field>
     );
     expect(input).toHaveAttribute('id', 'test-id');
   });
