@@ -29,4 +29,16 @@ describe('Button general behavior', () => {
     const button = screen.getByText('Test');
     expect(button).toHaveAttribute('type', 'submit');
   });
+
+  test('renders as button element by default', () => {
+    render(<Button>Test</Button>);
+    const button = screen.getByText('Test');
+    expect(button.nodeName).toEqual('BUTTON');
+  });
+
+  test('renders as anchor element when overriden', () => {
+    render(<Button as="a">Test</Button>);
+    const button = screen.getByText('Test');
+    expect(button.nodeName).toEqual('A');
+  });
 });
