@@ -9,4 +9,4 @@ export default {
 const Template: Story = (args) => <Component {...args} />;
 
 export const Radio = Template.bind({});
-Radio.args = { ...Radio.args };
+Radio.args = { ...Radio.args, checked: false };

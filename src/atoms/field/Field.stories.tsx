@@ -14,10 +14,8 @@ const Template: Story = ({ children, ...args }) => (
 
 export const Field = Template.bind({});
 Field.args = {
-  children: (
-    <>
-      <Label>label</Label>
-      <Input />
-    </>
-  ),
+  children: [
+    <Label key="field-label">label</Label>,
+    <Input key="field-input" />,
+  ],
 };
