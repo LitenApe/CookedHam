@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react';
+import { createRef } from 'react';
 import Field from '../field/Field';
 
 import Input from './Input';
@@ -43,5 +44,14 @@ describe('Label general behavior', () => {
       </Field>
     );
     expect(input).toHaveAttribute('id', 'test-id');
+  });
+
+  test('refs are attached to DOM element', () => {
+    const ref = createRef<HTMLInputElement>();
+    const value = 'Skies of Blue';
+    render(<Input ref={ref} value={value} onChange={jest.fn()} />);
+
+    expect(ref.current).not.toBeNull();
+    expect(ref.current).toHaveValue(value);
   });
 });

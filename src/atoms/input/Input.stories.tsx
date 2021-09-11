@@ -1,13 +1,13 @@
 import { Meta, Story } from '@storybook/react';
 
-import Component, { InputProps } from './Input';
+import Component from './Input';
 
 export default {
   title: 'Atom/Input',
   component: Component,
 } as Meta;
 
-const Template: Story<InputProps> = (args) => <Component {...args} />;
+const Template: Story = (args) => <Component {...args} />;
 
 export const Input = Template.bind({});
-Input.args = { ...Input.args };
+Input.args = { ...Input.args, value: 'Shapes of Water' };

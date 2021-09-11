@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { createRef } from 'react';
 import Checkbox from './Checkbox';
 
 describe('Radio general behavior', () => {
@@ -27,5 +28,13 @@ describe('Radio general behavior', () => {
 
     userEvent.click(checkbox);
     expect(checkbox).toBeChecked();
+  });
+
+  test('refs are attached to DOM element', () => {
+    const ref = createRef<HTMLInputElement>();
+    render(<Checkbox ref={ref} checked onChange={jest.fn()} />);
+
+    expect(ref.current).not.toBeNull();
+    expect(ref.current).toBeChecked();
   });
 });

@@ -1,8 +1,10 @@
-import { createElement } from 'react';
+import { createElement, ForwardedRef, forwardRef } from 'react';
 import Input, { InputProps } from '../input/Input';
 
 export type CheckboxProps = Omit<InputProps, 'type'>;
 
-export default function Checkbox(props: CheckboxProps) {
-  return createElement(Input, { ...props, type: 'checkbox' });
+function Checkbox(props: CheckboxProps, ref: ForwardedRef<HTMLInputElement>) {
+  return createElement(Input, { ...props, type: 'checkbox', ref });
 }
+
+export default forwardRef(Checkbox);

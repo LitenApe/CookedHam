@@ -2,6 +2,7 @@ import { ComponentProps } from 'react';
 
 /**
  * Redeclare forwardRef to better support generic types
+ * src: https://fettblog.eu/typescript-react-generic-forward-refs/
  */
 declare module 'react' {
   function forwardRef<T, P = {}>(
