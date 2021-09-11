@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { createRef } from 'react';
 import Button from './Button';
 
 describe('Button general behavior', () => {
@@ -40,5 +41,13 @@ describe('Button general behavior', () => {
     render(<Button as="a">Test</Button>);
     const button = screen.getByText('Test');
     expect(button.nodeName).toEqual('A');
+  });
+
+  test('refs are attached to DOM element', () => {
+    const ref = createRef<HTMLButtonElement>();
+    render(<Button ref={ref}>Test</Button>);
+
+    expect(ref.current).not.toBeNull();
+    expect(ref.current).toHaveTextContent('Test');
   });
 });

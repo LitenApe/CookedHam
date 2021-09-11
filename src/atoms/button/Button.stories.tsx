@@ -1,5 +1,4 @@
 import { Meta, Story } from '@storybook/react';
-import { DynamicProps } from '../../utils/DynamicProps';
 import Component from './Button';
 
 export default {
@@ -15,9 +14,7 @@ export default {
   },
 } as Meta;
 
-const Template: Story<DynamicProps<'button'>> = (args) => (
-  <Component {...args} />
-);
+const Template: Story = (args) => <Component {...args} />;
 
 export const Button = Template.bind({});
 Button.args = { ...Button.args };
