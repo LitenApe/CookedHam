@@ -1,18 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { ComponentProps } from 'react';
-import Field, { useField } from './Field';
-
-function Consumer(props: ComponentProps<'input'>) {
-  const { getFieldProps } = useField();
-  const { id, ...rest } = getFieldProps(props);
-  return (
-    <>
-      <label htmlFor={id}>Test</label>
-      <input id={id} {...rest}></input>
-    </>
-  );
-}
+import Field from './Field';
 
 describe('Field general behaviour', () => {
   test('renders without crashing', () => {
@@ -22,20 +10,20 @@ describe('Field general behaviour', () => {
   test('Field provides an id', () => {
     render(
       <Field>
-        <Consumer />
+        <input data-testid="test" />
       </Field>
     );
-    const input = screen.getByLabelText('Test');
+    const input = screen.getByTestId('test');
     expect(input.id).not.toBeUndefined();
   });
 
   test('Field prefixes provided id with "form-field"', () => {
     render(
       <Field>
-        <Consumer />
+        <input data-testid="test" />
       </Field>
     );
-    const input = screen.getByLabelText('Test');
+    const input = screen.getByTestId('test');
     expect(input.id).toMatch(/form-field/);
   });
 
@@ -43,10 +31,10 @@ describe('Field general behaviour', () => {
     const mock = jest.fn();
     render(
       <Field onChange={mock}>
-        <Consumer />
+        <input data-testid="test" />
       </Field>
     );
-    const input = screen.getByText('Test');
+    const input = screen.getByTestId('test');
 
     expect(mock).not.toHaveBeenCalled();
 

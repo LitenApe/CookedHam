@@ -1,40 +1,26 @@
-import {
+import React, {
+  Children,
+  cloneElement,
   ComponentProps,
-  createContext,
   createElement,
-  useContext,
+  Fragment,
+  PropsWithChildren,
 } from 'react';
 import useId from '../../utils/hooks/useId';
 
-type FieldContextType = {
-  getFieldProps: (args: ComponentProps<'input'>) => ComponentProps<'input'>;
-};
-
-const context = createContext<FieldContextType>({
-  getFieldProps: (props) => props,
-});
-
-export default function Field(props: ComponentProps<'input'>) {
+export default function Field(
+  props: PropsWithChildren<ComponentProps<'input'>>
+) {
   const id = useId('form-field');
   const { children, ...rest } = props;
 
-  function getFieldProps(
-    args: ComponentProps<'input'>
-  ): ComponentProps<'input'> {
-    return {
-      id,
-      ...rest,
-      ...args,
-    };
-  }
-
   return createElement(
-    context.Provider,
-    { value: { getFieldProps } },
-    children
+    Fragment,
+    null,
+    Children.map(children, (child) =>
+      !React.isValidElement(child)
+        ? child
+        : cloneElement(child, { id, ...rest, ...child.props })
+    )
   );
-}
-
-export function useField() {
-  return useContext(context);
 }
