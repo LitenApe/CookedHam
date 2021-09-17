@@ -1,9 +1,10 @@
-import React, {
+import {
   Children,
   cloneElement,
   ComponentProps,
   createElement,
   Fragment,
+  isValidElement,
   PropsWithChildren,
 } from 'react';
 import useId from '../../utils/hooks/useId';
@@ -18,7 +19,7 @@ export default function Field(
     Fragment,
     null,
     Children.map(children, (child) =>
-      !React.isValidElement(child)
+      !isValidElement(child)
         ? child
         : cloneElement(child, { id, ...rest, ...child.props })
     )
