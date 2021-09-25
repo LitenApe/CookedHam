@@ -9,4 +9,4 @@ export default {
 const Template: Story = (args) => <Component {...args} />;
 
 export const Checkbox = Template.bind({});
-Checkbox.args = { ...Checkbox.args, checked: false };
+Checkbox.args = { ...Checkbox.args };
