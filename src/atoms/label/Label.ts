@@ -1,7 +1,10 @@
 import { ComponentProps, createElement } from 'react';
-export type LabelProps = ComponentProps<'label'>;
+import { useField } from '../field/Field';
+
+export interface LabelProps extends ComponentProps<'label'> {}
 
 export default function Label(props: LabelProps) {
-  const { id, ...rest } = props;
+  const { getFieldProps } = useField();
+  const { id, ...rest } = getFieldProps(props);
   return createElement('label', { htmlFor: id, ...rest });
 }

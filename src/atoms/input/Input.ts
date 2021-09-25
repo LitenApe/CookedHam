@@ -1,9 +1,11 @@
 import { ComponentProps, createElement, ForwardedRef, forwardRef } from 'react';
+import { useField } from '../field/Field';
 
-export type InputProps = ComponentProps<'input'>;
+export interface InputProps extends ComponentProps<'input'> {}
 
 function Input(props: InputProps, ref: ForwardedRef<HTMLInputElement>) {
-  return createElement('input', { ...props, ref });
+  const { getFieldProps } = useField();
+  return createElement('input', { ...getFieldProps(props), ref });
 }
 
 export default forwardRef(Input);

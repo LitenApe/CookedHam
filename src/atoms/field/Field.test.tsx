@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import Field from './Field';
+import Field, { FieldContext } from './Field';
 
 describe('Field general behaviour', () => {
   test('renders without crashing', () => {
@@ -10,7 +10,11 @@ describe('Field general behaviour', () => {
   test('Field provides an id', () => {
     render(
       <Field>
-        <input data-testid="test" />
+        <FieldContext.Consumer>
+          {({ getFieldProps }) => (
+            <input {...getFieldProps({})} data-testid="test" />
+          )}
+        </FieldContext.Consumer>
       </Field>
     );
     const input = screen.getByTestId('test');
@@ -20,7 +24,11 @@ describe('Field general behaviour', () => {
   test('Field prefixes provided id with "form-field"', () => {
     render(
       <Field>
-        <input data-testid="test" />
+        <FieldContext.Consumer>
+          {({ getFieldProps }) => (
+            <input {...getFieldProps({})} data-testid="test" />
+          )}
+        </FieldContext.Consumer>
       </Field>
     );
     const input = screen.getByTestId('test');
@@ -31,7 +39,11 @@ describe('Field general behaviour', () => {
     const mock = jest.fn();
     render(
       <Field onChange={mock}>
-        <input data-testid="test" />
+        <FieldContext.Consumer>
+          {({ getFieldProps }) => (
+            <input {...getFieldProps({})} data-testid="test" />
+          )}
+        </FieldContext.Consumer>
       </Field>
     );
     const input = screen.getByTestId('test');
