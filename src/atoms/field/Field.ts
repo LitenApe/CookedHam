@@ -5,6 +5,7 @@ import {
   PropsWithChildren,
   useContext,
 } from 'react';
+import { callAll } from '../../utils/functions/callAll';
 import useId from '../../utils/hooks/useId';
 
 interface IFieldContext {
@@ -21,11 +22,14 @@ export default function Field(
   const id = useId('form-field');
   const { children, ...rest } = props;
 
-  function getFieldProps(args: Record<string, any>): Record<string, any> {
+  function getFieldProps(
+    args: ComponentProps<'input'>
+  ): ComponentProps<'input'> {
     return {
       id,
       ...rest,
       ...args,
+      onChange: callAll(rest.onChange, args.onChange),
     };
   }
 
