@@ -12,6 +12,21 @@ The project is structured with an **atomic design system** in mind, which means 
 
 Each component directory consist of at least three files, the component itself, a story for documentation and development of said component and tests for the component. If the component need its logic split up for abstraction purposes, then those files should live inside of a directory named **bones** in the component directory which use them. This will ensure that each component is isolated as much as possible from the outside, and the **bones** only have to take the components use-case into consideration, which helps in keeping complexity to a minimum.
 
+Below you will find an illustration of how the project will be structured as it grows.
+
+Kitchen/
+├─ atoms/
+│ ├─ component/
+│ │ ├─ Component
+│ │ ├─ Component Story
+│ │ ├─ Component Test
+├─ molecules/
+├─ organisms/
+├─ utils/
+│ ├─ hooks/
+│ ├─ functions/
+│ ├─ types/
+
 ## Available Scripts
 
 The project was created through the use of **Create React App** and **Storybook** initialization commands. All the generated configuration should be untouched with some few exceptions to make solve some build issues in the beginning related **to Storybook** and **TypeScript**
@@ -70,4 +85,4 @@ npm run eject
 
 ## Questions
 
-If you have any questions then create an issue with it and i'll try to answer it to the best of my ability.
+Create an issue with your questions and I'll try to answer it to the best of my ability. I don't take request for missing components, as the project is not intended as a one stop shop for everyone, hence the no styling.
