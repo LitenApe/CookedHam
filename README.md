@@ -14,17 +14,17 @@ Each component directory consist of at least three files, the component itself, 
 
 Below you will find an illustration of how the project will be structured as it grows.
 
-Kitchen/
-├─ atoms/
-│ ├─ component/
-│ │ ├─ Component
-│ │ ├─ Component Story
-│ │ ├─ Component Test
-├─ molecules/
-├─ organisms/
-├─ utils/
-│ ├─ hooks/
-│ ├─ functions/
+Kitchen/  
+├─ atoms/  
+│ ├─ component/  
+│ │ ├─ Component  
+│ │ ├─ Component Story  
+│ │ ├─ Component Test  
+├─ molecules/  
+├─ organisms/  
+├─ utils/  
+│ ├─ hooks/  
+│ ├─ functions/  
 │ ├─ types/
 
 ## Available Scripts
