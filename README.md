@@ -1,46 +1,73 @@
-# Getting Started with Create React App
+# Kitchen
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Kitchen will become my location for everything i need in a project. From React components to utility functions and custom hooks. This is the place to find whatever I might need to "cook" my applications. The project will be created as a styleless component library which also holds whichever hooks and functions I think will be beneficial. The reason why it is styleless is so that whomever stumbles upon this project can easily fork it and customize it to their preference, without having to figure out how styling related things are connected. It is, in other words, a clean canvas ready to be used.
+
+All the components has been written without the use of JSX, which is intentional. I wanted to improve my understanding of the top level API provided by React, which is why some of the choices might be questionable for most of you. In other words, this project serves as my sandbox where I test certain design patterns and such, which has resulted in some components being rewritten multiple times to serve as a source for discussion with friends and collegues.
+
+The project is currently only configured to work as a development and testing ground. If you actually want to build the components and use them, then there is one simple task that needs to be done. You have two options to reach the goal of using the project as an actual component library. One is to create an index file, which imports every single component to serve as the entry point. The other is to add a bundler or eject create-react-app and configure it to crawl through the repository and build everything it finds.
+
+## Project Structure
+
+The project is structured with an **atomic design system** in mind, which means that components are structured based on it's intended purpose and size. Everything that is not a component lives in the **utils** directory, which is then divided into hooks or functions. Global type definitions live at the **utils** root for now, however, it should be moved into its own directory sometime in the future.
+
+Each component directory consist of at least three files, the component itself, a story for documentation and development of said component and tests for the component. If the component need its logic split up for abstraction purposes, then those files should live inside of a directory named **bones** in the component directory which use them. This will ensure that each component is isolated as much as possible from the outside, and the **bones** only have to take the components use-case into consideration, which helps in keeping complexity to a minimum.
 
 ## Available Scripts
 
-In the project directory, you can run:
+The project was created through the use of **Create React App** and **Storybook** initialization commands. All the generated configuration should be untouched with some few exceptions to make solve some build issues in the beginning related **to Storybook** and **TypeScript**
 
-### `yarn start`
+### start
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+start can be used to start storybook which serves as a place for documentation and for component development.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+```bash
+npm run start
+```
 
-### `yarn test`
+### test
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+test executes all tests and enters watch mode. Please read the **Jest** documentation for more information regarding running tests and options.
 
-### `yarn build`
+```bash
+npm run test
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### build-storybook
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+build-storybook builds storybook, as the name implies, which gives you distribution files if you want to host the documentation page somewhere.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+npm run build-storybook
+```
 
-### `yarn eject`
+### lint
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```bash
+npm run lint
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### format
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```bash
+npm run format
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+#### Don't Touch, Cant Touch
 
-## Learn More
+The scripts listed under is defined in the **package.json** file, however, they serve no purpose at the moment. Build does nothing, as it has no target file to build from and eject should only be used if you know what you are doing. Eject exposes the build configuration, however, it is not possible to reverse the operation.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+##### build
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+npm run build
+```
+
+##### eject
+
+```bash
+npm run eject
+```
+
+## Questions
+
+If you have any questions then create an issue with it and i'll try to answer it to the best of my ability.
