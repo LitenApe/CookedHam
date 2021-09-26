@@ -9,16 +9,14 @@ import { callAll } from '../../utils/functions/callAll';
 import useId from '../../utils/hooks/useId';
 
 interface IFieldContext {
-  getFieldProps: (props: Record<string, any>) => Record<string, any>;
+  getFieldProps: (props: ComponentProps<'input'>) => ComponentProps<'input'>;
 }
 
 export const FieldContext = createContext<IFieldContext>({
   getFieldProps: (props) => props,
 });
 
-export default function Field(
-  props: PropsWithChildren<ComponentProps<'input'>>
-) {
+function Field(props: PropsWithChildren<ComponentProps<'input'>>) {
   const id = useId('form-field');
   const { children, ...rest } = props;
 
@@ -43,3 +41,5 @@ export default function Field(
 export function useField() {
   return useContext(FieldContext);
 }
+
+export default Field;

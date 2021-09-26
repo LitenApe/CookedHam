@@ -1,16 +1,9 @@
-import { ComponentProps, createElement, ForwardedRef, forwardRef } from 'react';
+import { ComponentProps, createElement } from 'react';
 import Field from '../field/Field';
 
-function Radios(
-  props: ComponentProps<'fieldset'> & ComponentProps<'input'>,
-  ref: ForwardedRef<HTMLFieldSetElement>
-) {
+function Radios(props: ComponentProps<'fieldset'> & ComponentProps<'input'>) {
   const { children, ...rest } = props;
-  return createElement(
-    Field,
-    rest,
-    createElement('fieldset', { ref }, children)
-  );
+  return createElement(Field, rest, createElement('fieldset', null, children));
 }
 
-export default forwardRef(Radios);
+export default Radios;
