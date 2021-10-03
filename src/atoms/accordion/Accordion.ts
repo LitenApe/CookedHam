@@ -5,13 +5,14 @@ import {
   useState,
   useContext,
   ComponentProps,
+  useEffect,
 } from 'react';
 import useId from '../../utils/hooks/useId';
 
 type Context = {
   id: string;
   open: boolean;
-  onClick: () => void;
+  onClick: (event: MouseEvent, open: boolean) => void;
 };
 
 const AccordionContext = createContext<Context | null>(null);
@@ -26,20 +27,44 @@ function useAccordion(): Context {
   return context;
 }
 
-function Accordion(props: ComponentProps<'div'>) {
+type AccordionProps = {
+  initialOpen?: boolean;
+  open?: boolean;
+  onClick?: (event: MouseEvent, open: boolean) => void;
+} & ComponentProps<'div'>;
+function Accordion({
+  initialOpen = false,
+  open: controlledOpen,
+  onClick: controlledOnClick,
+  ...rest
+}: AccordionProps) {
   const id = useId('accordion');
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(initialOpen);
 
-  function onClick() {
-    setOpen((prev) => !prev);
+  function onClick(event: MouseEvent) {
+    if (controlledOnClick !== undefined) {
+      controlledOnClick(event, !controlledOpen);
+    } else {
+      setOpen((prev) => !prev);
+    }
   }
+
+  useEffect(() => {
+    if (controlledOpen !== undefined) {
+      setOpen(() => controlledOpen);
+    }
+  }, [setOpen, controlledOpen]);
 
   return createElement(
     AccordionContext.Provider,
     {
-      value: { id, open, onClick },
+      value: {
+        id,
+        onClick,
+        open,
+      },
     },
-    createElement('div', props)
+    createElement('div', rest)
   );
 }
 

@@ -1,3 +1,4 @@
+import { action } from '@storybook/addon-actions';
 import { Meta, Story } from '@storybook/react';
 import { Accordion as Component } from '.';
 
@@ -8,9 +9,13 @@ export default {
 
 const Template: Story = (args) => <Component {...args} />;
 
+let open = false;
+
 export const Accordion = Template.bind({});
 Accordion.args = {
   ...Accordion.args,
+  open,
+  onClick: action('toggle'),
   children: [
     <Component.Header key="accordion_title">Title</Component.Header>,
     <Component.Panel key="accordion_content">
