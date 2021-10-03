@@ -6,16 +6,17 @@ import {
   useContext,
   ComponentProps,
   useEffect,
+  MouseEvent,
 } from 'react';
 import useId from '../../utils/hooks/useId';
 
 type Context = {
   id: string;
   open: boolean;
-  onClick: (event: MouseEvent, open: boolean) => void;
+  onClick: (event: MouseEvent) => void;
 };
 
-const AccordionContext = createContext<Context | null>(null);
+export const AccordionContext = createContext<Context | null>(null);
 
 function useAccordion(): Context {
   const context = useContext(AccordionContext);
@@ -28,18 +29,19 @@ function useAccordion(): Context {
 }
 
 type AccordionProps = {
-  initialOpen?: boolean;
+  initial?: boolean;
   open?: boolean;
   onClick?: (event: MouseEvent, open: boolean) => void;
 } & ComponentProps<'div'>;
+
 function Accordion({
-  initialOpen = false,
+  initial = false,
   open: controlledOpen,
   onClick: controlledOnClick,
   ...rest
 }: AccordionProps) {
   const id = useId('accordion');
-  const [open, setOpen] = useState(initialOpen);
+  const [open, setOpen] = useState(initial);
 
   function onClick(event: MouseEvent) {
     if (controlledOnClick !== undefined) {
@@ -71,11 +73,11 @@ function Accordion({
 Accordion.Header = function Header(props: ComponentProps<'button'>) {
   const { id, open, onClick } = useAccordion();
   return createElement('button', {
+    ...props,
     id: `${id}_button`,
     'aria-controls': `${id}_content`,
     'aria-expanded': open,
     onClick,
-    ...props,
   });
 };
 
