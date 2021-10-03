@@ -53,12 +53,12 @@ Accordion.Header = function Header(props: ComponentProps<'button'>) {
     ...props,
   });
 };
+
 Accordion.Panel = function Panel({
   children,
   ...rest
 }: ComponentProps<'section'>) {
   const { id, open } = useAccordion();
-
   return createElement(
     'section',
     {
