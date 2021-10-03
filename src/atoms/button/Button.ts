@@ -1,5 +1,5 @@
 import { createElement, ForwardedRef, forwardRef } from 'react';
-import { DynamicProps, HTMLTags } from '../../utils/DynamicProps';
+import { DynamicProps, HTMLTags } from '../../utils/types/DynamicProps';
 
 function Button<T extends HTMLTags = 'button'>(
   props: DynamicProps<T>,

@@ -20,6 +20,7 @@ Kitchen/
 │ │ ├─ Component  
 │ │ ├─ Component Story  
 │ │ ├─ Component Test  
+│ │ ├─ index  
 ├─ molecules/  
 ├─ organisms/  
 ├─ utils/  

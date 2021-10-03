@@ -1,7 +1,7 @@
 import { Meta, Story } from '@storybook/react';
 import Input from '../input/Input';
 import Label from '../label/Label';
-import Component from './Field';
+import { Field as Component } from '.';
 
 export default {
   title: 'Atom/Field',

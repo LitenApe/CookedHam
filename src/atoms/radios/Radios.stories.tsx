@@ -1,6 +1,6 @@
 import { Meta, Story } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import Component from './Radios';
+import { Radios as Component } from '.';
 import Radio from '../radio/Radio';
 import Label from '../label/Label';
 

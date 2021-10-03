@@ -1,6 +1,6 @@
 import { Meta, Story } from '@storybook/react';
 
-import Component from './Input';
+import { Input as Component } from '.';
 
 export default {
   title: 'Atom/Input',
