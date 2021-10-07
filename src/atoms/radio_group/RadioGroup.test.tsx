@@ -1,19 +1,19 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import Radio from '../radio/Radio';
-import Radios from './Radios';
+import RadioGroup from './RadioGroup';
 
 describe('Radios general behavior', () => {
   test('renders without crashing', () => {
-    render(<Radios />);
+    render(<RadioGroup />);
   });
 
   test('renders children', () => {
     render(
-      <Radios>
+      <RadioGroup>
         <Radio value="1" />
         <Radio value="2" />
-      </Radios>
+      </RadioGroup>
     );
 
     const radios = screen.getAllByRole('radio');
@@ -23,10 +23,10 @@ describe('Radios general behavior', () => {
   test('one event is emitted each click', () => {
     const mock = jest.fn();
     render(
-      <Radios name="testing-group" onChange={mock}>
+      <RadioGroup name="testing-group" onChange={mock}>
         <Radio value="1" />
         <Radio value="2" />
-      </Radios>
+      </RadioGroup>
     );
 
     const radios = screen.getAllByRole('radio');

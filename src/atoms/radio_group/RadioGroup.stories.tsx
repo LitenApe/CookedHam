@@ -1,19 +1,20 @@
 import { Meta, Story } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { Radios as Component } from '.';
+import { RadioGroup as Component } from '.';
 import Radio from '../radio/Radio';
 import Label from '../label/Label';
 
 export default {
-  title: 'Atom/Radios',
+  title: 'Atom/RadioGroup',
   component: Component,
 } as Meta;
 
 const Template: Story = (args) => <Component {...args} />;
 
-export const Radios = Template.bind({});
-Radios.args = {
-  ...Radios.args,
+export const RadioGroup = Template.bind({});
+RadioGroup.storyName = 'RadioGroup';
+RadioGroup.args = {
+  ...RadioGroup.args,
   name: 'bike-manufacturer',
   children: [
     <Radio key="radio-1" value="trek" />,
