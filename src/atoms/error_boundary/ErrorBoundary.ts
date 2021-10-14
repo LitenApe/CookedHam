@@ -1,14 +1,13 @@
-import { Component, createElement, ReactElement, ReactNode } from 'react';
+import { Component, createElement, ReactNode } from 'react';
 
 type ErrorBoundaryProps = {
   children: ReactNode;
-  fallback: () => ReactElement;
+  fallback: () => JSX.Element;
+  logger?: (error: unknown, info: unknown) => void;
 };
 
 type ErrorBoundaryState = {
   hasError: boolean;
-  error?: any;
-  info?: any;
 };
 
 class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
@@ -21,8 +20,10 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
     return { hasError: true };
   }
 
-  componentDidCatch(error: any, info: any) {
-    this.setState({ error, info });
+  componentDidCatch(error: unknown, info: unknown) {
+    if (this.props.logger) {
+      this.props.logger(error, info);
+    }
   }
 
   render() {

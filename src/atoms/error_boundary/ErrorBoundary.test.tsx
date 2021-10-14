@@ -34,4 +34,16 @@ describe('ErrorBoundary default behavior', () => {
 
     screen.getByText('fallback component rendered');
   });
+
+  test('logger is invoked on error', () => {
+    const mock = jest.fn();
+    render(
+      <ErrorBoundary logger={mock} fallback={() => <></>}>
+        <ErrorButton />
+      </ErrorBoundary>
+    );
+
+    expect(mock).toBeCalledTimes(1);
+    expect(mock.mock.calls[0]).toHaveLength(2);
+  });
 });
