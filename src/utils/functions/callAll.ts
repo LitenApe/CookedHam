@@ -1,5 +1,5 @@
-export function callAll(...args: Array<Function | undefined>) {
-  return function (...params: Array<unknown>) {
-    args.forEach((f) => f && f(...params));
+export function callAll(...fns: Array<Function | undefined>) {
+  return function (...args: Array<unknown>) {
+    fns.forEach((fn) => fn && fn(...args));
   };
 }
