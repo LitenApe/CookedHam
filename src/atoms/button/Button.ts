@@ -1,12 +1,37 @@
-import { createElement, ForwardedRef, forwardRef } from 'react';
-import { DynamicProps, HTMLTags } from '../../utils/types/DynamicProps';
+import {
+  ComponentProps,
+  createElement,
+  ForwardedRef,
+  forwardRef,
+  MouseEvent,
+} from 'react';
+import { DynamicProps } from '../../utils/types/DynamicProps';
 
-function Button<T extends HTMLTags = 'button'>(
+type PermittedTags = 'a' | 'button';
+
+function Button<T extends PermittedTags = 'button'>(
   props: DynamicProps<T>,
   ref: ForwardedRef<HTMLButtonElement>
 ) {
-  const { as = 'button', ...args } = props;
-  return createElement(as, { type: 'button', ...args, ref });
+  const { as = 'button', onClick, ...args } = props;
+
+  const isDisabled =
+    (args as ComponentProps<'button'>).disabled === true ||
+    args['aria-disabled'] === true;
+
+  function clickHandler(event: MouseEvent<any>) {
+    if (!isDisabled && onClick) {
+      onClick(event);
+    }
+  }
+
+  return createElement(as, {
+    type: 'button',
+    'aria-disabled': isDisabled,
+    onClick: clickHandler,
+    ...args,
+    ref,
+  });
 }
 
 export default forwardRef(Button);

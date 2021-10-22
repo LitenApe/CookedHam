@@ -50,4 +50,43 @@ describe('Button general behavior', () => {
     expect(ref.current).not.toBeNull();
     expect(ref.current).toHaveTextContent('Test');
   });
+
+  test('disabled suppresses click event', () => {
+    const mock = jest.fn();
+    render(
+      <Button onClick={mock} disabled>
+        test
+      </Button>
+    );
+    const button = screen.getByRole('button');
+
+    expect(mock).not.toHaveBeenCalled();
+    userEvent.click(button);
+    expect(mock).not.toHaveBeenCalled();
+  });
+
+  test('aria-disabled suppresses click event', () => {
+    const mock = jest.fn();
+    render(
+      <Button onClick={mock} aria-disabled>
+        test
+      </Button>
+    );
+    const button = screen.getByRole('button');
+
+    expect(mock).not.toHaveBeenCalled();
+    userEvent.click(button);
+    expect(mock).not.toHaveBeenCalled();
+  });
+
+  test('aria-disabled is used when button is disabled', () => {
+    const { rerender } = render(<Button disabled>test</Button>);
+    const button = screen.getByRole('button');
+
+    expect(button).toHaveAttribute('aria-disabled', 'true');
+
+    rerender(<Button aria-disabled>test</Button>);
+
+    expect(button).toHaveAttribute('aria-disabled', 'true');
+  });
 });
