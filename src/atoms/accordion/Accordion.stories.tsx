@@ -1,6 +1,6 @@
 import { action } from '@storybook/addon-actions';
 import { Meta, Story } from '@storybook/react';
-import { Accordion as Component } from '.';
+import { Accordion as Component, AccordionHeader, AccordionPanel } from '.';
 
 export default {
   title: 'Atom/Accordion',
@@ -17,12 +17,12 @@ Accordion.args = {
   open,
   onClick: action('toggle'),
   children: [
-    <Component.Header key="accordion_title">Title</Component.Header>,
-    <Component.Panel key="accordion_content">
+    <AccordionHeader key="accordion_title">Title</AccordionHeader>,
+    <AccordionPanel key="accordion_content">
       Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora
       voluptatum ipsa deserunt ex assumenda? Officiis minima cum possimus
       deleniti, delectus veritatis laboriosam aspernatur vero nemo. Dolores,
       reiciendis. Libero, autem adipisci.
-    </Component.Panel>,
+    </AccordionPanel>,
   ],
 };

@@ -8,7 +8,6 @@ export default {
     children: {
       name: 'children',
       description: 'The accessible name and the content of the button',
-      defaultValue: 'label',
       type: 'string',
     },
   },
@@ -17,4 +16,4 @@ export default {
 const Template: Story = (args) => <Component {...args} />;
 
 export const Button = Template.bind({});
-Button.args = { ...Button.args };
+Button.args = { ...Button.args, children: 'label' };

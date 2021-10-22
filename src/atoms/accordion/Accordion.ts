@@ -1,12 +1,12 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import {
-  createElement,
-  createContext,
-  useState,
-  useContext,
   ComponentProps,
-  useEffect,
+  createContext,
+  createElement,
   MouseEvent,
+  useContext,
+  useEffect,
+  useState,
 } from 'react';
 import useId from '../../utils/hooks/useId';
 
@@ -28,11 +28,11 @@ function useAccordion(): Context {
   return context;
 }
 
-type AccordionProps = {
+export type AccordionProps = {
   initial?: boolean;
   open?: boolean;
   onClick?: (event: MouseEvent, open: boolean) => void;
-} & ComponentProps<'div'>;
+} & Omit<ComponentProps<'div'>, 'onClick'>;
 
 function Accordion({
   initial = false,
@@ -70,7 +70,7 @@ function Accordion({
   );
 }
 
-Accordion.Header = function Header(props: ComponentProps<'button'>) {
+export function AccordionHeader(props: ComponentProps<'button'>) {
   const { id, open, onClick } = useAccordion();
   return createElement('button', {
     ...props,
@@ -79,9 +79,9 @@ Accordion.Header = function Header(props: ComponentProps<'button'>) {
     'aria-expanded': open,
     onClick,
   });
-};
+}
 
-Accordion.Panel = function Panel({
+export function AccordionPanel({
   children,
   ...rest
 }: ComponentProps<'section'>) {
@@ -117,6 +117,6 @@ Accordion.Panel = function Panel({
         : null
     )
   );
-};
+}
 
 export default Accordion;

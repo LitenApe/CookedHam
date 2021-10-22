@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { Accordion } from '.';
+import { Accordion, AccordionHeader, AccordionPanel } from '.';
 import { AccordionContext } from './Accordion';
 
 describe('Accordion general behavior', () => {
@@ -108,7 +108,7 @@ describe('Accordion general behavior', () => {
     test('renders without crashing', () => {
       render(
         <Accordion>
-          <Accordion.Header>content</Accordion.Header>
+          <AccordionHeader>content</AccordionHeader>
         </Accordion>
       );
     });
@@ -116,7 +116,7 @@ describe('Accordion general behavior', () => {
     test('renders with aria-attributes', () => {
       render(
         <Accordion>
-          <Accordion.Header>content</Accordion.Header>
+          <AccordionHeader>content</AccordionHeader>
           <AccordionContext.Consumer>
             {(value) => <p data-testid="test-container">{`${value?.id}`}</p>}
           </AccordionContext.Consumer>
@@ -133,7 +133,7 @@ describe('Accordion general behavior', () => {
     test('toggles open state on click', () => {
       render(
         <Accordion>
-          <Accordion.Header>content</Accordion.Header>
+          <AccordionHeader>content</AccordionHeader>
         </Accordion>
       );
 
@@ -152,7 +152,7 @@ describe('Accordion general behavior', () => {
     test('renders without crashing', () => {
       render(
         <Accordion>
-          <Accordion.Panel></Accordion.Panel>
+          <AccordionPanel></AccordionPanel>
         </Accordion>
       );
     });
@@ -160,7 +160,7 @@ describe('Accordion general behavior', () => {
     test('renders with aria-attributes', () => {
       render(
         <Accordion>
-          <Accordion.Panel data-testid="accordion-panel"></Accordion.Panel>
+          <AccordionPanel data-testid="accordion-panel"></AccordionPanel>
           <AccordionContext.Consumer>
             {(value) => (
               <>
@@ -187,7 +187,7 @@ describe('Accordion general behavior', () => {
     test('aria-hidden value is determined by open state', () => {
       const { rerender } = render(
         <Accordion open={false}>
-          <Accordion.Panel data-testid="accordion-panel"></Accordion.Panel>
+          <AccordionPanel data-testid="accordion-panel"></AccordionPanel>
         </Accordion>
       );
 
@@ -197,7 +197,7 @@ describe('Accordion general behavior', () => {
 
       rerender(
         <Accordion open={true}>
-          <Accordion.Panel data-testid="accordion-panel"></Accordion.Panel>
+          <AccordionPanel data-testid="accordion-panel"></AccordionPanel>
         </Accordion>
       );
 

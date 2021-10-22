@@ -9,8 +9,6 @@ export default {
       name: 'content',
       description:
         'HTML text string to be converted and injected into the DOM as HMTL',
-      defaultValue: '',
-      type: 'string',
     },
   },
 } as Meta;
