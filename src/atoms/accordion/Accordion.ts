@@ -7,6 +7,7 @@ import {
   ComponentProps,
   useEffect,
   MouseEvent,
+  PropsWithChildren,
 } from 'react';
 import useId from '../../utils/hooks/useId';
 
@@ -84,7 +85,7 @@ Accordion.Header = function Header(props: ComponentProps<'button'>) {
 Accordion.Panel = function Panel({
   children,
   ...rest
-}: ComponentProps<'section'>) {
+}: Omit<PropsWithChildren<typeof motion.section>, '$$typeof'>) {
   const { id, open } = useAccordion();
   return createElement(
     'section',

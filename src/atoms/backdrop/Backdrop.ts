@@ -1,9 +1,9 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import { createElement } from 'react';
+import { createElement, PropsWithChildren } from 'react';
 
 type BackdropProps = {
   visible?: boolean;
-} & Omit<typeof motion.div, '$$typeof'>;
+} & Omit<PropsWithChildren<typeof motion.div>, '$$typeof'>;
 
 function Backdrop(props: BackdropProps) {
   const { visible, ...args } = props;
