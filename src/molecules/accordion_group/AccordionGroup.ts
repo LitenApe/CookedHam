@@ -8,7 +8,7 @@ import {
   useEffect,
   useState,
 } from 'react';
-import { AccordionProps } from '../../atoms/accordion/Accordion';
+import Accordion, { AccordionProps } from '../../atoms/accordion/Accordion';
 import { callAll } from '../../utils/functions/callAll';
 
 type AccordionGroupProps = {
@@ -32,7 +32,7 @@ function AccordionGroup(props: AccordionGroupProps) {
       if (controlledOpen !== undefined) {
         if (controlledOnClick === undefined) {
           console.warn(
-            '"onClick" handler is undefined while the component is in controlled mode. The click event recently received will be ignored'
+            `${AccordionGroup.name}'s "onClick" handler is undefined while the component is in controlled mode. The click event recently received will be ignored`
           );
         } else {
           controlledOnClick(event, index);
@@ -52,15 +52,23 @@ function AccordionGroup(props: AccordionGroupProps) {
   return createElement(
     Fragment,
     null,
-    Children.map<ReactElement<AccordionProps>, ReactElement<AccordionProps>>(
-      children,
-      (child, index) =>
-        cloneElement(child, {
-          ...child.props,
-          open: open === index,
-          onClick: callAll(onClick(index), child.props.onClick),
-        })
-    )
+    Children.map<
+      ReactElement<AccordionProps> | null,
+      ReactElement<AccordionProps>
+    >(children, (child, index) => {
+      if (child.type !== Accordion) {
+        console.warn(
+          `Encountered a child of type ${child.type}! Only ${Accordion.name} is allowed as direct descendant of ${AccordionGroup.name} The child will therefore be ignored!`
+        );
+        return null;
+      }
+
+      return cloneElement(child, {
+        ...child.props,
+        open: open === index,
+        onClick: callAll(onClick(index), child.props.onClick),
+      });
+    })
   );
 }
 
