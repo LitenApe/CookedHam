@@ -1,5 +1,6 @@
 export function callAll(...fns: Array<Function | undefined>) {
+  const callable = fns.filter((fn): fn is Function => Boolean(fn));
   return function (...args: Array<unknown>) {
-    fns.forEach((fn) => fn && fn(...args));
+    callable.forEach((fn) => fn(...args));
   };
 }

@@ -24,4 +24,12 @@ describe('utility function callAll', () => {
     expect(mock).toBeCalledTimes(3);
     mock.mock.calls.forEach((args) => expect(args[0]).toBe(testString));
   });
+
+  test('callAll operates as expected with "undefined"', () => {
+    const mock = jest.fn();
+    const fn = callAll(mock, undefined, mock, undefined, mock, undefined);
+
+    fn();
+    expect(mock).toBeCalledTimes(3);
+  });
 });
