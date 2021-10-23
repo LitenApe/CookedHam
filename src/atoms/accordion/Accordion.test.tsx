@@ -1,7 +1,8 @@
 import { render, screen } from '@testing-library/react';
+import { renderHook } from '@testing-library/react-hooks';
 import userEvent from '@testing-library/user-event';
 import { Accordion, AccordionHeader, AccordionPanel } from '.';
-import { AccordionContext } from './bones/AccordionContext';
+import { AccordionContext, useAccordion } from './bones/AccordionContext';
 
 describe('Accordion general behavior', () => {
   describe('Accordion main wrapping component', () => {
@@ -202,6 +203,15 @@ describe('Accordion general behavior', () => {
       );
 
       expect(panel).toHaveAttribute('aria-hidden', 'false');
+    });
+  });
+
+  describe('useAccordion general behavior', () => {
+    test('throws error if AccordionContext provider is not an parent', () => {
+      const { result } = renderHook(() => useAccordion());
+      expect(result.error?.message).toBe(
+        'Component must be wrapped by "Accordion"'
+      );
     });
   });
 });
