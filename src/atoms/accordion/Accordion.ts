@@ -1,12 +1,7 @@
-import {
-  ComponentProps,
-  createElement,
-  MouseEvent,
-  useEffect,
-  useState,
-} from 'react';
+import { ComponentProps, createElement, MouseEvent, useEffect } from 'react';
 import { AccordionContext } from './bones/AccordionContext';
 import useId from '../../utils/hooks/useId';
+import useBoolean from '../../utils/hooks/useBoolean';
 
 export type AccordionProps = {
   initial?: boolean;
@@ -21,7 +16,7 @@ function Accordion({
   ...rest
 }: AccordionProps) {
   const id = useId('accordion');
-  const [open, setOpen] = useState(initial);
+  const [open, setOpen] = useBoolean(initial);
 
   function onClick(event: MouseEvent) {
     if (controlledOnClick !== undefined) {
