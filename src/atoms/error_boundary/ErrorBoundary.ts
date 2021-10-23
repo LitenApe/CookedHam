@@ -1,4 +1,5 @@
 import { Component, createElement, ReactNode } from 'react';
+import { isDefined } from '../../utils/functions/isDefined';
 
 type ErrorBoundaryProps = {
   children: ReactNode;
@@ -21,7 +22,7 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
   }
 
   componentDidCatch(error: unknown, info: unknown) {
-    if (this.props.logger) {
+    if (isDefined(this.props.logger)) {
       this.props.logger(error, info);
     }
   }

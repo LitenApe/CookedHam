@@ -5,6 +5,7 @@ import {
   forwardRef,
   MouseEvent,
 } from 'react';
+import { isDefined } from '../../utils/functions/isDefined';
 import { DynamicProps } from '../../utils/types/DynamicProps';
 
 type PermittedTags = 'a' | 'button';
@@ -20,7 +21,7 @@ function Button<T extends PermittedTags = 'button'>(
     args['aria-disabled'] === true;
 
   function clickHandler(event: MouseEvent<any>) {
-    if (!isDisabled && onClick) {
+    if (!isDisabled && isDefined(onClick)) {
       onClick(event);
     }
   }

@@ -2,6 +2,7 @@ import { ComponentProps, createElement, MouseEvent, useEffect } from 'react';
 import { AccordionContext } from './bones/AccordionContext';
 import useId from '../../utils/hooks/useId';
 import useBoolean from '../../utils/hooks/useBoolean';
+import { isDefined } from '../../utils/functions/isDefined';
 
 export type AccordionProps = {
   initial?: boolean;
@@ -19,7 +20,7 @@ function Accordion({
   const [open, setOpen] = useBoolean(initial);
 
   function onClick(event: MouseEvent) {
-    if (controlledOnClick !== undefined) {
+    if (isDefined(controlledOnClick)) {
       controlledOnClick(event, !controlledOpen);
     } else {
       setOpen((prev) => !prev);
@@ -27,7 +28,7 @@ function Accordion({
   }
 
   useEffect(() => {
-    if (controlledOpen !== undefined) {
+    if (isDefined(controlledOpen)) {
       setOpen(() => controlledOpen);
     }
   }, [setOpen, controlledOpen]);
