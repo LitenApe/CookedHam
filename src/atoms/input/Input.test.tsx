@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { createRef } from 'react';
-import Field from '../field/Field';
+import { Field } from '../field';
 
 import Input from './Input';
 

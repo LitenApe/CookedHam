@@ -1,5 +1,5 @@
 import { ComponentProps, createElement, ForwardedRef, forwardRef } from 'react';
-import { useField } from '../field/Field';
+import { useField } from '../field';
 
 export interface InputProps extends ComponentProps<'input'> {}
 

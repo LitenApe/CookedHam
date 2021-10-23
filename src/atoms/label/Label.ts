@@ -1,5 +1,5 @@
 import { ComponentProps, createElement } from 'react';
-import { useField } from '../field/Field';
+import { useField } from '../field';
 
 export interface LabelProps extends ComponentProps<'label'> {}
 

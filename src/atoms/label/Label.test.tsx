@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import Field from '../field/Field';
+import { Field } from '../field';
 
 import Label from './Label';
 

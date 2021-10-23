@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import Field, { FieldContext } from './Field';
+import { Field, FieldContext } from '.';
 
 describe('Field general behaviour', () => {
   test('renders without crashing', () => {

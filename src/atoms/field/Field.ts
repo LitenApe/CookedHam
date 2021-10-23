@@ -1,20 +1,7 @@
-import {
-  ComponentProps,
-  createContext,
-  createElement,
-  PropsWithChildren,
-  useContext,
-} from 'react';
+import { ComponentProps, createElement, PropsWithChildren } from 'react';
+import { FieldContext } from './bones/FieldContext';
 import { callAll } from '../../utils/functions/callAll';
 import useId from '../../utils/hooks/useId';
-
-interface IFieldContext {
-  getFieldProps: (props: ComponentProps<'input'>) => ComponentProps<'input'>;
-}
-
-export const FieldContext = createContext<IFieldContext>({
-  getFieldProps: (props) => props,
-});
 
 function Field(props: PropsWithChildren<ComponentProps<'input'>>) {
   const id = useId('form-field');
@@ -36,10 +23,6 @@ function Field(props: PropsWithChildren<ComponentProps<'input'>>) {
     { value: { getFieldProps } },
     children
   );
-}
-
-export function useField() {
-  return useContext(FieldContext);
 }
 
 export default Field;
