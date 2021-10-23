@@ -5,7 +5,11 @@ function RadioGroup(
   props: ComponentProps<'fieldset'> & ComponentProps<'input'>
 ) {
   const { children, ...rest } = props;
-  return createElement(Field, rest, createElement('fieldset', null, children));
+  return createElement(
+    Field,
+    rest,
+    createElement('fieldset', { role: 'radiogroup' }, children)
+  );
 }
 
 export default RadioGroup;
