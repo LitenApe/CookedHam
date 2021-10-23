@@ -1,32 +1,12 @@
-import { AnimatePresence, motion } from 'framer-motion';
 import {
   ComponentProps,
-  createContext,
   createElement,
   MouseEvent,
-  useContext,
   useEffect,
   useState,
 } from 'react';
+import { AccordionContext } from './bones/AccordionContext';
 import useId from '../../utils/hooks/useId';
-
-type Context = {
-  id: string;
-  open: boolean;
-  onClick: (event: MouseEvent) => void;
-};
-
-export const AccordionContext = createContext<Context | null>(null);
-
-function useAccordion(): Context {
-  const context = useContext(AccordionContext);
-
-  if (context === null) {
-    throw new Error('Component must be wrapped by "Accordion"');
-  }
-
-  return context;
-}
 
 export type AccordionProps = {
   initial?: boolean;
@@ -67,55 +47,6 @@ function Accordion({
       },
     },
     createElement('div', rest)
-  );
-}
-
-export function AccordionHeader(props: ComponentProps<'button'>) {
-  const { id, open, onClick } = useAccordion();
-  return createElement('button', {
-    ...props,
-    id: `${id}_button`,
-    'aria-controls': `${id}_content`,
-    'aria-expanded': open,
-    onClick,
-  });
-}
-
-export function AccordionPanel({
-  children,
-  ...rest
-}: ComponentProps<'section'>) {
-  const { id, open } = useAccordion();
-  return createElement(
-    'section',
-    {
-      ...rest,
-      id: `${id}_content`,
-      'aria-labelledby': `${id}_button`,
-      'aria-hidden': !open,
-    },
-    createElement(
-      AnimatePresence,
-      { initial: false },
-      open
-        ? createElement(
-            motion.section,
-            {
-              key: `${id}_content`,
-              initial: 'collapsed',
-              animate: 'open',
-              exit: 'collapsed',
-              style: { overflow: 'hidden' },
-              variants: {
-                open: { height: 'auto' },
-                collapsed: { height: 0 },
-              },
-              transition: { duration: 0.3, type: 'spring' },
-            },
-            children
-          )
-        : null
-    )
   );
 }
 
