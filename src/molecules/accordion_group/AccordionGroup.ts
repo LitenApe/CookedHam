@@ -9,12 +9,13 @@ import {
 } from 'react';
 import Accordion, { AccordionProps } from '../../atoms/accordion/Accordion';
 import { callAll } from '../../utils/functions/callAll';
+import { isDefined } from '../../utils/functions/isDefined';
 import useNumber from '../../utils/hooks/useNumber';
 
 type AccordionGroupProps = {
   initial?: number;
   open?: number;
-  onClick?: (event: MouseEvent, open: number) => void;
+  onClick?: (event: MouseEvent, index: number, open: boolean) => void;
   children: Array<ReactElement<AccordionProps>>;
 };
 
@@ -29,14 +30,12 @@ function AccordionGroup(props: AccordionGroupProps) {
 
   function onClick(index: number) {
     return function (event: MouseEvent, request: boolean) {
-      if (controlledOpen !== undefined) {
-        if (controlledOnClick === undefined) {
-          console.warn(
-            `${AccordionGroup.name}'s "onClick" handler is undefined while the component is in controlled mode. The click event recently received will be ignored`
-          );
-        } else {
-          controlledOnClick(event, index);
-        }
+      if (!isDefined(controlledOpen) && isDefined(controlledOnClick)) {
+        console.warn(
+          `${AccordionGroup.name}'s "open" is undefined while the component is in controlled mode. The click event recently received will be ignored. To fix the problem, either remove the onClick handler or add open to control which accordion that should stay open.`
+        );
+      } else if (isDefined(controlledOnClick)) {
+        controlledOnClick(event, index, request);
       } else {
         setOpen(() => (request ? index : -1));
       }
