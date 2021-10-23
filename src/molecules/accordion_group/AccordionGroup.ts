@@ -6,10 +6,10 @@ import {
   MouseEvent,
   ReactElement,
   useEffect,
-  useState,
 } from 'react';
 import Accordion, { AccordionProps } from '../../atoms/accordion/Accordion';
 import { callAll } from '../../utils/functions/callAll';
+import useNumber from '../../utils/hooks/useNumber';
 
 type AccordionGroupProps = {
   initial?: number;
@@ -25,7 +25,7 @@ function AccordionGroup(props: AccordionGroupProps) {
     open: controlledOpen,
     onClick: controlledOnClick,
   } = props;
-  const [open, setOpen] = useState(initial);
+  const [open, setOpen] = useNumber(initial);
 
   function onClick(index: number) {
     return function (event: MouseEvent, request: boolean) {
