@@ -25,6 +25,9 @@ describe('ErrorBoundary default behavior', () => {
   });
 
   test('renders fallback on error', () => {
+    const original = global.console.error;
+    global.console.error = jest.fn();
+
     render(
       <ErrorBoundary fallback={() => <p>fallback component rendered</p>}>
         <p>test content</p>
@@ -33,9 +36,14 @@ describe('ErrorBoundary default behavior', () => {
     );
 
     screen.getByText('fallback component rendered');
+
+    global.console.error = original;
   });
 
   test('logger is invoked on error', () => {
+    const original = global.console.error;
+    global.console.error = jest.fn();
+
     const mock = jest.fn();
     render(
       <ErrorBoundary logger={mock} fallback={() => <></>}>
@@ -45,5 +53,7 @@ describe('ErrorBoundary default behavior', () => {
 
     expect(mock).toBeCalledTimes(1);
     expect(mock.mock.calls[0]).toHaveLength(2);
+
+    global.console.error = original;
   });
 });
