@@ -20,4 +20,8 @@ describe('utility function isEmpty', () => {
     expect(isEmpty(undefined)).toBe(true);
     expect(isEmpty(null)).toBe(true);
   });
+
+  test('returns "false" for functions', () => {
+    expect(isEmpty(function () {})).toBe(false);
+  });
 });
