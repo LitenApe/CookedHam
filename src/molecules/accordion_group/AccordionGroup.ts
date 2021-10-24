@@ -43,7 +43,7 @@ function AccordionGroup(props: AccordionGroupProps) {
   }
 
   useEffect(() => {
-    if (controlledOpen !== undefined) {
+    if (isDefined(controlledOpen)) {
       setOpen(() => controlledOpen);
     }
   }, [controlledOpen, setOpen]);
