@@ -1,10 +1,10 @@
 import { useMemo } from 'react';
 
-const _usedIds: { [key: string]: number } = {};
+const _usedIds: Record<string, number> = {};
 
 function useId(prefix: string = 'kitchen') {
   const id = useMemo(() => {
-    if (_usedIds[prefix] === undefined) {
+    if (!_usedIds.hasOwnProperty(prefix)) {
       _usedIds[prefix] = 0;
     }
     return `${prefix}-${++_usedIds[prefix]}`;
