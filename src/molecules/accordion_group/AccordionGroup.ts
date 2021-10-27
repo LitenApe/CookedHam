@@ -32,7 +32,7 @@ function AccordionGroup(props: AccordionGroupProps) {
     return function (event: MouseEvent, request: boolean) {
       if (!isDefined(controlledOpen) && isDefined(controlledOnClick)) {
         console.warn(
-          `${AccordionGroup.name}'s "open" is undefined while the component is in controlled mode. The click event recently received will be ignored. To fix the problem, either remove the onClick handler or add open to control which accordion that should stay open.`
+          `${AccordionGroup.name}'s "open" is undefined while the component is in controlled mode. The click event recently received will be ignored. To fix the problem, either remove the "onClick" handler or add open to control which ${Accordion.name} that should stay open.`
         );
       } else if (isDefined(controlledOnClick)) {
         controlledOnClick(event, index, request);
@@ -57,7 +57,7 @@ function AccordionGroup(props: AccordionGroupProps) {
     >(children, (child, index) => {
       if (child.type !== Accordion) {
         console.warn(
-          `Encountered a child of type ${child.type}! Only ${Accordion.name} is allowed as direct descendant of ${AccordionGroup.name} The child will therefore be ignored!`
+          `Encountered a child of type ${child.type}! Only ${Accordion.name} is allowed as direct descendant of ${Accordion.name} The child will therefore be ignored!`
         );
         return null;
       }
