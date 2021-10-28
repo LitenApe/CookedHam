@@ -147,6 +147,25 @@ describe('Accordion general behavior', () => {
       userEvent.click(button);
       expect(button).toHaveAttribute('aria-expanded', 'false');
     });
+
+    test('prints an warning to the console if "open" is missing while the component is in controlled mode', () => {
+      const original = global.console.warn;
+      const mock = jest.fn();
+      global.console.warn = mock;
+
+      render(
+        <Accordion onClick={jest.fn()}>
+          <AccordionHeader>content</AccordionHeader>
+        </Accordion>
+      );
+
+      const button = screen.getByRole('button');
+      expect(mock).not.toBeCalled();
+
+      userEvent.click(button);
+      expect(mock).toBeCalledTimes(1);
+      global.console.warn = original;
+    });
   });
 
   describe('Accordion Panel general behavior', () => {
