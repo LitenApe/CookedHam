@@ -5,7 +5,7 @@ type handlers = {
   decrement: () => void;
 };
 
-function useNumber(
+export function useNumber(
   initial: number = 0
 ): [number, Dispatch<SetStateAction<number>>, handlers] {
   const [value, setValue] = useState(initial);
@@ -20,5 +20,3 @@ function useNumber(
 
   return [value, setValue, { increment, decrement }];
 }
-
-export default useNumber;

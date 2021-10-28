@@ -1,5 +1,5 @@
 import { renderHook } from '@testing-library/react-hooks';
-import useId from '../useId';
+import { useId } from '../useId';
 
 describe('useId general behavior', () => {
   test('generates id with "kitchen" as default prefix', () => {

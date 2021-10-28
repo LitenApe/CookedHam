@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 
 const _usedIds: Record<string, number> = {};
 
-function useId(prefix: string = 'kitchen') {
+export function useId(prefix: string = 'kitchen') {
   const id = useMemo(() => {
     if (!_usedIds.hasOwnProperty(prefix)) {
       _usedIds[prefix] = 0;
@@ -12,5 +12,3 @@ function useId(prefix: string = 'kitchen') {
 
   return id;
 }
-
-export default useId;

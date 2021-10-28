@@ -6,8 +6,8 @@ import {
   useEffect,
 } from 'react';
 import { AccordionContext } from './bones/AccordionContext';
-import useId from '../../utils/hooks/useId';
-import useBoolean from '../../utils/hooks/useBoolean';
+import { useId } from '../../utils/hooks/useId';
+import { useBoolean } from '../../utils/hooks/useBoolean';
 import { isDefined } from '../../utils/functions/isDefined';
 import { isUndefined } from '../../utils/functions/isUndefined';
 

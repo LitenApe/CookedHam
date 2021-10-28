@@ -1,7 +1,7 @@
 import { ComponentProps, createElement, PropsWithChildren } from 'react';
 import { FieldContext } from './bones/FieldContext';
 import { callAll } from '../../utils/functions/callAll';
-import useId from '../../utils/hooks/useId';
+import { useId } from '../../utils/hooks/useId';
 
 function Field(props: PropsWithChildren<ComponentProps<'input'>>) {
   const id = useId('form-field');

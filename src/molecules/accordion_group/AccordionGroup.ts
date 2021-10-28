@@ -10,7 +10,7 @@ import {
 import Accordion, { AccordionProps } from '../../atoms/accordion/Accordion';
 import { callAll } from '../../utils/functions/callAll';
 import { isDefined } from '../../utils/functions/isDefined';
-import useNumber from '../../utils/hooks/useNumber';
+import { useNumber } from '../../utils/hooks/useNumber';
 
 type AccordionGroupProps = {
   initial?: number;
