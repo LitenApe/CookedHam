@@ -1,8 +1,9 @@
-import { act, render, screen, waitFor } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { createRef } from 'react';
 import { Descendant, useDescendant } from '.';
 import { useMount } from '../../utils/hooks/useMount';
 import { DescendantManager } from './bones/DescendantManager';
+import { sortNodes } from './bones/utils';
 
 describe('Descendant default behavior', () => {
   describe('DescendantManager', () => {
@@ -140,6 +141,33 @@ describe('Descendant default behavior', () => {
 
       expect(renderComponent).toThrowError();
       global.console.error = original;
+    });
+  });
+
+  describe('sortNodes', () => {
+    test('nodes are sorted in ascending order', () => {
+      const first = createRef<HTMLDivElement>();
+      const second = createRef<HTMLDivElement>();
+      const third = createRef<HTMLDivElement>();
+
+      render(
+        <div>
+          <div ref={first}></div>
+          <div ref={second}></div>
+          <div ref={third}></div>
+        </div>
+      );
+
+      const nodes = [first, second, third]
+        .map((ref) => ref.current)
+        .filter((ref): ref is HTMLDivElement => ref !== null);
+
+      expect(nodes).toHaveLength(3);
+      const sorted = sortNodes([nodes[1], nodes[2], nodes[0]]);
+
+      expect(sorted[0]).toBe(nodes[0]);
+      expect(sorted[1]).toBe(nodes[1]);
+      expect(sorted[2]).toBe(nodes[2]);
     });
   });
 });
