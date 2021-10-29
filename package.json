@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "start-storybook -p 6006 -s public",
+    "start": "start-storybook -p 6006",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "build-storybook": "build-storybook -s public",
+    "build-storybook": "build-storybook",
     "lint": "prettier --check \"src/**/*.(j|t)s(x)?\"",
     "format": "prettier --write \"src/**/*.(j|t)s(x)?\""
   },
