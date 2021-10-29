@@ -5,7 +5,8 @@ export interface InputProps extends ComponentProps<'input'> {}
 
 function Input(props: InputProps, ref: ForwardedRef<HTMLInputElement>) {
   const { getFieldProps } = useField();
-  return createElement('input', { ...getFieldProps(props), ref });
+  const args = getFieldProps(props);
+  return createElement('input', { ...args, ref });
 }
 
 export default forwardRef(Input);

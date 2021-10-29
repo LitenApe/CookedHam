@@ -1,3 +1,6 @@
+import { addDecorator } from '@storybook/react';
+import { withPerformance } from 'storybook-addon-performance';
+
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {
@@ -13,3 +16,5 @@ export const parameters = {
         : a[1].id.localeCompare(b[1].id, undefined, { numeric: true }),
   },
 };
+
+addDecorator(withPerformance);

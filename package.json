@@ -19,9 +19,11 @@
     "typescript": "^4.1.2"
   },
   "devDependencies": {
+    "@storybook/addon-a11y": "^6.3.12",
     "@storybook/addon-actions": "^6.2.9",
     "@storybook/addon-essentials": "^6.2.9",
     "@storybook/addon-links": "^6.2.9",
+    "@storybook/addon-storysource": "^6.3.12",
     "@storybook/node-logger": "^6.2.9",
     "@storybook/preset-create-react-app": "^3.1.7",
     "@storybook/react": "^6.2.9",
@@ -33,7 +35,8 @@
     "@types/node": "^12.0.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
-    "prettier": "2.3.1"
+    "prettier": "2.3.1",
+    "storybook-addon-performance": "^0.16.1"
   },
   "jest": {
     "collectCoverageFrom": [
