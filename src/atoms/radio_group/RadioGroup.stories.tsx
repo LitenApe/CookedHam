@@ -4,6 +4,7 @@ import { RadioGroup as Component } from '.';
 import Radio from '../radio/Radio';
 import Label from '../label/Label';
 import { Legend } from '../legend';
+import { Field } from '../field';
 
 export default {
   title: 'Atom/RadioGroup',
@@ -13,14 +14,22 @@ export default {
 const Template: Story = (args) => (
   <Component {...args}>
     <Legend>Bicycle brand</Legend>
-    <Radio key="radio-1" value="trek" />
-    <Label key="radio-1-label">Trek</Label>
-    <Radio key="radio-2" value="specialized" />
-    <Label key="radio-2-label">Specialized</Label>
-    <Radio key="radio-3" value="cannondale" />
-    <Label key="radio-3-label">Cannondale</Label>
-    <Radio key="radio-4" value="canyon" />
-    <Label key="radio-4-label">Canyon</Label>
+    <Field>
+      <Radio value="trek" />
+      <Label>Trek</Label>
+    </Field>
+    <Field>
+      <Radio value="specialized" />
+      <Label>Specialized</Label>
+    </Field>
+    <Field>
+      <Radio value="cannondale" />
+      <Label>Cannondale</Label>
+    </Field>
+    <Field>
+      <Radio value="canyon" />
+      <Label>Canyon</Label>
+    </Field>
   </Component>
 );
 

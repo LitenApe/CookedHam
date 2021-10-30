@@ -1,20 +1,22 @@
 import { ComponentProps, createElement, PropsWithChildren } from 'react';
-import { FieldContext } from './bones/FieldContext';
+import { FieldContext, useField } from './bones/FieldContext';
 import { callAll } from '../../utils/functions/callAll';
 import { useId } from '../../utils/hooks/useId';
 
 function Field(props: PropsWithChildren<ComponentProps<'input'>>) {
   const id = useId('form-field');
+  const parent = useField();
   const { children, ...rest } = props;
 
   function getFieldProps(
     args: ComponentProps<'input'>
   ): ComponentProps<'input'> {
+    const group = parent.getFieldProps(rest);
     return {
+      ...group,
       id,
-      ...rest,
       ...args,
-      onChange: callAll(rest.onChange, args.onChange),
+      onChange: callAll(group.onChange, args.onChange),
     };
   }
 
