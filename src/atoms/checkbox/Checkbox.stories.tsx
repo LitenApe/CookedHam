@@ -6,6 +6,9 @@ import { Label } from '../label';
 export default {
   title: 'Atom/Checkbox',
   component: Component,
+  parameters: {
+    componentSubtitle: 'Enable users to toggle between to choices',
+  },
 } as Meta;
 
 const Template: Story = (args) => (
