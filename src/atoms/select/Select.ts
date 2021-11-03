@@ -13,7 +13,7 @@ function Select(
 ) {
   const { getFieldProps } = useField();
   const args = getFieldProps(props);
-  return createElement('select', { ...args, ref });
+  return createElement('select', { ...args, role: 'listbox', ref });
 }
 
 export default forwardRef(Select);
