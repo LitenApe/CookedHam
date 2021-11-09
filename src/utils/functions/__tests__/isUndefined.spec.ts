@@ -1,11 +1,11 @@
 import { isUndefined } from '../isUndefined';
 
 describe('utility function isUndefined', () => {
-  test('returns "true" if value is null', () => {
+  test('returns "true" if value is undefined', () => {
     expect(isUndefined(undefined)).toBe(true);
   });
 
-  test('returns "false" if value is not null', () => {
+  test('returns "false" if value is not undefined', () => {
     expect(isUndefined('')).toBe(false);
     expect(isUndefined('123')).toBe(false);
 
