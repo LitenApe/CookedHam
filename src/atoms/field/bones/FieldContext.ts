@@ -6,7 +6,7 @@ export type FieldProps =
   | ComponentProps<'label'>;
 
 interface Context {
-  getFieldProps: <T extends FieldProps>(props: T) => T;
+  readonly getFieldProps: <T extends FieldProps>(props: T) => T;
 }
 
 export const FieldContext = createContext<Context>({

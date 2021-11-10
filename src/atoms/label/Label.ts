@@ -1,12 +1,13 @@
-import { ComponentProps, createElement } from 'react';
+import { ComponentProps, createElement, ForwardedRef, forwardRef } from 'react';
 import { useField } from '../field';
 
-export interface LabelProps extends ComponentProps<'label'> {}
-
-function Label(props: LabelProps) {
+function Label(
+  props: ComponentProps<'label'>,
+  ref: ForwardedRef<HTMLLabelElement>
+) {
   const { getFieldProps } = useField();
   const { id } = getFieldProps(props);
-  return createElement('label', { htmlFor: id, ...props });
+  return createElement('label', { htmlFor: id, ...props, ref });
 }
 
-export default Label;
+export default forwardRef(Label);

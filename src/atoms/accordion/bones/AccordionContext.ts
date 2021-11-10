@@ -1,11 +1,11 @@
 import { createContext, useContext, MouseEvent } from 'react';
 import { isNull } from '../../../utils/functions/isNull';
 
-type Context = {
-  id: string;
-  open: boolean;
-  onClick: (event: MouseEvent) => void;
-};
+interface Context {
+  readonly id: string;
+  readonly open: boolean;
+  readonly onClick: (event: MouseEvent) => void;
+}
 
 export const AccordionContext = createContext<Context | null>(null);
 

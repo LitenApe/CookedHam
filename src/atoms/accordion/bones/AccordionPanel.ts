@@ -1,8 +1,12 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import { ComponentProps, createElement } from 'react';
+import { ComponentProps, createElement, ForwardedRef, forwardRef } from 'react';
 import { useAccordion } from './AccordionContext';
 
-function AccordionPanel({ children, ...rest }: ComponentProps<'section'>) {
+function AccordionPanel(
+  props: ComponentProps<'section'>,
+  ref: ForwardedRef<HTMLDivElement>
+) {
+  const { children, ...rest } = props;
   const { id, open } = useAccordion();
   return createElement(
     'section',
@@ -11,6 +15,7 @@ function AccordionPanel({ children, ...rest }: ComponentProps<'section'>) {
       id: `${id}_content`,
       'aria-labelledby': `${id}_button`,
       'aria-hidden': !open,
+      ref,
     },
     createElement(
       AnimatePresence,
@@ -37,4 +42,4 @@ function AccordionPanel({ children, ...rest }: ComponentProps<'section'>) {
   );
 }
 
-export default AccordionPanel;
+export default forwardRef(AccordionPanel);
