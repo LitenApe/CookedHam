@@ -78,7 +78,7 @@ describe('Descendant default behavior', () => {
       const { index, register } = useDescendant();
 
       useMount(() => {
-        register(ref.current);
+        register(ref);
       });
 
       return (

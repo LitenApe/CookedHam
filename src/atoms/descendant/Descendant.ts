@@ -1,28 +1,38 @@
-import { createElement, PropsWithChildren, useCallback, useRef } from 'react';
+import {
+  createElement,
+  PropsWithChildren,
+  useCallback,
+  useRef,
+  useState,
+} from 'react';
 import { DescendantContext } from './bones/DescendantContext';
 import { DescendantManager } from './bones/DescendantManager';
 
 function Descendant(props: PropsWithChildren<{}>) {
   const manager = useRef(new DescendantManager());
 
+  // force rerender and used for debugging
+  const [descendants, setDescendants] = useState(0);
+
   const register = useCallback(
-    (node: HTMLElement | null) => manager.current.register(node),
-    [manager]
+    (node: HTMLElement | null) => {
+      manager.current.register(node);
+      setDescendants((prev) => prev + 1);
+    },
+    [manager, setDescendants]
   );
 
   const unregister = useCallback(
-    (node: HTMLElement | null) => manager.current.unregister(node),
-    [manager]
-  );
-
-  const getIndex = useCallback(
-    (node: HTMLElement | null): number => manager.current.getIndex(node),
-    [manager]
+    (node: HTMLElement | null) => {
+      manager.current.unregister(node);
+      setDescendants((prev) => prev - 1);
+    },
+    [manager, setDescendants]
   );
 
   return createElement(
     DescendantContext.Provider,
-    { value: { register, unregister, getIndex } },
+    { value: { register, unregister, descendants, manager: manager.current } },
     props.children
   );
 }

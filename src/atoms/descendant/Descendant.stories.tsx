@@ -13,7 +13,7 @@ function TestComponent({ pos }: { pos: number }) {
   const { index, register } = useDescendant();
 
   useMount(() => {
-    register(ref.current);
+    register(ref);
   });
 
   return (
