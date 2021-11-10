@@ -1,7 +1,10 @@
-import { ComponentProps, createElement } from 'react';
+import { ComponentProps, createElement, ForwardedRef, forwardRef } from 'react';
 import { useAccordion } from './AccordionContext';
 
-function AccordionHeader(props: ComponentProps<'button'>) {
+function AccordionHeader(
+  props: ComponentProps<'button'>,
+  ref: ForwardedRef<HTMLButtonElement>
+) {
   const { id, open, onClick } = useAccordion();
   return createElement('button', {
     ...props,
@@ -9,7 +12,8 @@ function AccordionHeader(props: ComponentProps<'button'>) {
     'aria-controls': `${id}_content`,
     'aria-expanded': open,
     onClick,
+    ref,
   });
 }
 
-export default AccordionHeader;
+export default forwardRef(AccordionHeader);

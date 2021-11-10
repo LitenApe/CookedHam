@@ -1,6 +1,8 @@
 import {
   ComponentProps,
   createElement,
+  ForwardedRef,
+  forwardRef,
   MouseEvent,
   useCallback,
   useEffect,
@@ -17,12 +19,13 @@ export type AccordionProps = {
   onClick?: (event: MouseEvent, open: boolean) => void;
 } & Omit<ComponentProps<'div'>, 'onClick'>;
 
-function Accordion({
-  initial = false,
-  open: controlledOpen,
-  onClick: controlledOnClick,
-  ...rest
-}: AccordionProps) {
+function Accordion(props: AccordionProps, ref: ForwardedRef<HTMLDivElement>) {
+  const {
+    initial = false,
+    open: controlledOpen,
+    onClick: controlledOnClick,
+    ...rest
+  } = props;
   const id = useId('accordion');
   const [open, setOpen] = useBoolean(initial);
 
@@ -56,8 +59,8 @@ function Accordion({
         open,
       },
     },
-    createElement('div', rest)
+    createElement('div', { ...rest, ref })
   );
 }
 
-export default Accordion;
+export default forwardRef(Accordion);

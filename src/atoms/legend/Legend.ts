@@ -1,9 +1,10 @@
-import { ComponentProps, createElement } from 'react';
+import { ComponentProps, createElement, ForwardedRef, forwardRef } from 'react';
 
-export interface LegendProps extends ComponentProps<'legend'> {}
-
-function Legend(props: LegendProps) {
-  return createElement('legend', props);
+function Legend(
+  props: ComponentProps<'legend'>,
+  ref: ForwardedRef<HTMLLegendElement>
+) {
+  return createElement('legend', { ...props, ref });
 }
 
-export default Legend;
+export default forwardRef(Legend);

@@ -1,11 +1,16 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import { createElement, PropsWithChildren } from 'react';
+import {
+  createElement,
+  ForwardedRef,
+  forwardRef,
+  PropsWithChildren,
+} from 'react';
 
 type BackdropProps = {
   visible?: boolean;
 } & Omit<PropsWithChildren<typeof motion.div>, '$$typeof'>;
 
-function Backdrop(props: BackdropProps) {
+function Backdrop(props: BackdropProps, ref: ForwardedRef<HTMLDivElement>) {
   const { visible, ...args } = props;
   return createElement(
     AnimatePresence,
@@ -29,8 +34,9 @@ function Backdrop(props: BackdropProps) {
         },
         transition: { duration: 0.3, type: 'spring' },
         ...args,
+        ref,
       })
   );
 }
 
-export default Backdrop;
+export default forwardRef(Backdrop);

@@ -1,15 +1,15 @@
 import { Component, createElement, ReactNode } from 'react';
 import { isDefined } from '../../utils/functions/isDefined';
 
-type ErrorBoundaryProps = {
-  children: ReactNode;
-  fallback: () => JSX.Element;
-  logger?: (error: unknown, info: unknown) => void;
-};
+interface ErrorBoundaryProps {
+  readonly children: ReactNode;
+  readonly fallback: () => JSX.Element;
+  readonly logger?: (error: unknown, info: unknown) => void;
+}
 
-type ErrorBoundaryState = {
-  hasError: boolean;
-};
+interface ErrorBoundaryState {
+  readonly hasError: boolean;
+}
 
 class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
   constructor(props: any) {
