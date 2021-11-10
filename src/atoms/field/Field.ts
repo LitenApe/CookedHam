@@ -11,8 +11,8 @@ function Field(props: PropsWithChildren<FieldProps>) {
   function getFieldProps<T extends FieldProps>(args: T): T {
     const group = parent.getFieldProps(rest);
     return {
-      id,
       ...group,
+      id,
       ...args,
       onChange: callAll(group.onChange, args.onChange),
     };
