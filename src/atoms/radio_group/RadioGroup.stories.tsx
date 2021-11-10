@@ -39,4 +39,5 @@ RadioGroup.args = {
   ...RadioGroup.args,
   name: 'bike-manufacturer',
   onChange: action('value changed'),
+  onBlur: action('blur event triggered'),
 };
