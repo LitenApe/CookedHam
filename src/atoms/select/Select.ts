@@ -6,8 +6,8 @@ function Select(
   ref: ForwardedRef<HTMLSelectElement>
 ) {
   const { getFieldProps } = useField();
-  // @ts-ignore
-  return createElement('select', { ...getFieldProps(props), ref });
+  const args = getFieldProps(props);
+  return createElement('select', { ...args, ref });
 }
 
 export default forwardRef(Select);
