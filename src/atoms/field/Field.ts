@@ -13,8 +13,8 @@ function Field(props: PropsWithChildren<ComponentProps<'input'>>) {
   ): ComponentProps<'input'> {
     const group = parent.getFieldProps(rest);
     return {
-      ...group,
       id,
+      ...group,
       ...args,
       onChange: callAll(group.onChange, args.onChange),
     };
