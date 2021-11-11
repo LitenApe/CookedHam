@@ -6,6 +6,7 @@ import {
   ForwardedRef,
   forwardRef,
 } from 'react';
+import { getDocument } from '../../utils/functions/getDocument';
 import { isNull } from '../../utils/functions/isNull';
 import { isUndefined } from '../../utils/functions/isUndefined';
 import { mergeRefs } from '../../utils/functions/mergeRefs';
@@ -27,7 +28,7 @@ function RadioGroup(
     // focus might move to body before it moves to the new element.
     setTimeout(() => {
       const groupContainer = fieldsetRef.current;
-      const newFocus = document.activeElement;
+      const newFocus = getDocument().activeElement;
 
       if (isNull(groupContainer) || isNull(newFocus)) {
         // cant calculate if focus is still inside group
