@@ -132,6 +132,54 @@ describe('Descendant default behavior', () => {
       expect(fourth).toHaveAttribute('data-id', '3');
     });
 
+    test('assigned new id on re-render', () => {
+      const { rerender } = render(
+        <Descendant>
+          <TestComponent id={1} />
+          <div>
+            <TestComponent id={2} />
+          </div>
+          <div>
+            <div>
+              <TestComponent id={3} />
+            </div>
+          </div>
+          <TestComponent id={4} />
+        </Descendant>
+      );
+
+      const first = screen.getByTestId('test-component-1');
+      expect(first).toHaveAttribute('data-id', '0');
+
+      const second = screen.getByTestId('test-component-2');
+      expect(second).toHaveAttribute('data-id', '1');
+
+      const third = screen.getByTestId('test-component-3');
+      expect(third).toHaveAttribute('data-id', '2');
+
+      const fourth = screen.getByTestId('test-component-4');
+      expect(fourth).toHaveAttribute('data-id', '3');
+
+      rerender(
+        <Descendant>
+          <TestComponent id={1} />
+          <div>
+            <TestComponent id={2} />
+          </div>
+          <TestComponent id={4} />
+        </Descendant>
+      );
+
+      const fifth = screen.getByTestId('test-component-1');
+      expect(fifth).toHaveAttribute('data-id', '0');
+
+      const sixth = screen.getByTestId('test-component-2');
+      expect(sixth).toHaveAttribute('data-id', '1');
+
+      const seventh = screen.getByTestId('test-component-4');
+      expect(seventh).toHaveAttribute('data-id', '2');
+    });
+
     test('throws error if not wrapped by Descendant', () => {
       const original = global.console.error;
       global.console.error = jest.fn();
