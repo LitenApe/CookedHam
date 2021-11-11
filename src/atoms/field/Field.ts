@@ -15,6 +15,7 @@ function Field(props: PropsWithChildren<FieldProps>) {
       id,
       ...args,
       onChange: callAll(group.onChange, args.onChange),
+      onBlur: callAll(group.onBlur, args.onBlur),
     };
   }
 
