@@ -18,8 +18,10 @@ const Template: Story = (args) => (
 );
 
 export const BaseInput = Template.bind({});
+BaseInput.storyName = 'BaseInput';
 BaseInput.args = {
   ...BaseInput.args,
   value: 'Shapes of Water',
+  error: '',
   onChange: action('input change'),
 };

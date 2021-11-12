@@ -1,9 +1,14 @@
 import { ComponentProps, createContext, useContext } from 'react';
 
-export type FieldProps =
+type FieldTypes =
   | ComponentProps<'input'>
   | ComponentProps<'select'>
-  | ComponentProps<'label'>;
+  | ComponentProps<'label'>
+  | ComponentProps<'textarea'>;
+
+export type FieldProps = {
+  error?: string;
+} & FieldTypes;
 
 interface Context {
   readonly getFieldProps: <T extends FieldProps>(props: T) => T;

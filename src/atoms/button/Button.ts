@@ -12,7 +12,7 @@ type PermittedTags = 'a' | 'button';
 
 function Button<T extends PermittedTags = 'button'>(
   props: DynamicProps<T>,
-  ref: ForwardedRef<HTMLButtonElement>
+  ref: ForwardedRef<HTMLButtonElement | HTMLAnchorElement>
 ) {
   const { as = 'button', onClick, ...args } = props;
 
