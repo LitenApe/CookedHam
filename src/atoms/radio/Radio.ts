@@ -1,11 +1,11 @@
 import { createElement, ForwardedRef, forwardRef } from 'react';
-import Input, { InputProps } from '../input/Input';
+import { BaseInput, BaseInputProps } from '../base_input';
 
 function Radio(
-  props: Omit<InputProps, 'type'>,
+  props: Omit<BaseInputProps, 'type'>,
   ref: ForwardedRef<HTMLInputElement>
 ) {
-  return createElement(Input, { ...props, type: 'radio', ref });
+  return createElement(BaseInput, { ...props, type: 'radio', ref });
 }
 
 export default forwardRef(Radio);

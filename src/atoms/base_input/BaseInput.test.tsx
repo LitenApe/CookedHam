@@ -2,17 +2,17 @@ import { render, screen } from '@testing-library/react';
 import { createRef } from 'react';
 import { Field } from '../field';
 
-import Input from './Input';
+import { BaseInput } from './';
 
 describe('Label general behavior', () => {
   test('renders as input', () => {
-    render(<Input data-testid="test-component" />);
+    render(<BaseInput data-testid="test-component" />);
     const input = screen.getByTestId('test-component');
     expect(input.nodeName).toBe('INPUT');
   });
 
   test('has no id attribute by default', () => {
-    render(<Input data-testid="test-component" />);
+    render(<BaseInput data-testid="test-component" />);
     const input = screen.getByTestId('test-component');
     expect(input).not.toHaveAttribute('id');
   });
@@ -20,7 +20,7 @@ describe('Label general behavior', () => {
   test('has id when wrapped by "FormField"', () => {
     render(
       <Field>
-        <Input data-testid="test-component" />
+        <BaseInput data-testid="test-component" />
       </Field>
     );
     const input = screen.getByTestId('test-component');
@@ -30,7 +30,7 @@ describe('Label general behavior', () => {
   test('overrides id from "FormField"', () => {
     const { rerender } = render(
       <Field>
-        <Input data-testid="test-component" />
+        <BaseInput data-testid="test-component" />
       </Field>
     );
 
@@ -40,7 +40,7 @@ describe('Label general behavior', () => {
 
     rerender(
       <Field>
-        <Input id="test-id" data-testid="test-component" />
+        <BaseInput id="test-id" data-testid="test-component" />
       </Field>
     );
     expect(input).toHaveAttribute('id', 'test-id');
@@ -49,7 +49,7 @@ describe('Label general behavior', () => {
   test('refs are attached to DOM element', () => {
     const ref = createRef<HTMLInputElement>();
     const value = 'Skies of Blue';
-    render(<Input ref={ref} value={value} onChange={jest.fn()} />);
+    render(<BaseInput ref={ref} value={value} onChange={jest.fn()} />);
 
     expect(ref.current).not.toBeNull();
     expect(ref.current).toHaveValue(value);

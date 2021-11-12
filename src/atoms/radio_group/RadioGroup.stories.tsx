@@ -1,8 +1,8 @@
 import { Meta, Story } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { RadioGroup as Component } from '.';
-import Radio from '../radio/Radio';
-import Label from '../label/Label';
+import { Radio } from '../radio';
+import { Label } from '../label';
 import { Legend } from '../legend';
 import { Field } from '../field';
 

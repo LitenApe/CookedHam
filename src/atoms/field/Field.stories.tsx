@@ -1,6 +1,6 @@
 import { Meta, Story } from '@storybook/react';
-import Input from '../input/Input';
-import Label from '../label/Label';
+import { BaseInput } from '../base_input';
+import { Label } from '../label';
 import { Field as Component } from '.';
 
 export default {
@@ -16,6 +16,6 @@ export const Field = Template.bind({});
 Field.args = {
   children: [
     <Label key="field-label">label</Label>,
-    <Input key="field-input" />,
+    <BaseInput key="field-input" />,
   ],
 };

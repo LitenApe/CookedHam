@@ -1,12 +1,12 @@
 import { action } from '@storybook/addon-actions';
 import { Meta, Story } from '@storybook/react';
 
-import { Input as Component } from '.';
+import { BaseInput as Component } from '.';
 import { Field } from '../field';
 import { Label } from '../label';
 
 export default {
-  title: 'Atom/Input',
+  title: 'Atom/BaseInput',
   component: Component,
 } as Meta;
 
@@ -17,9 +17,9 @@ const Template: Story = (args) => (
   </Field>
 );
 
-export const Input = Template.bind({});
-Input.args = {
-  ...Input.args,
+export const BaseInput = Template.bind({});
+BaseInput.args = {
+  ...BaseInput.args,
   value: 'Shapes of Water',
   onChange: action('input change'),
 };
