@@ -7,7 +7,7 @@ import {
 } from '../../atoms/accordion';
 
 export default {
-  title: 'Molecules/AccordionGroup',
+  title: 'Molecule/AccordionGroup',
   component: Component,
   argTypes: {
     open: {
