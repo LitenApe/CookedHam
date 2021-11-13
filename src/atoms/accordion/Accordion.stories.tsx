@@ -59,28 +59,35 @@ Accordion.args = {
       <Panel>
         <h4>What is Lorem Ipsum?</h4>
         <p>
-          What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing
-          and typesetting industry. Lorem Ipsum has been the industry's standard
-          dummy text ever since the 1500s, when an unknown printer took a galley
-          of type and scrambled it to make a type specimen book. It has survived
-          not only five centuries, but also the leap into electronic
-          typesetting, remaining essentially unchanged. It was popularised in
-          the 1960s with the release of Letraset sheets containing Lorem Ipsum
-          passages, and more recently with desktop publishing software like
-          Aldus PageMaker including versions of Lorem Ipsum.
+          Lorem ipsum occaecat sunt esse ut aliquip in magna irure dolor
+          deserunt pariatur sint exercitation anim ex ut occaecat enim mollit ad
+          non dolore sit ut minim fugiat voluptate incididunt deserunt mollit
+          mollit exercitation qui occaecat laborum cillum proident ut fugiat qui
+          irure elit laborum in excepteur nisi amet officia culpa ut in pariatur
+          velit veniam nisi consequat aliqua anim ex aliqua deserunt irure anim
+          incididunt amet et occaecat in esse aliqua consectetur elit qui ea
+          amet enim amet pariatur sed ex sit minim laborum eiusmod tempor id
+          anim laboris irure incididunt esse in laboris mollit pariatur enim
+          esse dolore adipisicing cillum ullamco proident excepteur aute est
+          sint in anim dolore sint elit nisi eiusmod proident eu ex mollit
+          cupidatat reprehenderit ullamco consequat eu tempor amet est sunt
         </p>
 
         <h4>Why do we use it?</h4>
         <p>
-          It is a long established fact that a reader will be distracted by the
-          readable content of a page when looking at its layout. The point of
-          using Lorem Ipsum is that it has a more-or-less normal distribution of
-          letters, as opposed to using 'Content here, content here', making it
-          look like readable English. Many desktop publishing packages and web
-          page editors now use Lorem Ipsum as their default model text, and a
-          search for 'lorem ipsum' will uncover many web sites still in their
-          infancy. Various versions have evolved over the years, sometimes by
-          accident, sometimes on purpose (injected humour and the like).
+          Lorem ipsum nostrud consectetur minim tempor occaecat do proident
+          exercitation fugiat aute irure velit excepteur ut aliqua velit dolor
+          adipisicing nostrud deserunt veniam aliqua aliqua amet nostrud dolor
+          ad reprehenderit adipisicing incididunt irure irure est dolore laboris
+          irure aliqua quis ut laborum qui eiusmod eiusmod magna in sunt
+          consequat consequat esse labore aliqua velit eu dolore et nulla magna
+          dolore enim ea dolore deserunt consequat sunt laboris reprehenderit
+          nostrud elit id exercitation mollit sunt dolore dolor duis commodo
+          exercitation cillum excepteur culpa anim esse nisi ut ut sunt amet
+          dolore commodo commodo esse aliquip enim enim laboris adipisicing
+          exercitation id nisi pariatur magna cupidatat ullamco non sit est
+          exercitation tempor amet adipisicing ex quis nulla consequat voluptate
+          enim qui velit ut id occaecat velit ut tempor veniam nulla
         </p>
       </Panel>
     </>
