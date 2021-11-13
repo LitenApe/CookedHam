@@ -25,6 +25,12 @@ describe('Input default behavior', () => {
     expect(element).toHaveAttribute('type', 'text');
   });
 
+  test('has no type if rendered as textarea', () => {
+    render(<Input as="textarea" />);
+    const element = screen.getByRole('textbox');
+    expect(element).not.toHaveAttribute('type');
+  });
+
   test('has type "tel" when specified', () => {
     render(<Input type="tel" />);
     const element = screen.getByRole('textbox');

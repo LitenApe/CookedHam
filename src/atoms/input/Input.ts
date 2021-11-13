@@ -7,7 +7,11 @@ function Input<T extends PermittedTags = 'input'>(
   props: BaseInputProps<T>,
   ref: ForwardedRef<HTMLInputElement | HTMLTextAreaElement>
 ) {
-  return createElement(BaseInput, { type: 'text', ...props, ref });
+  return createElement(BaseInput, {
+    type: props.as === 'textarea' ? undefined : 'text',
+    ...props,
+    ref,
+  });
 }
 
 export default forwardRef(Input);
