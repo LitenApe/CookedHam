@@ -13,12 +13,15 @@ function BaseField(props: BaseFieldProps): JSX.Element {
   const { children, ...rest } = props;
 
   const alertId = `form-field-alert-${id}`;
-  const isValid = Boolean(rest.error);
+  const isInvalid = Boolean(rest.error);
 
   return createElement(
     Field,
     {
-      'aria-describedby': concat(isValid && alertId, rest['aria-describedby']),
+      'aria-describedby': concat(
+        isInvalid && alertId,
+        rest['aria-describedby']
+      ),
       ...rest,
     },
     [
