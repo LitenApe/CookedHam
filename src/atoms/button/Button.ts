@@ -13,7 +13,7 @@ type PermittedTags = 'a' | 'button';
 function Button<T extends PermittedTags = 'button'>(
   props: DynamicProps<T>,
   ref: ForwardedRef<HTMLButtonElement | HTMLAnchorElement>
-) {
+): JSX.Element {
   const { as = 'button', onClick, ...args } = props;
 
   const isDisabled =

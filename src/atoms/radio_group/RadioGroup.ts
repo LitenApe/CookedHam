@@ -15,7 +15,7 @@ import Field from '../field/Field';
 function RadioGroup(
   props: ComponentProps<'fieldset'> & ComponentProps<'input'>,
   ref: ForwardedRef<HTMLFieldSetElement>
-) {
+): JSX.Element {
   const fieldsetRef = createRef<HTMLFieldSetElement>();
   const { children, onBlur, ...rest } = props;
 

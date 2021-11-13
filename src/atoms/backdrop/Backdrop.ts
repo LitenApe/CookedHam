@@ -10,7 +10,10 @@ type BackdropProps = {
   visible?: boolean;
 } & Omit<PropsWithChildren<typeof motion.div>, '$$typeof'>;
 
-function Backdrop(props: BackdropProps, ref: ForwardedRef<HTMLDivElement>) {
+function Backdrop(
+  props: BackdropProps,
+  ref: ForwardedRef<HTMLDivElement>
+): JSX.Element {
   const { visible, ...args } = props;
   return createElement(
     AnimatePresence,

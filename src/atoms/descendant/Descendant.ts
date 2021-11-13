@@ -8,7 +8,7 @@ import {
 import { DescendantContext } from './bones/DescendantContext';
 import { DescendantManager } from './bones/DescendantManager';
 
-function Descendant(props: PropsWithChildren<{}>) {
+function Descendant(props: PropsWithChildren<{}>): JSX.Element {
   const manager = useRef(new DescendantManager());
 
   // force rerender and used for debugging

@@ -5,7 +5,7 @@ import { useAccordion } from './AccordionContext';
 function AccordionPanel(
   props: ComponentProps<'section'>,
   ref: ForwardedRef<HTMLDivElement>
-) {
+): JSX.Element {
   const { children, ...rest } = props;
   const { id, open } = useAccordion();
   return createElement(

@@ -11,7 +11,7 @@ import { DynamicProps, HTMLTags } from '../../utils/types/DynamicProps';
 function Alert<T extends HTMLTags = 'div'>(
   props: DynamicProps<T>,
   ref: ForwardedRef<HTMLDivElement>
-) {
+): JSX.Element {
   const { as = 'div', children, ...rest } = props;
   const [content, setContent] = useState<ReactNode | null>(null);
 

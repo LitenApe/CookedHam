@@ -12,7 +12,7 @@ import { useField } from '../field';
 function Select(
   props: { error?: string } & ComponentProps<'select'>,
   ref: ForwardedRef<HTMLSelectElement>
-) {
+): JSX.Element {
   const internalRef = useRef<HTMLSelectElement>();
   const { getFieldProps } = useField();
   const { error, ...args } = getFieldProps(props);
