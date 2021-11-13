@@ -19,7 +19,7 @@ type AccordionGroupProps = {
   children: Array<ReactElement<AccordionProps>>;
 };
 
-function AccordionGroup(props: AccordionGroupProps) {
+function AccordionGroup(props: AccordionGroupProps): JSX.Element {
   const {
     children,
     initial = -1,

@@ -4,7 +4,7 @@ import { useAccordion } from './AccordionContext';
 function AccordionHeader(
   props: ComponentProps<'button'>,
   ref: ForwardedRef<HTMLButtonElement>
-) {
+): JSX.Element {
   const { id, open, onClick } = useAccordion();
   return createElement('button', {
     ...props,

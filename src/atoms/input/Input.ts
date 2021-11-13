@@ -6,7 +6,7 @@ type PermittedTags = 'input' | 'textarea';
 function Input<T extends PermittedTags = 'input'>(
   props: BaseInputProps<T>,
   ref: ForwardedRef<HTMLInputElement | HTMLTextAreaElement>
-) {
+): JSX.Element {
   return createElement(BaseInput, {
     type: props.as === 'textarea' ? undefined : 'text',
     ...props,

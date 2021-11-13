@@ -20,7 +20,7 @@ export type BaseInputProps<T extends HTMLTags> = {
 function BaseInput<T extends PermittedTags = 'input'>(
   props: BaseInputProps<T>,
   ref: ForwardedRef<HTMLInputElement | HTMLTextAreaElement>
-) {
+): JSX.Element {
   const internalRef = useRef<HTMLInputElement>();
   const { as = 'input', ...rest } = props;
   const { getFieldProps } = useField();

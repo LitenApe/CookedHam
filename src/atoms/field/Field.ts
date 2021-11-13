@@ -3,7 +3,7 @@ import { FieldContext, FieldProps, useField } from './bones/FieldContext';
 import { callAll } from '../../utils/functions/callAll';
 import { useId } from '../../utils/hooks/useId';
 
-function Field(props: PropsWithChildren<FieldProps>) {
+function Field(props: PropsWithChildren<FieldProps>): JSX.Element {
   const id = useId('form-field');
   const parent = useField();
   const { children, ...rest } = props;

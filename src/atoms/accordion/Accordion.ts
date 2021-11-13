@@ -19,7 +19,10 @@ export type AccordionProps = {
   onClick?: (event: MouseEvent, open: boolean) => void;
 } & Omit<ComponentProps<'div'>, 'onClick'>;
 
-function Accordion(props: AccordionProps, ref: ForwardedRef<HTMLDivElement>) {
+function Accordion(
+  props: AccordionProps,
+  ref: ForwardedRef<HTMLDivElement>
+): JSX.Element {
   const {
     initial = false,
     open: controlledOpen,
