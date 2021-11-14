@@ -1,22 +1,23 @@
 # Kitchen
 
-Kitchen will become my location for everything i need in a project. From React components to utility functions and custom hooks. This is the place to find whatever I might need to "cook" my applications. The project will be created as a styleless component library which also holds whichever hooks and functions I think will be beneficial. The reason why it is styleless is so that whomever stumbles upon this project can easily fork it and customize it to their preference, without having to figure out how styling related things are connected. It is, in other words, a clean canvas ready to be used.
+Kitchen is a "one stop shop" for _cooking_ utensils used to create delishes web applications. All jokes aside though. Kitchen is a styleless component library which can be forked and expanded to speed up the development process of a component library. Component libraries are slowly becoming a necessity for professional work. It speeds up development speed, reduces overall bugs and provides consistency between applications. Additionally, it helps developers create good markup and in our case here, also assist in providing accessible elements for most users out there.
 
-All the components has been written without the use of JSX, which is intentional. I wanted to improve my understanding of the top level API provided by React, which is why some of the choices might be questionable for most of you. In other words, this project serves as my sandbox where I test certain design patterns and such, which has resulted in some components being rewritten multiple times to serve as a source for discussion with friends and collegues.
+The project is still in alpha, and currently serves as a playground where I try to optimize the code to what I believe to be a maintainable codebase. A codebase which can be understood and worked on by people of all skill levels. All the components are written without JSX at the moment, which is intentional on my part. On one side, it as to test out how much easier or worse it is to work with React without JSX. On the other hand, it made it easier to work with polymophic components in the initial phase of the project.
 
-The project is currently only configured to work as a development and testing ground. If you actually want to build the components and use them, then there is one simple task that needs to be done. You have two options to reach the goal of using the project as an actual component library. One is to create an index file, which imports every single component to serve as the entry point. The other is to add a bundler or eject create-react-app and configure it to crawl through the repository and build everything it finds.
+Another important thing of note is that the project is yet to be configured for **production**. At it's current state, the project only works as an development sandbox. This is because I am still unsure on how I want the component to be used. Should they all be individual packages? Should it be one large library which is added and upgraded as a whole? With all things, how the library is bundled and distributed will affect how easy it is to take it in use within professional codebases.
 
 ## Project Structure
 
-The project is structured with an **atomic design system** in mind, which means that components are structured based on it's intended purpose and size. Everything that is not a component lives in the **utils** directory, which is then divided into hooks or functions. Global type definitions live at the **utils** root for now, however, it should be moved into its own directory sometime in the future.
+The project is structured following the **atomic design system** to slowly build up fully functional and usable components. While it does not following the mindset of atomic design systems completely, it makes use of its principles to slowly build up the components complexity, effectively reducing the amount of logic needed in one single component. The components are supported by **utils** which lives on the outside and attempts to make the code more readable whenever applicable. It also helps to reduce **id** and **key** collisions with **hooks** such as **useId**.
 
-Each component directory consist of at least three files, the component itself, a story for documentation and development of said component and tests for the component. If the component need its logic split up for abstraction purposes, then those files should live inside of a directory named **bones** in the component directory which use them. This will ensure that each component is isolated as much as possible from the outside, and the **bones** only have to take the components use-case into consideration, which helps in keeping complexity to a minimum.
+Each component directory consist of at least three files, the component itself, a story for documentation and development of said component and tests for the component. All complementary components and logic which is needed for the **main** component to function is separated into a directory named **bones** to keep the root tidy. Bones are component specific functionality which is tailored for one particular use case. It makes no attempt at generalising it's problem, which means that other components which might have some similar use-case but not exactly similar while have their own version tailored towards their own use-case.
 
 Below you will find an illustration of how the project will be structured as it grows.
 
 Kitchen/  
 ├─ atoms/  
 │ ├─ component/  
+│ │ ├─ bones  
 │ │ ├─ Component  
 │ │ ├─ Component Story  
 │ │ ├─ Component Test  
@@ -28,9 +29,69 @@ Kitchen/
 │ ├─ functions/  
 │ ├─ types/
 
+## Roadmap
+
+As mentioned in the introduction, the project is still in alpha, which means that there are still a few things that needs to be done before the project be used distributed and used. Below you will find the tasks which needs to be finished before the components are usable in no particular order.
+
+### Early alpha
+
+- [x] Individual form components
+  - [x] Input
+  - [x] Checkbox
+  - [x] Radio
+  - [x] Radio Group
+  - [x] Select
+  - [x] Label
+  - [x] Fieldset
+  - [x] Legend
+  - [x] Field
+  - [x] Button
+- [x] Basic layout components
+  - [x] Accordion
+  - [x] Backdrop
+  - [x] Alert
+- [x] Basic utility components
+  - [x] DangerousHTML
+  - [x] Descendants
+  - [x] ErrorBoundary
+  - [x] BaseInput
+
+### Alpha
+
+- [ ] FormFields
+  - [ ] InputField
+  - [ ] CheckboxField
+  - [ ] RadioField
+  - [ ] SelectField
+- [ ] Layout components
+  - [x] AccordionGroup
+- [ ] Utility components
+  - [ ] BaseField
+
+### Beta
+
+- [ ] Individual form components
+  - [ ] Combobox
+- [ ] FormFields
+  - [ ] ComboboxField
+- [ ] Layout components
+  - [ ] Dialog
+  - [ ] VisiblyHidden
+- [ ] Other tasks
+  - [ ] Rewrite codebase to use JSX
+  - [ ] Add documentation to components
+  - [ ] Mono or _Monolith_ code distribution
+  - [ ] Github Actions for tagging
+  - [ ] Github Actions for releases
+  - [ ] Github Actions for publishing
+
+## Questions
+
+Create an issue with your questions and I'll try to answer it to the best of my ability. I don't take request for missing components as the project is still in its infant periode where the essentials still need to be developed.
+
 ## Available Scripts
 
-The project was created through the use of **Create React App** and **Storybook** initialization commands. All the generated configuration should be untouched with some few exceptions to make solve some build issues in the beginning related **to Storybook** and **TypeScript**
+The project was created through the use of **Create React App** and **Storybook** initialization commands. All the generated configuration should be untouched with some few exceptions to solve some build issues in the beginning related to **Storybook** and **TypeScript** which I encountered.
 
 ### start
 
@@ -42,10 +103,13 @@ npm run start
 
 ### test
 
-test executes all tests and enters watch mode. Please read the **Jest** documentation for more information regarding running tests and options.
+test executes all tests and enters watch mode. Please read the **Jest** documentation for more information regarding running tests and options. Tests are ran in watch mode by default, necessary flags will therefore be required to disable watch mode if it is an undesirable feature.
 
 ```bash
 npm run test
+
+// without watch mode
+npm run test -- watchAll=false
 ```
 
 ### build-storybook
@@ -83,7 +147,3 @@ npm run build
 ```bash
 npm run eject
 ```
-
-## Questions
-
-Create an issue with your questions and I'll try to answer it to the best of my ability. I don't take request for missing components, as the project is not intended as a one stop shop for everyone, hence the no styling.
