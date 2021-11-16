@@ -46,11 +46,11 @@ As mentioned in the introduction, the project is still in alpha, which means tha
   - [x] Legend
   - [x] Field
   - [x] Button
-- [x] Basic layout components
+- [x] Layout components
   - [x] Accordion
   - [x] Backdrop
   - [x] Alert
-- [x] Basic utility components
+- [x] Utility components
   - [x] DangerousHTML
   - [x] Descendants
   - [x] ErrorBoundary
@@ -65,8 +65,8 @@ As mentioned in the introduction, the project is still in alpha, which means tha
   - [ ] SelectField
 - [ ] Layout components
   - [x] AccordionGroup
-- [ ] Utility components
-  - [ ] BaseField
+- [x] Utility components
+  - [x] BaseField
 
 ### Beta
 
