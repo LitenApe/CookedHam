@@ -32,11 +32,12 @@ function BaseField(props: BaseFieldProps): JSX.Element {
 
         return cloneElement(child, { key: `field-element-${id}-${index}` });
       }),
-      createElement(
-        Alert,
-        { key: `field-alert-${id}`, id: alertId, 'aria-live': 'assertive' },
-        props.error
-      ),
+      isInvalid &&
+        createElement(
+          Alert,
+          { key: `field-alert-${id}`, id: alertId, 'aria-live': 'assertive' },
+          props.error
+        ),
     ]
   );
 }
