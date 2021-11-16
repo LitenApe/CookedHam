@@ -20,24 +20,23 @@ function AccordionPanel(
     createElement(
       AnimatePresence,
       { initial: false },
-      open
-        ? createElement(
-            motion.section,
-            {
-              key: `${id}_content`,
-              initial: 'collapsed',
-              animate: 'open',
-              exit: 'collapsed',
-              style: { overflow: 'hidden' },
-              variants: {
-                open: { height: 'auto' },
-                collapsed: { height: 0 },
-              },
-              transition: { duration: 0.3, type: 'spring' },
+      open &&
+        createElement(
+          motion.section,
+          {
+            key: `${id}_content`,
+            initial: 'collapsed',
+            animate: 'open',
+            exit: 'collapsed',
+            style: { overflow: 'hidden' },
+            variants: {
+              open: { height: 'auto' },
+              collapsed: { height: 0 },
             },
-            children
-          )
-        : null
+            transition: { duration: 0.3, type: 'spring' },
+          },
+          children
+        )
     )
   );
 }
