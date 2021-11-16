@@ -6,6 +6,5 @@ export function concat(
   const validStrings = args.filter(
     (arg): arg is string => typeof arg === 'string'
   );
-  const result = validStrings.join(' ');
-  return isEmpty(result) ? undefined : result;
+  return isEmpty(validStrings) ? undefined : validStrings.join(' ');
 }
