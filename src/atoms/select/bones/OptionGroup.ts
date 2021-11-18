@@ -1,7 +1,9 @@
 import { ComponentProps, createElement, ForwardedRef, forwardRef } from 'react';
 
+export type OptionGroupProps = ComponentProps<'optgroup'>;
+
 function OptionGroup(
-  props: ComponentProps<'optgroup'>,
+  props: OptionGroupProps,
   ref: ForwardedRef<HTMLOptGroupElement>
 ): JSX.Element {
   return createElement('optgroup', { ...props, ref });

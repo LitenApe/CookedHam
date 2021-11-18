@@ -9,8 +9,12 @@ import {
 import { mergeRefs } from '../../utils/functions/mergeRefs';
 import { useField } from '../field';
 
+export interface SelectProps extends ComponentProps<'select'> {
+  error?: string;
+}
+
 function Select(
-  props: { error?: string } & ComponentProps<'select'>,
+  props: SelectProps,
   ref: ForwardedRef<HTMLSelectElement>
 ): JSX.Element {
   const internalRef = useRef<HTMLSelectElement>();

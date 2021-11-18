@@ -1,7 +1,9 @@
 import { ComponentProps, createElement, ForwardedRef, forwardRef } from 'react';
 
+export type OptionProps = ComponentProps<'option'>;
+
 function Option(
-  props: ComponentProps<'option'>,
+  props: OptionProps,
   ref: ForwardedRef<HTMLOptionElement>
 ): JSX.Element {
   return createElement('option', { ...props, ref });
