@@ -7,8 +7,9 @@ import {
 } from '../../atoms/select';
 import { useId } from '../../utils/hooks/useId';
 
-interface Option extends Omit<OptionProps, 'children' | 'ref'> {
+interface Option extends Omit<OptionProps, 'children' | 'value' | 'ref'> {
   label: string;
+  value: string;
 }
 
 type SelectFieldProps = {

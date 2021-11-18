@@ -4,8 +4,9 @@ import { Radio, RadioProps } from '../../atoms/radio';
 import { RadioGroup, RadioGroupProps } from '../../atoms/radio_group';
 import { useId } from '../../utils/hooks/useId';
 
-interface Option extends Omit<RadioProps, 'children'> {
+interface Option extends Omit<RadioProps, 'children' | 'value'> {
   label: string;
+  value: string;
 }
 
 type RadioFieldProps = {
