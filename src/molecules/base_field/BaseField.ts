@@ -28,7 +28,7 @@ function BaseField(props: BaseFieldProps): JSX.Element {
       ),
       ...rest,
     },
-    [
+    createElement('div', null, [
       Children.map(children, (child, index) => {
         if (!isValidElement(child)) {
           return null;
@@ -42,7 +42,7 @@ function BaseField(props: BaseFieldProps): JSX.Element {
           { key: `field-alert-${id}`, id: alertId, 'aria-live': 'assertive' },
           props.error
         ),
-    ]
+    ])
   );
 }
 
