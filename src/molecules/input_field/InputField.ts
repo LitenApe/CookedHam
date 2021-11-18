@@ -18,7 +18,7 @@ function InputField(
 
   return createElement(BaseField, rest, [
     createElement(Label, { key: `${id}_label` }, label),
-    createElement(Input, { ...rest, key: `${id}_component`, ref }),
+    createElement(Input, { key: `${id}_component`, ref }),
   ]);
 }
 
