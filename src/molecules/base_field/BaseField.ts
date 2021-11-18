@@ -1,12 +1,16 @@
-import { cloneElement, createElement, isValidElement } from 'react';
+import {
+  Children,
+  cloneElement,
+  createElement,
+  isValidElement,
+  PropsWithChildren,
+} from 'react';
 import { Alert } from '../../atoms/alert';
 import { Field, FieldProps } from '../../atoms/field';
 import { concat } from '../../utils/functions/concat';
 import { useId } from '../../utils/hooks/useId';
 
-export type BaseFieldProps = {
-  children: Array<JSX.Element>;
-} & FieldProps;
+export type BaseFieldProps = PropsWithChildren<FieldProps>;
 
 function BaseField(props: BaseFieldProps): JSX.Element {
   const id = useId('form-field');
@@ -25,7 +29,7 @@ function BaseField(props: BaseFieldProps): JSX.Element {
       ...rest,
     },
     [
-      children.map((child, index) => {
+      Children.map(children, (child, index) => {
         if (!isValidElement(child)) {
           return null;
         }
