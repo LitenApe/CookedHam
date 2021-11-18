@@ -1,4 +1,5 @@
 import { createElement, ForwardedRef, forwardRef } from 'react';
+import { Label } from '../../atoms/label';
 import {
   Option as SelectOption,
   OptionProps,
@@ -6,6 +7,7 @@ import {
   SelectProps,
 } from '../../atoms/select';
 import { useId } from '../../utils/hooks/useId';
+import { BaseField } from '../base_field';
 
 interface Option extends Omit<OptionProps, 'children' | 'value' | 'ref'> {
   label: string;
@@ -24,17 +26,20 @@ function SelectField(
   const { label, options, ...rest } = props;
   const id = useId('select-field');
 
-  return createElement(
-    Select,
-    { ...rest, ref },
-    options.map(({ label, ...optionProps }) =>
-      createElement(
-        SelectOption,
-        { ...optionProps, key: `${id}_option_${label}` },
-        label
+  return createElement(BaseField, rest, [
+    createElement(Label, { key: `${id}_label_${label}` }, label),
+    createElement(
+      Select,
+      { key: `${id}_component_${label}`, ref },
+      options.map(({ label, ...optionProps }) =>
+        createElement(
+          SelectOption,
+          { ...optionProps, key: `${id}_option_${label}` },
+          label
+        )
       )
-    )
-  );
+    ),
+  ]);
 }
 
 export default forwardRef(SelectField);

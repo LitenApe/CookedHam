@@ -5,6 +5,7 @@ import { Legend } from '../../atoms/legend';
 import { Radio, RadioProps } from '../../atoms/radio';
 import { RadioGroup, RadioGroupProps } from '../../atoms/radio_group';
 import { useId } from '../../utils/hooks/useId';
+import { BaseField } from '../base_field';
 
 interface Option extends Omit<RadioProps, 'children' | 'value' | 'name'> {
   label: string;
@@ -24,23 +25,27 @@ function RadioField(
   const { label, options, name, ...rest } = props;
   const id = useId('radio-field');
 
-  return createElement(RadioGroup, { ...rest, ref }, [
-    createElement(Legend, { key: `${id}_group_legend_${label}` }, label),
-    options.map(({ label, ...radioProps }) =>
-      createElement(
-        Field,
-        { key: `${id}_group_option_${label}` },
-        createElement('div', null, [
-          createElement(Radio, {
-            ...radioProps,
-            name: name,
-            key: `${id}_radio_${label}`,
-          }),
-          createElement(Label, { key: `${id}_label_${label}` }, label),
-        ])
-      )
-    ),
-  ]);
+  return createElement(
+    BaseField,
+    rest,
+    createElement(RadioGroup, { ref }, [
+      createElement(Legend, { key: `${id}_group_legend_${label}` }, label),
+      options.map(({ label, ...radioProps }) =>
+        createElement(
+          Field,
+          { key: `${id}_group_option_${label}` },
+          createElement('div', null, [
+            createElement(Radio, {
+              ...radioProps,
+              name: name,
+              key: `${id}_radio_${label}`,
+            }),
+            createElement(Label, { key: `${id}_label_${label}` }, label),
+          ])
+        )
+      ),
+    ])
+  );
 }
 
 export default forwardRef(RadioField);
