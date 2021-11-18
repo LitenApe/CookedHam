@@ -18,7 +18,7 @@ function CheckboxField(
 
   return createElement(BaseField, rest, [
     createElement(Checkbox, { key: `${id}_component`, ref }),
-    createElement(Label, null, { key: `${id}_label` }, label),
+    createElement(Label, { key: `${id}_label` }, label),
   ]);
 }
 
