@@ -12,8 +12,11 @@ import { isUndefined } from '../../utils/functions/isUndefined';
 import { mergeRefs } from '../../utils/functions/mergeRefs';
 import Field from '../field/Field';
 
+export type RadioGroupProps = Omit<ComponentProps<'fieldset'>, 'ref'> &
+  Omit<ComponentProps<'input'>, 'ref'>;
+
 function RadioGroup(
-  props: ComponentProps<'fieldset'> & ComponentProps<'input'>,
+  props: RadioGroupProps,
   ref: ForwardedRef<HTMLFieldSetElement>
 ): JSX.Element {
   const fieldsetRef = createRef<HTMLFieldSetElement>();

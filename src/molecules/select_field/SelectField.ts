@@ -11,13 +11,13 @@ interface Option extends Omit<OptionProps, 'children' | 'ref'> {
   label: string;
 }
 
-type Props = {
+type SelectFieldProps = {
   label: string;
   options: Array<Option>;
 } & Omit<SelectProps, 'children'>;
 
 function SelectField(
-  props: Props,
+  props: SelectFieldProps,
   ref: ForwardedRef<HTMLSelectElement>
 ): JSX.Element {
   const { label, options, ...rest } = props;

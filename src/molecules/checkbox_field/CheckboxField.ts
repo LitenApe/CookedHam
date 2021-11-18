@@ -5,12 +5,12 @@ import { Label } from '../../atoms/label';
 import { useId } from '../../utils/hooks/useId';
 import { BaseField } from '../base_field';
 
-type Props = {
+type CheckboxFieldProps = {
   label: string;
 } & BaseInputProps<'input'>;
 
 function CheckboxField(
-  props: Props,
+  props: CheckboxFieldProps,
   ref: ForwardedRef<HTMLInputElement>
 ): JSX.Element {
   const { label, ...rest } = props;

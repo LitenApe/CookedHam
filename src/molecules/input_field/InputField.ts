@@ -5,11 +5,14 @@ import { Label } from '../../atoms/label';
 import { useId } from '../../utils/hooks/useId';
 import { BaseField } from '../base_field';
 
-type Props = {
+type InputFieldProps = {
   label: string;
 } & BaseInputProps<'input'>;
 
-function InputField(props: Props, ref: ForwardedRef<HTMLInputElement>) {
+function InputField(
+  props: InputFieldProps,
+  ref: ForwardedRef<HTMLInputElement>
+) {
   const { label, ...rest } = props;
   const id = useId('input-field');
 
