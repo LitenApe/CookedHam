@@ -16,7 +16,7 @@ interface Option extends Omit<OptionProps, 'children' | 'value' | 'ref'> {
 
 type SelectFieldProps = {
   label: string;
-  options: Array<Option>;
+  options: Array<Option | (() => JSX.Element)>;
 } & Omit<SelectProps, 'children'>;
 
 function SelectField(
@@ -31,12 +31,14 @@ function SelectField(
     createElement(
       Select,
       { key: `${id}_component_${label}`, ref },
-      options.map(({ label, ...optionProps }) =>
-        createElement(
-          SelectOption,
-          { ...optionProps, key: `${id}_option_${label}` },
-          label
-        )
+      options.map((option) =>
+        typeof option === 'function'
+          ? createElement(option)
+          : createElement(
+              SelectOption,
+              { ...option, key: `${id}_option_${label}` },
+              option.label
+            )
       )
     ),
   ]);
