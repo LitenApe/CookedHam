@@ -3,7 +3,7 @@ import { createRef } from 'react';
 import { Descendant, useDescendant } from '.';
 import { useMount } from '../../utils/hooks/useMount';
 import { DescendantManager } from './bones/DescendantManager';
-import { sortNodes } from './bones/utils';
+import { getNextIndex, getPreviousIndex, sortNodes } from './bones/utils';
 
 describe('Descendant default behavior', () => {
   describe('DescendantManager', () => {
@@ -294,30 +294,60 @@ describe('Descendant default behavior', () => {
     });
   });
 
-  describe('sortNodes', () => {
-    test('nodes are sorted in ascending order', () => {
-      const first = createRef<HTMLDivElement>();
-      const second = createRef<HTMLDivElement>();
-      const third = createRef<HTMLDivElement>();
+  describe('utils', () => {
+    describe('sortNodes', () => {
+      test('nodes are sorted in ascending order', () => {
+        const first = createRef<HTMLDivElement>();
+        const second = createRef<HTMLDivElement>();
+        const third = createRef<HTMLDivElement>();
 
-      render(
-        <div>
-          <div ref={first}></div>
-          <div ref={second}></div>
-          <div ref={third}></div>
-        </div>
-      );
+        render(
+          <div>
+            <div ref={first}></div>
+            <div ref={second}></div>
+            <div ref={third}></div>
+          </div>
+        );
 
-      const nodes = [first, second, third]
-        .map((ref) => ref.current)
-        .filter((ref): ref is HTMLDivElement => ref !== null);
+        const nodes = [first, second, third]
+          .map((ref) => ref.current)
+          .filter((ref): ref is HTMLDivElement => ref !== null);
 
-      expect(nodes).toHaveLength(3);
-      const sorted = sortNodes([nodes[1], nodes[2], nodes[0]]);
+        expect(nodes).toHaveLength(3);
+        const sorted = sortNodes([nodes[1], nodes[2], nodes[0]]);
 
-      expect(sorted[0]).toBe(nodes[0]);
-      expect(sorted[1]).toBe(nodes[1]);
-      expect(sorted[2]).toBe(nodes[2]);
+        expect(sorted[0]).toBe(nodes[0]);
+        expect(sorted[1]).toBe(nodes[1]);
+        expect(sorted[2]).toBe(nodes[2]);
+      });
+    });
+
+    describe('getNextIndex', () => {
+      test('increment with 1 when current is lower then length', () => {
+        expect(getNextIndex(0, 2)).toBe(1);
+      });
+
+      test('returns 0 when increment results in overflow', () => {
+        expect(getNextIndex(1, 2)).toBe(0);
+      });
+
+      test('returns same index when increment overflows and loop is disabled', () => {
+        expect(getNextIndex(1, 2, false)).toBe(1);
+      });
+    });
+
+    describe('getPreviousIndex', () => {
+      test('decrement with 1 when current is higher then 0', () => {
+        expect(getPreviousIndex(1, 2)).toBe(0);
+      });
+
+      test('returns 1 when decrement results in overflow', () => {
+        expect(getPreviousIndex(0, 2)).toBe(1);
+      });
+
+      test('returns same index when increment overflows and loop is disabled', () => {
+        expect(getPreviousIndex(0, 2, false)).toBe(0);
+      });
     });
   });
 });
