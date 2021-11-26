@@ -67,6 +67,8 @@ As mentioned in the introduction, the project is still in alpha, which means tha
   - [x] AccordionGroup
 - [x] Utility components
   - [x] BaseField
+- [ ] Other tasks
+  - [ ] Add tests for form fields
 
 ### Beta
 
@@ -77,6 +79,8 @@ As mentioned in the introduction, the project is still in alpha, which means tha
 - [ ] Layout components
   - [ ] Dialog
   - [ ] VisiblyHidden
+- [ ] Utility components
+  - [ ] Dropzone
 - [ ] Other tasks
   - [ ] Rewrite codebase to use JSX
   - [ ] Add documentation to components
