@@ -44,7 +44,7 @@ function RadioGroup(
       if (compared & Node.DOCUMENT_POSITION_CONTAINS) {
         onBlur(event);
       }
-    }, 0);
+    }, 200);
   }
 
   return createElement(
