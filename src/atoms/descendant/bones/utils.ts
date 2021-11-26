@@ -28,3 +28,31 @@ export function sortNodes(nodes: HTMLElement[]) {
     return 0;
   });
 }
+
+export function getNextIndex(
+  current: number,
+  length: number,
+  loop: boolean = true
+): number {
+  const next = current + 1;
+
+  if (next < length) {
+    return next;
+  }
+
+  return loop ? 0 : current;
+}
+
+export function getPreviousIndex(
+  current: number,
+  length: number,
+  loop: boolean = true
+): number {
+  const prev = current - 1;
+
+  if (prev >= 0) {
+    return prev;
+  }
+
+  return loop ? length - 1 : current;
+}

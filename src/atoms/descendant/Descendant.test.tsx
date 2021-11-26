@@ -70,6 +70,108 @@ describe('Descendant default behavior', () => {
 
       expect(manager.getIndex(null)).toBe(-1);
     });
+
+    test('returns next descendant', () => {
+      const refOne = createRef<HTMLParagraphElement>();
+      const refTwo = createRef<HTMLParagraphElement>();
+      render(
+        <>
+          <p ref={refOne}></p>
+          <p ref={refTwo}></p>
+        </>
+      );
+
+      const manager = new DescendantManager();
+      manager.register(refOne.current);
+      manager.register(refTwo.current);
+
+      expect(manager.next(0)).toBe(refTwo.current);
+    });
+
+    test('returns first descedant when last descedant ask for next', () => {
+      const refOne = createRef<HTMLParagraphElement>();
+      const refTwo = createRef<HTMLParagraphElement>();
+      render(
+        <>
+          <p ref={refOne}></p>
+          <p ref={refTwo}></p>
+        </>
+      );
+
+      const manager = new DescendantManager();
+      manager.register(refOne.current);
+      manager.register(refTwo.current);
+
+      expect(manager.next(1)).toBe(refOne.current);
+    });
+
+    test('returns same descedant when last descedant ask for next and loop is disabled', () => {
+      const refOne = createRef<HTMLParagraphElement>();
+      const refTwo = createRef<HTMLParagraphElement>();
+      render(
+        <>
+          <p ref={refOne}></p>
+          <p ref={refTwo}></p>
+        </>
+      );
+
+      const manager = new DescendantManager();
+      manager.register(refOne.current);
+      manager.register(refTwo.current);
+
+      expect(manager.next(1, false)).toBe(refTwo.current);
+    });
+
+    test('returns previous descendant', () => {
+      const refOne = createRef<HTMLParagraphElement>();
+      const refTwo = createRef<HTMLParagraphElement>();
+      render(
+        <>
+          <p ref={refOne}></p>
+          <p ref={refTwo}></p>
+        </>
+      );
+
+      const manager = new DescendantManager();
+      manager.register(refOne.current);
+      manager.register(refTwo.current);
+
+      expect(manager.prev(1)).toBe(refOne.current);
+    });
+
+    test('returns last descendant when first descedant ask for prev', () => {
+      const refOne = createRef<HTMLParagraphElement>();
+      const refTwo = createRef<HTMLParagraphElement>();
+      render(
+        <>
+          <p ref={refOne}></p>
+          <p ref={refTwo}></p>
+        </>
+      );
+
+      const manager = new DescendantManager();
+      manager.register(refOne.current);
+      manager.register(refTwo.current);
+
+      expect(manager.prev(0)).toBe(refTwo.current);
+    });
+
+    test('returns same descendant when first descedant ask for prev and loop is disabled', () => {
+      const refOne = createRef<HTMLParagraphElement>();
+      const refTwo = createRef<HTMLParagraphElement>();
+      render(
+        <>
+          <p ref={refOne}></p>
+          <p ref={refTwo}></p>
+        </>
+      );
+
+      const manager = new DescendantManager();
+      manager.register(refOne.current);
+      manager.register(refTwo.current);
+
+      expect(manager.prev(0, false)).toBe(refOne.current);
+    });
   });
 
   describe('Descendant', () => {

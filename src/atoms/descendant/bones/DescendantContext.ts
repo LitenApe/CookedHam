@@ -40,8 +40,26 @@ export function useDescendant() {
     [context, ref]
   );
 
+  const index = context.manager.getIndex(ref.current);
+
+  const next = useCallback(
+    (loop: boolean = true): HTMLElement | undefined => {
+      return context.manager.next(index, loop);
+    },
+    [context, index]
+  );
+
+  const prev = useCallback(
+    (loop: boolean = true) => {
+      return context.manager.prev(index, loop);
+    },
+    [context, index]
+  );
+
   return {
-    index: context.manager.getIndex(ref.current),
+    index,
     register,
+    next,
+    prev,
   };
 }

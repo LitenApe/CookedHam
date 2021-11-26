@@ -1,6 +1,6 @@
 import { isNull } from '../../../utils/functions/isNull';
 import { isUndefined } from '../../../utils/functions/isUndefined';
-import { sortNodes } from './utils';
+import { getNextIndex, getPreviousIndex, sortNodes } from './utils';
 
 export class DescendantManager {
   private descendant = new Map<HTMLElement, number>();
@@ -32,5 +32,27 @@ export class DescendantManager {
 
     const position = this.descendant.get(node);
     return isUndefined(position) ? -1 : position;
+  }
+
+  values(): Array<[HTMLElement, number]> {
+    const entries = Array.from(this.descendant);
+    return entries.sort((a, b) => a[1] - b[1]);
+  }
+
+  item(index: number): HTMLElement | undefined {
+    if (this.descendant.size < index) {
+      return undefined;
+    }
+    return this.values()[index][0];
+  }
+
+  next(index: number, loop: boolean = true): HTMLElement | undefined {
+    const next = getNextIndex(index, this.descendant.size, loop);
+    return this.item(next);
+  }
+
+  prev(index: number, loop: boolean = true): HTMLElement | undefined {
+    const prev = getPreviousIndex(index, this.descendant.size, loop);
+    return this.item(prev);
   }
 }
