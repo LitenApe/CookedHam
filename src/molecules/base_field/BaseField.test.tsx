@@ -4,6 +4,14 @@ import { Input } from '../../atoms/input';
 import { Label } from '../../atoms/label';
 
 describe('BaseField default behavior', () => {
+  beforeEach(() => {
+    jest.useFakeTimers();
+  });
+
+  afterEach(() => {
+    jest.useRealTimers();
+  });
+
   test('renders without crashing', () => {
     render(
       <BaseField>
@@ -65,10 +73,28 @@ describe('BaseField default behavior', () => {
       </BaseField>
     );
 
+    jest.runAllTimers();
+
     const error = container.querySelector('[aria-live="assertive"]');
     expect(error).not.toBeNull();
 
     const errorId = (error as Element).getAttribute('id');
     expect(input).toHaveAttribute('aria-describedby', errorId);
+  });
+
+  test('additional aria-describedby is concattenated', () => {
+    render(
+      <BaseField error="some error" aria-describedby="anotherId">
+        <Label>Some label</Label>
+        <Input />
+      </BaseField>
+    );
+
+    jest.runAllTimers();
+
+    const input = screen.getByRole('textbox');
+    expect(input).toHaveAttribute('aria-describedby');
+    const descriptions = input.getAttribute('aria-describedby');
+    expect(descriptions?.split(' ')).toHaveLength(2);
   });
 });

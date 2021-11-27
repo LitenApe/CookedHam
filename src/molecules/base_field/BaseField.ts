@@ -22,11 +22,11 @@ function BaseField(props: BaseFieldProps): JSX.Element {
   return createElement(
     Field,
     {
+      ...rest,
       'aria-describedby': concat(
         isInvalid && alertId,
         rest['aria-describedby']
       ),
-      ...rest,
     },
     createElement('div', null, [
       Children.map(children, (child, index) => {
