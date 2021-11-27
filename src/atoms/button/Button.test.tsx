@@ -83,10 +83,12 @@ describe('Button general behavior', () => {
     const { rerender } = render(<Button disabled>test</Button>);
     const button = screen.getByRole('button');
 
+    expect(button).not.toHaveAttribute('disabled');
     expect(button).toHaveAttribute('aria-disabled', 'true');
 
     rerender(<Button aria-disabled>test</Button>);
 
+    expect(button).not.toHaveAttribute('disabled');
     expect(button).toHaveAttribute('aria-disabled', 'true');
   });
 });

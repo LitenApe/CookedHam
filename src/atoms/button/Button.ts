@@ -31,6 +31,7 @@ function Button<T extends PermittedTags = 'button'>(
     'aria-disabled': isDisabled,
     onClick: clickHandler,
     ...args,
+    disabled: undefined,
     ref,
   });
 }

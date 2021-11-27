@@ -166,6 +166,55 @@ describe('Accordion general behavior', () => {
       expect(mock).toBeCalledTimes(1);
       global.console.warn = original;
     });
+
+    test('disabled suppresses click event', () => {
+      const mock = jest.fn();
+      render(
+        <Accordion onClick={jest.fn()}>
+          <AccordionHeader disabled>content</AccordionHeader>
+        </Accordion>
+      );
+      const button = screen.getByRole('button');
+
+      expect(mock).not.toHaveBeenCalled();
+      userEvent.click(button);
+      expect(mock).not.toHaveBeenCalled();
+    });
+
+    test('aria-disabled suppresses click event', () => {
+      const mock = jest.fn();
+      render(
+        <Accordion onClick={jest.fn()}>
+          <AccordionHeader aria-disabled>content</AccordionHeader>
+        </Accordion>
+      );
+      const button = screen.getByRole('button');
+
+      expect(mock).not.toHaveBeenCalled();
+      userEvent.click(button);
+      expect(mock).not.toHaveBeenCalled();
+    });
+
+    test('aria-disabled is used when button is disabled', () => {
+      const { rerender } = render(
+        <Accordion onClick={jest.fn()}>
+          <AccordionHeader disabled>content</AccordionHeader>
+        </Accordion>
+      );
+      const button = screen.getByRole('button');
+
+      expect(button).not.toHaveAttribute('disabled');
+      expect(button).toHaveAttribute('aria-disabled', 'true');
+
+      rerender(
+        <Accordion onClick={jest.fn()}>
+          <AccordionHeader aria-disabled>content</AccordionHeader>
+        </Accordion>
+      );
+
+      expect(button).not.toHaveAttribute('disabled');
+      expect(button).toHaveAttribute('aria-disabled', 'true');
+    });
   });
 
   describe('Accordion Panel general behavior', () => {

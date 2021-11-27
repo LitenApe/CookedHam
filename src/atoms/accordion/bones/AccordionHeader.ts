@@ -1,17 +1,35 @@
-import { ComponentProps, createElement, ForwardedRef, forwardRef } from 'react';
+import {
+  ComponentProps,
+  createElement,
+  ForwardedRef,
+  forwardRef,
+  MouseEvent,
+} from 'react';
+import { isDefined } from '../../../utils/functions/isDefined';
 import { useAccordion } from './AccordionContext';
 
 function AccordionHeader(
   props: ComponentProps<'button'>,
   ref: ForwardedRef<HTMLButtonElement>
 ): JSX.Element {
+  const { disabled, ...rest } = props;
   const { id, open, onClick } = useAccordion();
+
+  const isDisabled = disabled === true || rest['aria-disabled'] === true;
+
+  function clickHandler(event: MouseEvent<any>) {
+    if (!isDisabled && isDefined(onClick)) {
+      onClick(event);
+    }
+  }
+
   return createElement('button', {
-    ...props,
+    ...rest,
     id: `${id}_button`,
+    'aria-disabled': isDisabled,
     'aria-controls': `${id}_content`,
     'aria-expanded': open,
-    onClick,
+    onClick: clickHandler,
     ref,
   });
 }
