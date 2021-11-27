@@ -22,7 +22,7 @@ function RadioField(
   props: RadioFieldProps,
   ref: ForwardedRef<HTMLFieldSetElement>
 ) {
-  const { label, options, name, ...rest } = props;
+  const { label, options, name, required, ...rest } = props;
   const id = useId('radio-field');
 
   return createElement(
@@ -30,12 +30,13 @@ function RadioField(
     rest,
     createElement(RadioGroup, { ref }, [
       createElement(Legend, { key: `${id}_group_legend_${label}` }, label),
-      options.map(({ label, ...radioProps }) =>
+      options.map(({ label, ...radioProps }, index) =>
         createElement(
           Field,
-          { key: `${id}_group_option_${label}` },
+          { key: `${id}_group_${name}_option_${label}` },
           createElement('div', null, [
             createElement(Radio, {
+              required: required && index === 0,
               ...radioProps,
               name: name,
               key: `${id}_radio_${label}`,
