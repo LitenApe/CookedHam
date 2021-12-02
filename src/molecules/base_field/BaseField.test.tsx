@@ -29,7 +29,7 @@ describe('BaseField default behavior', () => {
       </BaseField>
     );
 
-    const errorNotMounted = container.querySelector('[aria-live="assertive"]');
+    const errorNotMounted = container.querySelector('[aria-live="polite"]');
     expect(errorNotMounted).toBeNull();
 
     rerender(
@@ -39,7 +39,7 @@ describe('BaseField default behavior', () => {
       </BaseField>
     );
 
-    const errorMounted = container.querySelector('[aria-live="assertive"]');
+    const errorMounted = container.querySelector('[aria-live="polite"]');
     expect(errorMounted).not.toBeNull();
   });
 
@@ -75,7 +75,7 @@ describe('BaseField default behavior', () => {
 
     jest.runAllTimers();
 
-    const error = container.querySelector('[aria-live="assertive"]');
+    const error = container.querySelector('[aria-live="polite"]');
     expect(error).not.toBeNull();
 
     const errorId = (error as Element).getAttribute('id');

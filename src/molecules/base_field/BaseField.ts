@@ -39,7 +39,7 @@ function BaseField(props: BaseFieldProps): JSX.Element {
       isInvalid &&
         createElement(
           Alert,
-          { key: `field-alert-${id}`, id: alertId, 'aria-live': 'assertive' },
+          { key: `field-alert-${id}`, id: alertId, 'aria-live': 'polite' },
           props.error
         ),
     ])
