@@ -20,4 +20,9 @@ describe('concat default befavior', () => {
     const res = concat('foo', 'bar', 'kable mo');
     expect(res).toBe('foo bar kable mo');
   });
+
+  test('remove duplicate strings', () => {
+    const res = concat('foo', 'bar', 'foo bar', 'zap', 'bar');
+    expect(res).toBe('foo bar zap');
+  });
 });
