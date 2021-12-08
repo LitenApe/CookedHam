@@ -56,6 +56,18 @@ describe('Input default behavior', () => {
     expect(postfix).toHaveAttribute('id', postfixId);
   });
 
+  test('renders JSX prefix', () => {
+    render(<Input postfix={<span data-testid="test-container" />} />);
+    const element = screen.getByTestId('test-container');
+    expect(element).toBeInTheDocument();
+  });
+
+  test('renders JSX postfix', () => {
+    render(<Input postfix={<span data-testid="test-container" />} />);
+    const element = screen.getByTestId('test-container');
+    expect(element).toBeInTheDocument();
+  });
+
   test('has "id" when wrapped by "Field"', () => {
     render(
       <Field>
