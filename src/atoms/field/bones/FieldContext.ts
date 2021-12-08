@@ -1,7 +1,9 @@
 import { ComponentProps, createContext, useContext } from 'react';
 
+import { InputProps } from '../../input';
+
 type FieldTypes =
-  | ComponentProps<'input'>
+  | InputProps<'input'>
   | ComponentProps<'select'>
   | ComponentProps<'label'>
   | ComponentProps<'textarea'>;

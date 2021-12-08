@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react';
-import { Input } from '.';
+
 import { Field } from '../field';
+import { Input } from '.';
 
 describe('Input default behavior', () => {
   test('renders without crashing', () => {
@@ -37,6 +38,24 @@ describe('Input default behavior', () => {
     expect(element).toHaveAttribute('type', 'tel');
   });
 
+  test('prefix is related to input', () => {
+    render(<Input prefix="😁" />);
+    const element = screen.getByRole('textbox');
+    const prefixId = element.getAttribute('aria-describedby');
+    const prefix = screen.queryByText('😁');
+
+    expect(prefix).toHaveAttribute('id', prefixId);
+  });
+
+  test('postfix is related to input', () => {
+    render(<Input postfix="😁" />);
+    const element = screen.getByRole('textbox');
+    const postfixId = element.getAttribute('aria-describedby');
+    const postfix = screen.queryByText('😁');
+
+    expect(postfix).toHaveAttribute('id', postfixId);
+  });
+
   test('has "id" when wrapped by "Field"', () => {
     render(
       <Field>
@@ -45,5 +64,33 @@ describe('Input default behavior', () => {
     );
     const element = screen.getByRole('textbox');
     expect(element).toHaveAttribute('id');
+  });
+
+  test('prefix on Field is passed down to Input', () => {
+    render(
+      <Field prefix="😁">
+        <Input />
+      </Field>
+    );
+
+    const element = screen.getByRole('textbox');
+    const prefixId = element.getAttribute('aria-describedby');
+    const prefix = screen.queryByText('😁');
+
+    expect(prefix).toHaveAttribute('id', prefixId);
+  });
+
+  test('postfix on Field is passed down to Input', () => {
+    render(
+      <Field postfix="😁">
+        <Input />
+      </Field>
+    );
+
+    const element = screen.getByRole('textbox');
+    const postfixId = element.getAttribute('aria-describedby');
+    const postfix = screen.queryByText('😁');
+
+    expect(postfix).toHaveAttribute('id', postfixId);
   });
 });

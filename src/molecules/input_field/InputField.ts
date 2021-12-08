@@ -1,22 +1,23 @@
-import { createElement, ForwardedRef, forwardRef } from 'react';
-import { BaseInputProps } from '../../atoms/base_input';
-import { Input } from '../../atoms/input';
+import { ForwardedRef, createElement, forwardRef } from 'react';
+import { Input, InputProps, PermittedTags } from '../../atoms/input';
+
+import { BaseField } from '../base_field';
 import { Label } from '../../atoms/label';
 import { useId } from '../../utils/hooks/useId';
-import { BaseField } from '../base_field';
 
-type InputFieldProps = {
+type InputFieldProps<T extends PermittedTags> = {
   label: string;
   as?: () => JSX.Element;
-} & BaseInputProps<'input'>;
+} & InputProps<T>;
 
-function InputField(
-  props: InputFieldProps,
+function InputField<T extends PermittedTags>(
+  props: InputFieldProps<T>,
   ref: ForwardedRef<HTMLInputElement>
 ) {
   const { as = Input, label, ...rest } = props;
   const id = useId('input-field');
 
+  // @ts-ignore
   return createElement(BaseField, rest, [
     createElement(Label, { key: `${id}_label` }, label),
     createElement(as, { key: `${id}_component`, ref }),

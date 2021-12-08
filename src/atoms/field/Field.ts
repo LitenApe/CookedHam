@@ -1,6 +1,8 @@
-import { createElement, PropsWithChildren } from 'react';
 import { FieldContext, FieldProps, useField } from './bones/FieldContext';
+import { PropsWithChildren, createElement } from 'react';
+
 import { callAll } from '../../utils/functions/callAll';
+import { concat } from '../../utils/functions/concat';
 import { useId } from '../../utils/hooks/useId';
 
 function Field(props: PropsWithChildren<FieldProps>): JSX.Element {
@@ -14,6 +16,10 @@ function Field(props: PropsWithChildren<FieldProps>): JSX.Element {
       ...group,
       id,
       ...args,
+      'aria-describedby': concat(
+        args['aria-describedby'],
+        group['aria-describedby']
+      ),
       onChange: callAll(group.onChange, args.onChange),
       onBlur: callAll(group.onBlur, args.onBlur),
     };

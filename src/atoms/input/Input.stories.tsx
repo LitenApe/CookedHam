@@ -1,8 +1,9 @@
-import { action } from '@storybook/addon-actions';
 import { Meta, Story } from '@storybook/react';
+
 import { Input as Component } from '.';
 import { Field } from '../field';
 import { Label } from '../label';
+import { action } from '@storybook/addon-actions';
 
 export default {
   title: 'Atom/Input',
@@ -29,6 +30,12 @@ export default {
         'week',
       ],
       control: { type: 'select' },
+    },
+    prefix: {
+      type: 'string',
+    },
+    postfix: {
+      type: 'string',
     },
   },
 } as Meta;
