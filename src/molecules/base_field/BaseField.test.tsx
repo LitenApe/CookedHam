@@ -98,4 +98,18 @@ describe('BaseField default behavior', () => {
     const descriptions = input.getAttribute('aria-describedby');
     expect(descriptions?.split(' ')).toHaveLength(2);
   });
+
+  test("Input's internal aria-describedby is preserved", () => {
+    render(
+      <BaseField error="some error" aria-describedby="anotherId">
+        <Label>Some Label</Label>
+        <Input postfix="😁" />
+      </BaseField>
+    );
+
+    const input = screen.getByRole('textbox');
+    expect(input).toHaveAttribute('aria-describedby');
+    const descriptions = input.getAttribute('aria-describedby');
+    expect(descriptions?.split(' ')).toHaveLength(3);
+  });
 });
