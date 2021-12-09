@@ -84,7 +84,7 @@ describe('BaseField default behavior', () => {
   });
 
   test('additional aria-describedby is concattenated', () => {
-    render(
+    const { container } = render(
       <BaseField error="some error" aria-describedby="anotherId">
         <Label>Some label</Label>
         <Input />
@@ -96,11 +96,15 @@ describe('BaseField default behavior', () => {
     const input = screen.getByRole('textbox');
     expect(input).toHaveAttribute('aria-describedby');
     const descriptions = input.getAttribute('aria-describedby');
+    const alert = container.querySelector('[aria-live="polite"]');
+
     expect(descriptions?.split(' ')).toHaveLength(2);
+    expect(descriptions).toContain(alert?.id);
+    expect(descriptions).toContain('anotherId');
   });
 
   test("Input's internal aria-describedby is preserved", () => {
-    render(
+    const { container } = render(
       <BaseField error="some error" aria-describedby="anotherId">
         <Label>Some Label</Label>
         <Input postfix="😁" />
@@ -111,5 +115,12 @@ describe('BaseField default behavior', () => {
     expect(input).toHaveAttribute('aria-describedby');
     const descriptions = input.getAttribute('aria-describedby');
     expect(descriptions?.split(' ')).toHaveLength(3);
+
+    const alert = container.querySelector('[aria-live="polite"]');
+    const postfix = container.querySelector('span');
+
+    expect(descriptions).toContain(alert?.id);
+    expect(descriptions).toContain(postfix?.id);
+    expect(descriptions).toContain('anotherId');
   });
 });

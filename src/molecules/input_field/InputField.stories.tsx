@@ -1,4 +1,5 @@
 import { Meta, Story } from '@storybook/react';
+
 import { InputField as Component } from '.';
 
 export default {
