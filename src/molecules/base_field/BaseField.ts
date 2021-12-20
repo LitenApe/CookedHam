@@ -1,12 +1,13 @@
 import {
   Children,
+  PropsWithChildren,
   cloneElement,
   createElement,
   isValidElement,
-  PropsWithChildren,
 } from 'react';
-import { Alert } from '../../atoms/alert';
 import { Field, FieldProps } from '../../atoms/field';
+
+import { Alert } from '../../atoms/alert';
 import { concat } from '../../utils/functions/concat';
 import { useId } from '../../utils/hooks/useId';
 
@@ -39,7 +40,7 @@ function BaseField(props: BaseFieldProps): JSX.Element {
       isInvalid &&
         createElement(
           Alert,
-          { key: `field-alert-${id}`, id: alertId, 'aria-live': 'polite' },
+          { key: `field-alert-${id}`, id: alertId, 'aria-live': 'assertive' },
           props.error
         ),
     ])

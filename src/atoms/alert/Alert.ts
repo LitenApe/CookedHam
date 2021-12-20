@@ -1,12 +1,12 @@
+import { DynamicProps, HTMLTags } from '../../utils/types/DynamicProps';
 import {
-  createElement,
   ForwardedRef,
-  forwardRef,
   ReactNode,
+  createElement,
+  forwardRef,
   useEffect,
   useState,
 } from 'react';
-import { DynamicProps, HTMLTags } from '../../utils/types/DynamicProps';
 
 function Alert<T extends HTMLTags = 'div'>(
   props: DynamicProps<T>,
@@ -28,7 +28,7 @@ function Alert<T extends HTMLTags = 'div'>(
   return createElement(
     as,
     {
-      'aria-live': 'polite',
+      'aria-live': 'assertive',
       'aria-atomic': 'true',
       ...rest,
       ref,

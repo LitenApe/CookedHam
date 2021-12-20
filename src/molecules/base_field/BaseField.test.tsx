@@ -40,7 +40,7 @@ describe('BaseField default behavior', () => {
       </BaseField>
     );
 
-    const errorMounted = container.querySelector('[aria-live="polite"]');
+    const errorMounted = container.querySelector('[aria-live="assertive"]');
     expect(errorMounted).not.toBeNull();
   });
 
@@ -76,7 +76,7 @@ describe('BaseField default behavior', () => {
 
     jest.runAllTimers();
 
-    const error = container.querySelector('[aria-live="polite"]');
+    const error = container.querySelector('[aria-live="assertive"]');
     expect(error).not.toBeNull();
 
     const errorId = (error as Element).getAttribute('id');
@@ -96,7 +96,7 @@ describe('BaseField default behavior', () => {
     const input = screen.getByRole('textbox');
     expect(input).toHaveAttribute('aria-describedby');
     const descriptions = input.getAttribute('aria-describedby');
-    const alert = container.querySelector('[aria-live="polite"]');
+    const alert = container.querySelector('[aria-live="assertive"]');
 
     expect(descriptions?.split(' ')).toHaveLength(2);
     expect(descriptions).toContain(alert?.id);
@@ -116,7 +116,7 @@ describe('BaseField default behavior', () => {
     const descriptions = input.getAttribute('aria-describedby');
     expect(descriptions?.split(' ')).toHaveLength(3);
 
-    const alert = container.querySelector('[aria-live="polite"]');
+    const alert = container.querySelector('[aria-live="assertive"]');
     const postfix = container.querySelector('span');
 
     expect(descriptions).toContain(alert?.id);
