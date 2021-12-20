@@ -1,19 +1,17 @@
-import { createElement, ForwardedRef, forwardRef } from 'react';
-import { Label } from '../../atoms/label';
-import {
-  Option as SelectOption,
-  OptionProps,
-  Select,
-  SelectProps,
-} from '../../atoms/select';
-import { useId } from '../../utils/hooks/useId';
-import { BaseField } from '../base_field';
+import { ForwardedRef, createElement, forwardRef } from 'react';
+import { Select, Option as SelectOption } from '../../atoms/select';
 
+import { BaseField } from '../base_field';
+import { Label } from '../../atoms/label';
+import { useId } from '../../utils/hooks/useId';
+
+type OptionProps = Parameters<typeof SelectOption>[0];
 interface Option extends Omit<OptionProps, 'children' | 'value' | 'ref'> {
   label: string;
   value: string;
 }
 
+type SelectProps = Parameters<typeof Select>[0];
 type SelectFieldProps = {
   label: string;
   options: Array<Option | (() => JSX.Element)>;

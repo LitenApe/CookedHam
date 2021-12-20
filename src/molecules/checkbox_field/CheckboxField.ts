@@ -1,13 +1,13 @@
-import { createElement, ForwardedRef, forwardRef } from 'react';
-import { BaseInputProps } from '../../atoms/base_input';
+import { ForwardedRef, createElement, forwardRef } from 'react';
+
+import { BaseField } from '../base_field';
 import { Checkbox } from '../../atoms/checkbox';
 import { Label } from '../../atoms/label';
 import { useId } from '../../utils/hooks/useId';
-import { BaseField } from '../base_field';
 
 type CheckboxFieldProps = {
   label: string;
-} & BaseInputProps<'input'>;
+} & Parameters<typeof Checkbox>[0];
 
 function CheckboxField(
   props: CheckboxFieldProps,

@@ -1,12 +1,14 @@
-import { createElement, ForwardedRef, forwardRef } from 'react';
+import { ForwardedRef, createElement, forwardRef } from 'react';
+import { RadioGroup, RadioGroupProps } from '../../atoms/radio_group';
+
+import { BaseField } from '../base_field';
 import { Field } from '../../atoms/field';
 import { Label } from '../../atoms/label';
 import { Legend } from '../../atoms/legend';
-import { Radio, RadioProps } from '../../atoms/radio';
-import { RadioGroup, RadioGroupProps } from '../../atoms/radio_group';
+import { Radio } from '../../atoms/radio';
 import { useId } from '../../utils/hooks/useId';
-import { BaseField } from '../base_field';
 
+type RadioProps = Parameters<typeof Radio>[0];
 interface Option extends Omit<RadioProps, 'children' | 'value' | 'name'> {
   label: string;
   value: string;
