@@ -1,18 +1,19 @@
 import {
   ComponentProps,
-  createElement,
+  ElementType,
   ForwardedRef,
+  createElement,
   forwardRef,
   useEffect,
   useRef,
 } from 'react';
-import { mergeRefs } from '../../utils/functions/mergeRefs';
-import { HTMLTags } from '../../utils/types/DynamicProps';
 import { FieldProps, useField } from '../field';
+
+import { mergeRefs } from '../../utils/functions/mergeRefs';
 
 type PermittedTags = 'input' | 'textarea';
 
-export type BaseInputProps<T extends HTMLTags> = {
+export type BaseInputProps<T extends ElementType> = {
   as?: T;
   error?: string;
 } & Omit<ComponentProps<T>, 'ref'>;

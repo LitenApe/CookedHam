@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react';
-import { createRef } from 'react';
+
 import DangerousHTML from './DangerousHTML';
+import { createRef } from 'react';
 
 describe('DangerousHTML default behavior', () => {
   test('renders without crashing', () => {

@@ -1,7 +1,8 @@
-import { createElement, ForwardedRef, forwardRef } from 'react';
-import { DynamicProps, HTMLTags } from '../../utils/types/DynamicProps';
+import { ForwardedRef, createElement, forwardRef } from 'react';
 
-function DangerousHTML<T extends HTMLTags = 'div'>(
+import { DynamicProps } from '../../utils/types/DynamicProps';
+
+function DangerousHTML<T extends keyof JSX.IntrinsicElements = 'div'>(
   props: Omit<DynamicProps<T>, 'children'> & { content: string },
   ref: ForwardedRef<HTMLElement>
 ): JSX.Element {

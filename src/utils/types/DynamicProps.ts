@@ -1,17 +1,22 @@
-import { ComponentProps } from 'react';
+import * as React from 'react';
 
-/**
- * Redeclare forwardRef to better support generic types
- * src: https://fettblog.eu/typescript-react-generic-forward-refs/
- */
-declare module 'react' {
-  function forwardRef<T, P = {}>(
-    render: (props: P, ref: React.Ref<T>) => React.ReactElement | null
-  ): (props: P & React.RefAttributes<T>) => React.ReactElement | null;
-}
+export type PropsOf<
+  T extends keyof JSX.IntrinsicElements | React.JSXElementConstructor<any>
+> = JSX.LibraryManagedAttributes<T, React.ComponentPropsWithoutRef<T>>;
 
-export type HTMLTags = keyof JSX.IntrinsicElements;
-
-export type DynamicProps<T extends HTMLTags> = {
+export type AsProps<T extends React.ElementType> = {
   as?: T;
-} & ComponentProps<T>;
+};
+
+export type ExtendableProps<
+  ExtendedProps = any,
+  OverrideProps = any
+> = OverrideProps & Omit<ExtendedProps, keyof OverrideProps>;
+
+export type InheritableElementProps<
+  T extends React.ElementType,
+  P = any
+> = ExtendableProps<PropsOf<T>, P>;
+
+export type DynamicProps<T extends React.ElementType> = AsProps<T> &
+  React.ComponentPropsWithoutRef<T>;

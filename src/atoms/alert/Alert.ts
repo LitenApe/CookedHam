@@ -1,5 +1,5 @@
-import { DynamicProps, HTMLTags } from '../../utils/types/DynamicProps';
 import {
+  ElementType,
   ForwardedRef,
   ReactNode,
   createElement,
@@ -8,7 +8,9 @@ import {
   useState,
 } from 'react';
 
-function Alert<T extends HTMLTags = 'div'>(
+import { DynamicProps } from '../../utils/types/DynamicProps';
+
+function Alert<T extends ElementType = 'div'>(
   props: DynamicProps<T>,
   ref: ForwardedRef<HTMLDivElement>
 ): JSX.Element {

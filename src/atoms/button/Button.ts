@@ -1,12 +1,13 @@
 import {
   ComponentProps,
-  createElement,
   ForwardedRef,
-  forwardRef,
   MouseEvent,
+  createElement,
+  forwardRef,
 } from 'react';
-import { isDefined } from '../../utils/functions/isDefined';
+
 import { DynamicProps } from '../../utils/types/DynamicProps';
+import { isDefined } from '../../utils/functions/isDefined';
 
 type PermittedTags = 'a' | 'button';
 
