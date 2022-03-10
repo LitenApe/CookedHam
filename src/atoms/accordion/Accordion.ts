@@ -1,23 +1,24 @@
 import {
-  ComponentProps,
-  createElement,
+  ComponentPropsWithoutRef,
   ForwardedRef,
-  forwardRef,
   MouseEvent,
+  createElement,
+  forwardRef,
   useCallback,
   useEffect,
 } from 'react';
+
 import { AccordionContext } from './bones/AccordionContext';
-import { useId } from '../../utils/hooks/useId';
-import { useBoolean } from '../../utils/hooks/useBoolean';
 import { isDefined } from '../../utils/functions/isDefined';
 import { isUndefined } from '../../utils/functions/isUndefined';
+import { useBoolean } from '../../utils/hooks/useBoolean';
+import { useId } from '../../utils/hooks/useId';
 
 export type AccordionProps = {
   initial?: boolean;
   open?: boolean;
   onClick?: (event: MouseEvent, open: boolean) => void;
-} & Omit<ComponentProps<'div'>, 'onClick'>;
+} & Omit<ComponentPropsWithoutRef<'div'>, 'onClick'>;
 
 function Accordion(
   props: AccordionProps,

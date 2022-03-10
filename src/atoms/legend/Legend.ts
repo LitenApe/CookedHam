@@ -1,7 +1,12 @@
-import { ComponentProps, createElement, ForwardedRef, forwardRef } from 'react';
+import {
+  ComponentPropsWithoutRef,
+  ForwardedRef,
+  createElement,
+  forwardRef,
+} from 'react';
 
 function Legend(
-  props: ComponentProps<'legend'>,
+  props: ComponentPropsWithoutRef<'legend'>,
   ref: ForwardedRef<HTMLLegendElement>
 ): JSX.Element {
   return createElement('legend', { ...props, ref });

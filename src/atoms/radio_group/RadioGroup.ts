@@ -1,5 +1,5 @@
 import {
-  ComponentProps,
+  ComponentPropsWithoutRef,
   FocusEvent,
   ForwardedRef,
   createElement,
@@ -12,8 +12,11 @@ import { isNull } from '../../utils/functions/isNull';
 import { isUndefined } from '../../utils/functions/isUndefined';
 import { mergeRefs } from '../../utils/functions/mergeRefs';
 
-export type RadioGroupProps = Omit<ComponentProps<'fieldset'>, 'ref'> &
-  Omit<ComponentProps<'input'>, 'ref'>;
+export type RadioGroupProps = Omit<
+  ComponentPropsWithoutRef<'fieldset'>,
+  'ref'
+> &
+  Omit<ComponentPropsWithoutRef<'input'>, 'ref'>;
 
 function RadioGroup(
   props: RadioGroupProps,

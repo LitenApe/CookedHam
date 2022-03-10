@@ -1,15 +1,16 @@
 import {
-  ComponentProps,
-  createElement,
+  ComponentPropsWithoutRef,
   ForwardedRef,
-  forwardRef,
   MouseEvent,
+  createElement,
+  forwardRef,
 } from 'react';
+
 import { isDefined } from '../../../utils/functions/isDefined';
 import { useAccordion } from './AccordionContext';
 
 function AccordionHeader(
-  props: ComponentProps<'button'>,
+  props: ComponentPropsWithoutRef<'button'>,
   ref: ForwardedRef<HTMLButtonElement>
 ): JSX.Element {
   const { disabled, ...rest } = props;

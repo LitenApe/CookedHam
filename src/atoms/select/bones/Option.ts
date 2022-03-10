@@ -1,6 +1,11 @@
-import { ComponentProps, createElement, ForwardedRef, forwardRef } from 'react';
+import {
+  ComponentPropsWithoutRef,
+  ForwardedRef,
+  createElement,
+  forwardRef,
+} from 'react';
 
-export type OptionProps = ComponentProps<'option'>;
+export type OptionProps = ComponentPropsWithoutRef<'option'>;
 
 function Option(
   props: OptionProps,

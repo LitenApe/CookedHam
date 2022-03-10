@@ -1,6 +1,11 @@
-import { ComponentProps, createElement, ForwardedRef, forwardRef } from 'react';
+import {
+  ComponentPropsWithoutRef,
+  ForwardedRef,
+  createElement,
+  forwardRef,
+} from 'react';
 
-export type OptionGroupProps = ComponentProps<'optgroup'>;
+export type OptionGroupProps = ComponentPropsWithoutRef<'optgroup'>;
 
 function OptionGroup(
   props: OptionGroupProps,

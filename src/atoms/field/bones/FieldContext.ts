@@ -1,12 +1,12 @@
-import { ComponentProps, createContext, useContext } from 'react';
+import { ComponentPropsWithoutRef, createContext, useContext } from 'react';
 
 import { InputProps } from '../../input';
 
 type FieldTypes =
   | InputProps<'input'>
-  | ComponentProps<'select'>
-  | ComponentProps<'label'>
-  | ComponentProps<'textarea'>;
+  | ComponentPropsWithoutRef<'select'>
+  | ComponentPropsWithoutRef<'label'>
+  | ComponentPropsWithoutRef<'textarea'>;
 
 export type FieldProps = {
   error?: string;

@@ -1,7 +1,8 @@
+import { Option, OptionGroup, Select } from '.';
 import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
-import { Select, OptionGroup, Option } from '.';
+
 import { Field } from '../field';
+import userEvent from '@testing-library/user-event';
 
 describe('Select default behavior', () => {
   test('renders without crashing', () => {

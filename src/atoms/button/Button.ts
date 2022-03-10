@@ -1,5 +1,5 @@
 import {
-  ComponentProps,
+  ComponentPropsWithoutRef,
   ForwardedRef,
   MouseEvent,
   createElement,
@@ -18,7 +18,7 @@ function Button<T extends PermittedTags = 'button'>(
   const { as = 'button', onClick, ...args } = props;
 
   const isDisabled =
-    (args as ComponentProps<'button'>).disabled === true ||
+    (args as ComponentPropsWithoutRef<'button'>).disabled === true ||
     args['aria-disabled'] === true;
 
   function clickHandler(event: MouseEvent<any>) {

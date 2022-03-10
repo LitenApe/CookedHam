@@ -1,9 +1,15 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import { ComponentProps, createElement, ForwardedRef, forwardRef } from 'react';
+import {
+  ComponentPropsWithoutRef,
+  ForwardedRef,
+  createElement,
+  forwardRef,
+} from 'react';
+
 import { useAccordion } from './AccordionContext';
 
 function AccordionPanel(
-  props: ComponentProps<'section'>,
+  props: ComponentPropsWithoutRef<'section'>,
   ref: ForwardedRef<HTMLDivElement>
 ): JSX.Element {
   const { children, ...rest } = props;

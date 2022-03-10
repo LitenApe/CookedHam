@@ -1,15 +1,16 @@
 import {
-  ComponentProps,
-  createElement,
+  ComponentPropsWithoutRef,
   ForwardedRef,
+  createElement,
   forwardRef,
   useEffect,
   useRef,
 } from 'react';
+
 import { mergeRefs } from '../../utils/functions/mergeRefs';
 import { useField } from '../field';
 
-export interface SelectProps extends ComponentProps<'select'> {
+export interface SelectProps extends ComponentPropsWithoutRef<'select'> {
   error?: string;
 }
 

@@ -1,13 +1,19 @@
-import { ComponentProps, createElement, ForwardedRef, forwardRef } from 'react';
+import {
+  ComponentPropsWithoutRef,
+  ForwardedRef,
+  createElement,
+  forwardRef,
+} from 'react';
+
 import { useField } from '../field';
 
 function Label(
-  props: ComponentProps<'label'>,
+  props: ComponentPropsWithoutRef<'label'>,
   ref: ForwardedRef<HTMLLabelElement>
 ): JSX.Element {
   const { getFieldProps } = useField();
   const { id } = getFieldProps(props);
-  return createElement('label', { htmlFor: id, ...props, ref });
+  return createElement('label', { htmlFor: id, tabIndex: -1, ...props, ref });
 }
 
 export default forwardRef(Label);

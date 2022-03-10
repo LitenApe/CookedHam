@@ -43,11 +43,7 @@ function RadioField(
               name: name,
               key: `${id}_radio_${label}`,
             }),
-            createElement(
-              Label,
-              { key: `${id}_label_${label}`, tabIndex: -1 },
-              label
-            ),
+            createElement(Label, { key: `${id}_label_${label}` }, label),
           ])
         )
       ),
