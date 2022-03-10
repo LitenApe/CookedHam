@@ -68,7 +68,9 @@ As mentioned in the introduction, the project is still in alpha, which means tha
 - [x] Utility components
   - [x] BaseField
 - [ ] Other tasks
-  - [ ] Add tests for form fields
+  - [ ] Add tests for InputField
+  - [ ] Add tests for RadioField
+  - [ ] Add tests for SelectField
 
 ### Beta
 
