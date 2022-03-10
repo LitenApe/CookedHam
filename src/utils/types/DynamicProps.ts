@@ -8,14 +8,12 @@ export type AsProps<T extends React.ElementType> = {
   as?: T;
 };
 
-export type ExtendableProps<
-  ExtendedProps = any,
-  OverrideProps = any
-> = OverrideProps & Omit<ExtendedProps, keyof OverrideProps>;
+export type ExtendableProps<ExtendedProps, OverrideProps> = OverrideProps &
+  Omit<ExtendedProps, keyof OverrideProps>;
 
 export type InheritableElementProps<
   T extends React.ElementType,
-  P = any
+  P
 > = ExtendableProps<PropsOf<T>, P>;
 
 export type DynamicProps<T extends React.ElementType> = AsProps<T> &
