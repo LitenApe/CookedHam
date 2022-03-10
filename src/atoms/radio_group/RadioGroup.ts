@@ -1,16 +1,16 @@
 import {
   ComponentProps,
-  createElement,
-  createRef,
   FocusEvent,
   ForwardedRef,
+  createElement,
+  createRef,
   forwardRef,
 } from 'react';
-import { getDocument } from '../../utils/functions/getDocument';
+
+import Field from '../field/Field';
 import { isNull } from '../../utils/functions/isNull';
 import { isUndefined } from '../../utils/functions/isUndefined';
 import { mergeRefs } from '../../utils/functions/mergeRefs';
-import Field from '../field/Field';
 
 export type RadioGroupProps = Omit<ComponentProps<'fieldset'>, 'ref'> &
   Omit<ComponentProps<'input'>, 'ref'>;
@@ -27,24 +27,13 @@ function RadioGroup(
       return;
     }
 
-    event.persist();
-    // focus might move to body before it moves to the new element.
-    setTimeout(() => {
-      const groupContainer = fieldsetRef.current;
-      const newFocus = getDocument().activeElement;
+    if (isNull(fieldsetRef.current)) {
+      return onBlur(event);
+    }
 
-      if (isNull(groupContainer) || isNull(newFocus)) {
-        // cant calculate if focus is still inside group
-        // if we don't have a ref to the container and
-        // the new element with focus
-        return onBlur(event);
-      }
-
-      const compared = groupContainer.compareDocumentPosition(newFocus);
-      if (compared & Node.DOCUMENT_POSITION_CONTAINS) {
-        onBlur(event);
-      }
-    }, 200);
+    if (!fieldsetRef.current.contains(event.relatedTarget)) {
+      return onBlur(event);
+    }
   }
 
   return createElement(
