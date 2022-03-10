@@ -1,7 +1,20 @@
 import { act, render, screen } from '@testing-library/react';
+
 import { Alert } from '.';
 
+// suppressing warnings caused by async
+// mount operation inside of component
+const originalError = console.error;
+
 describe('Alert general behavior', () => {
+  beforeAll(() => {
+    console.error = jest.fn();
+  });
+
+  afterAll(() => {
+    console.error = originalError;
+  });
+
   beforeEach(() => {
     jest.useFakeTimers();
   });
