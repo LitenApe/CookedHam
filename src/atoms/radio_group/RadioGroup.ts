@@ -12,11 +12,8 @@ import { isNull } from '../../utils/functions/isNull';
 import { isUndefined } from '../../utils/functions/isUndefined';
 import { mergeRefs } from '../../utils/functions/mergeRefs';
 
-export type RadioGroupProps = Omit<
-  ComponentPropsWithoutRef<'fieldset'>,
-  'ref'
-> &
-  Omit<ComponentPropsWithoutRef<'input'>, 'ref'>;
+export type RadioGroupProps = ComponentPropsWithoutRef<'fieldset'> &
+  ComponentPropsWithoutRef<'input'>;
 
 function RadioGroup(
   props: RadioGroupProps,

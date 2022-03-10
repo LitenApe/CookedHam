@@ -18,7 +18,7 @@ type RadioFieldProps = {
   name: string;
   label: string;
   options: Array<Option>;
-} & Omit<RadioGroupProps, 'children' | 'ref'>;
+} & Omit<RadioGroupProps, 'children'>;
 
 function RadioField(
   props: RadioFieldProps,

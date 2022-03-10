@@ -1,7 +1,8 @@
 import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
-import { createRef } from 'react';
+
 import Checkbox from './Checkbox';
+import { createRef } from 'react';
+import userEvent from '@testing-library/user-event';
 
 describe('Radio general behavior', () => {
   test('renders as input', () => {

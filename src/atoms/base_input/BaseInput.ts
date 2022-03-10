@@ -16,7 +16,7 @@ type PermittedTags = 'input' | 'textarea';
 export type BaseInputProps<T extends ElementType> = {
   as?: T;
   error?: string;
-} & Omit<ComponentPropsWithoutRef<T>, 'ref'>;
+} & ComponentPropsWithoutRef<T>;
 
 function BaseInput<T extends PermittedTags = 'input'>(
   props: BaseInputProps<T>,
