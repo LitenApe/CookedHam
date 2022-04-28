@@ -1,5 +1,7 @@
-import { createElement, ForwardedRef, forwardRef } from 'react';
 import { BaseInput, BaseInputProps } from '../base_input';
+import { ForwardedRef, createElement, forwardRef } from 'react';
+
+import { useRadioGroup } from '../radio_group';
 
 export type RadioProps = Omit<BaseInputProps<'input'>, 'type'>;
 
@@ -7,7 +9,13 @@ function Radio(
   props: RadioProps,
   ref: ForwardedRef<HTMLInputElement>
 ): JSX.Element {
-  return createElement(BaseInput, { ...props, type: 'radio', ref });
+  const { getGroupProps } = useRadioGroup();
+
+  return createElement(BaseInput, {
+    ...getGroupProps(props),
+    type: 'radio',
+    ref,
+  });
 }
 
 export default forwardRef(Radio);

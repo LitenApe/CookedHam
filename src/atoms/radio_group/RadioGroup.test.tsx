@@ -1,7 +1,8 @@
 import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+
 import Radio from '../radio/Radio';
 import RadioGroup from './RadioGroup';
+import userEvent from '@testing-library/user-event';
 
 describe('Radios general behavior', () => {
   beforeEach(() => {
@@ -26,6 +27,21 @@ describe('Radios general behavior', () => {
 
     const radios = screen.getAllByRole('radio');
     expect(radios).toHaveLength(2);
+  });
+
+  test('radios share name', () => {
+    render(
+      <RadioGroup name="test-name">
+        <Radio value="1" />
+        <Radio value="2" />
+      </RadioGroup>
+    );
+
+    const radios = screen.getAllByRole('radio');
+    expect(radios).toHaveLength(2);
+    radios.forEach((radio) => {
+      expect(radio).toHaveAttribute('name', 'test-name');
+    });
   });
 
   test('one event is emitted each click', () => {

@@ -7,7 +7,7 @@ import {
   forwardRef,
 } from 'react';
 
-import Field from '../field/Field';
+import { RadioGroupContext } from './bones/RadioGroupContext';
 import { isNull } from '../../utils/functions/isNull';
 import { isUndefined } from '../../utils/functions/isUndefined';
 import { mergeRefs } from '../../utils/functions/mergeRefs';
@@ -36,9 +36,19 @@ function RadioGroup(
     }
   }
 
+  function getGroupProps<T extends ComponentPropsWithoutRef<'input'>>(
+    args: T
+  ): T {
+    return {
+      ...rest,
+      ...args,
+      onBlur: onBlurHandler,
+    };
+  }
+
   return createElement(
-    Field,
-    { ...rest, onBlur: onBlurHandler },
+    RadioGroupContext.Provider,
+    { value: { getGroupProps } },
     createElement(
       'fieldset',
       { role: 'radiogroup', ref: mergeRefs(ref, fieldsetRef) },
