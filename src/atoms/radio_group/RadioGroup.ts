@@ -8,6 +8,7 @@ import {
 } from 'react';
 
 import { RadioGroupContext } from './bones/RadioGroupContext';
+import { callAll } from '../../utils/functions/callAll';
 import { isNull } from '../../utils/functions/isNull';
 import { isUndefined } from '../../utils/functions/isUndefined';
 import { mergeRefs } from '../../utils/functions/mergeRefs';
@@ -42,7 +43,7 @@ function RadioGroup(
     return {
       ...rest,
       ...args,
-      onBlur: onBlurHandler,
+      onBlur: callAll(args.onBlur, onBlurHandler),
     };
   }
 
