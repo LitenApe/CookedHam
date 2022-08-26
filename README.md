@@ -6,6 +6,10 @@ The project is still in alpha, and currently serves as a playground where I try 
 
 Another important thing of note is that the project is yet to be configured for **production**. At it's current state, the project only works as an development sandbox. This is because I am still unsure on how I want the component to be used. Should they all be individual packages? Should it be one large library which is added and upgraded as a whole? With all things, how the library is bundled and distributed will affect how easy it is to take it in use within professional codebases.
 
+## Project Status
+
+The project is abandoned as I regret creating a dependency to other third party libraries such as framer-motion. Additionally I consumed my contexts thoughtlessly, which resulted in a few problems where some things are getting duplicated when attempting to combine props from various sources. Might restart the project after I figure out what my end goal is with a personal style-less component library.
+
 ## Project Structure
 
 The project is structured following the **atomic design system** to slowly build up fully functional and usable components. While it does not following the mindset of atomic design systems completely, it makes use of its principles to slowly build up the components complexity, effectively reducing the amount of logic needed in one single component. The components are supported by **utils** which lives on the outside and attempts to make the code more readable whenever applicable. It also helps to reduce **id** and **key** collisions with **hooks** such as **useId**.
